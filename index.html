@@ -1,1 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bitcoin Accepting Merchants (Indiana) | bitcoindiana.org</title>
+  <meta name="description" content="Bitcoin accepting merchants in Indiana, powered by BTC Map." />
+
+  <!-- Shared site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <!-- Leaflet CSS (UNPKG) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+  <!-- Top navigation (shared markup pattern used on all pages) -->
+  <header class="header">
+    <nav class="topnav wrap" aria-label="Primary">
+      <!--
+        Replace /assets/img/logo.svg with your own logo file later.
+        Keep the class names; CSS will size it correctly.
+      -->
+      <a class="brand" href="/" aria-label="Bitcoin Indiana (home)">
+        <img class="brand-logo" src="/assets/img/logo.svg" alt="" />
+        <span class="brand-name">Bitcoin Indiana</span>
+      </a>
+
+      <div class="links">
+        <a href="/" data-nav="map">Map</a>
+        <a href="/meetups/" data-nav="meetups">Meetups</a>
+        <a href="/events/" data-nav="events">Events</a>
+        <a href="/resources/" data-nav="resources">Resources</a>
+        <a href="/about/" data-nav="about">About</a>
+      </div>
+    </nav>
+
+    <div class="wrap header-content">
+      <h1 class="page-title">Bitcoin Accepting Merchants</h1>
+      <p class="page-intro">
+        A circular economy is where bitcoin flows from earners to merchants and back again—closing the loop so saving in bitcoin
+        doesn’t require exiting to fiat just to live. The more we spend bitcoin for real goods and services (as a medium of exchange),
+        the more resilient local communities become: fewer conversion points, lower friction, and stronger incentives for merchants to
+        stack and hold.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <div class="grid">
+      <section class="panel" aria-label="Map of bitcoin accepting merchants">
+        <div id="map" class="map" role="application" aria-label="Interactive map"></div>
+      </section>
+
+      <aside class="panel" aria-label="Filters and info">
+        <div class="controls">
+          <div class="field">
+            <label for="q">Search</label>
+            <input id="q" type="text" placeholder="Search name, address…" autocomplete="off" />
+          </div>
+
+          <div class="chips" aria-label="Quick filters">
+            <span class="chip">Source: api.btcmap.org (Places v4)</span>
+            <span class="chip">Indiana: point-in-polygon</span>
+            <span class="chip">Excluded: currency_exchange, local_atm</span>
+          </div>
+
+          <div class="meta">
+            <div>
+              Showing: <strong><span id="count">0</span></strong> <span id="countNote">locations</span>
+            </div>
+            <div class="btns">
+              <button id="btnFit" type="button">Fit Indiana</button>
+              <button id="btnReload" type="button">Reload</button>
+            </div>
+          </div>
+
+          <div class="status" id="status"></div>
+
+          <div class="note">
+            Data is maintained upstream (BTC Map / OpenStreetMap). If a place is missing or misplaced, it’s usually a coordinates/tags
+            issue in the source.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>bitcoindiana.org</div>
+      <div class="footer-muted">
+        Map UI: Leaflet • Basemap: OpenStreetMap • Merchants: BTC Map
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared site JS (active nav, small helpers) -->
+  <script src="/assets/js/site.js"></script>
+
+  <!-- Leaflet JS (UNPKG) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Map logic -->
+  <script src="/assets/js/map.js"></script>
+</body>
+</html>
 
