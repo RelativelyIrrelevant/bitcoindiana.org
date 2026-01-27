@@ -12,6 +12,11 @@
 //    - exclude categories (icon): currency_exchange, local_atm
 // 5) Renders markers and popups with a "View on BTC Map" link.
 //
+// Performance notes:
+// - The BTC Map /v4/places endpoint returns worldwide places.
+// - To keep filtering fast, we compute Indiana's bounding box once and do a quick
+//   bounds check before running point-in-polygon (ray casting).
+//
 // NOTE: For local testing, use a local server:
 //   python3 -m http.server 8000
 // Opening index.html via file:// often blocks fetch().
@@ -26,7 +31,7 @@
     "https://api.btcmap.org/v4/places" +
     "?fields=id,lat,lon,name,icon,address,website,phone,opening_hours,verified_at,updated_at,osm_url";
 
-  // Excluded BTC Map "icon" categories (requested):
+  // Excluded BTC Map "icon" categories (requested).
   const EXCLUDED_ICONS = new Set(["currency_exchange", "local_atm"]);
 
   // ---------- DOM elements ----------
@@ -75,11 +80,15 @@
   let indianaFeature = null;
   let indianaOutlineLayer = null;
 
+  // A simple bounding box for Indiana used as a fast pre-filter
+  // (computed from the polygon once).
+  let indianaBounds = null; // {minLon, minLat, maxLon, maxLat}
+
   // Data caches
   let allPlaces = [];
   let inPlaces = [];
 
-  // ---------- Geo helpers: point-in-polygon ----------
+  // ---------- Geo helpers ----------
   // Ray-casting algorithm for a ring.
   // GeoJSON uses [lon, lat] ordering.
   function pointInRing(point, ring) {
@@ -130,6 +139,47 @@
     }
 
     return false;
+  }
+
+  // Compute a feature bounding box (min/max lon/lat).
+  // Used to quickly reject points far outside Indiana before point-in-polygon.
+  function featureBounds(feature) {
+    const g = feature?.geometry;
+    if (!g) throw new Error("Cannot compute bounds: missing geometry.");
+
+    let minLon = Infinity, minLat = Infinity, maxLon = -Infinity, maxLat = -Infinity;
+
+    const scanRing = (ring) => {
+      for (const coord of ring) {
+        const lon = coord[0];
+        const lat = coord[1];
+        if (lon < minLon) minLon = lon;
+        if (lat < minLat) minLat = lat;
+        if (lon > maxLon) maxLon = lon;
+        if (lat > maxLat) maxLat = lat;
+      }
+    };
+
+    if (g.type === "Polygon") {
+      // Only the outer ring is needed for bounds.
+      scanRing(g.coordinates[0]);
+    } else if (g.type === "MultiPolygon") {
+      for (const poly of g.coordinates) {
+        scanRing(poly[0]);
+      }
+    } else {
+      throw new Error(`Cannot compute bounds: unsupported geometry type ${g.type}`);
+    }
+
+    return { minLon, minLat, maxLon, maxLat };
+  }
+
+  function pointInBounds(point, b) {
+    // point: [lon, lat]
+    return (
+      point[0] >= b.minLon && point[0] <= b.maxLon &&
+      point[1] >= b.minLat && point[1] <= b.maxLat
+    );
   }
 
   // ---------- Filtering + rendering ----------
@@ -199,6 +249,9 @@
     else if (geo.type === "FeatureCollection" && Array.isArray(geo.features) && geo.features.length > 0) indianaFeature = geo.features[0];
     else throw new Error("indiana.geojson must be a GeoJSON Feature or FeatureCollection with at least one feature.");
 
+    // Compute bounds once (used for fast pre-filtering).
+    indianaBounds = featureBounds(indianaFeature);
+
     // Draw the outline (helpful context; also used for fitBounds).
     indianaOutlineLayer = L.geoJSON(indianaFeature, {
       style: { color: "#F7931A", weight: 2, opacity: 0.65, fillOpacity: 0.04 }
@@ -208,7 +261,7 @@
   }
 
   async function loadPlaces() {
-    if (!indianaFeature) throw new Error("Indiana boundary not loaded.");
+    if (!indianaFeature || !indianaBounds) throw new Error("Indiana boundary not loaded.");
 
     setStatus("Loading BTC Map places…");
 
@@ -224,7 +277,13 @@
     inPlaces = allPlaces.filter(p => {
       if (typeof p.lat !== "number" || typeof p.lon !== "number") return false;
       if (isExcludedCategory(p)) return false;
-      return pointInFeature([p.lon, p.lat], indianaFeature);
+
+      // Fast pre-check: reject points outside Indiana bounding box.
+      const pt = [p.lon, p.lat];
+      if (!pointInBounds(pt, indianaBounds)) return false;
+
+      // Accurate check: point-in-polygon.
+      return pointInFeature(pt, indianaFeature);
     });
 
     setStatus(`Loaded ${allPlaces.length.toLocaleString()} places. Indiana: ${inPlaces.length.toLocaleString()}.`);
@@ -259,4 +318,3 @@
     }
   })();
 })();
-
