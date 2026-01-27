@@ -1,40 +1,50 @@
 // assets/js/map.js
 //
-// Map page logic for bitcoindiana.org.
+// Indiana map page logic for bitcoindiana.org using BTC Map API v4 SEARCH endpoint
+// to avoid downloading worldwide places.
 //
-// What this file does:
-// 1) Creates a Leaflet map.
-// 2) Loads Indiana boundary GeoJSON (assets/data/indiana.geojson).
-// 3) Fetches BTC Map Places API v4 data.
-// 4) Filters places:
-//    - must have coordinates
-//    - must be inside Indiana polygon (point-in-polygon)
-//    - exclude categories (icon): currency_exchange, local_atm
-// 5) Renders markers and popups with a "View on BTC Map" link.
+// Strategy:
+// - Load Indiana polygon (assets/data/indiana.geojson)
+// - Query BTC Map search endpoint with a few overlapping circles that cover Indiana
+// - De-duplicate results by place id
+// - Filter by Indiana polygon (point-in-polygon) for correctness near borders
+// - Exclude categories: currency_exchange, local_atm
 //
-// Performance notes:
-// - The BTC Map /v4/places endpoint returns worldwide places.
-// - To keep filtering fast, we compute Indiana's bounding box once and do a quick
-//   bounds check before running point-in-polygon (ray casting).
-//
-// NOTE: For local testing, use a local server:
+// Local testing:
 //   python3 -m http.server 8000
-// Opening index.html via file:// often blocks fetch().
 
 (function () {
   // ---------- Config ----------
   const INDIANA_GEOJSON_URL = "/assets/data/indiana.geojson";
 
-  // Use field selection to keep payload smaller.
+  // BTC Map Search endpoint (radius-based)
   // Docs: https://github.com/teambtcmap/btcmap-api/blob/master/docs/rest/v4/places.md
-  const BTCMAP_PLACES_URL =
-    "https://api.btcmap.org/v4/places" +
-    "?fields=id,lat,lon,name,icon,address,website,phone,opening_hours,verified_at,updated_at,osm_url";
+  const BTCMAP_SEARCH_URL = "https://api.btcmap.org/v4/places/search/";
 
-  // Excluded BTC Map "icon" categories (requested).
+  // Choose fields returned by search.
+  // The docs show search returns many fields; field selection is not documented for search,
+  // so we accept the default response and just use what we need.
+  //
+  // If BTC Map later adds ?fields= support to /search, we can tighten payload.
+
   const EXCLUDED_ICONS = new Set(["currency_exchange", "local_atm"]);
 
-  // ---------- DOM elements ----------
+  // Indiana coverage circles (center + radius_km).
+  // These are chosen to cover the state with overlap. Feel free to tweak.
+  //
+  // Notes:
+  // - Indiana is roughly ~500km N-S and ~225km E-W.
+  // - Larger radius = fewer requests but more over-fetch beyond borders.
+  // - We still polygon-filter afterward, so over-fetch is fine.
+  const IN_COVERAGE = [
+    { name: "North",  lat: 41.55, lon: -86.20, radius_km: 120 },
+    { name: "Central",lat: 39.85, lon: -86.15, radius_km: 150 },
+    { name: "South",  lat: 38.35, lon: -86.75, radius_km: 140 },
+    { name: "East",   lat: 40.05, lon: -85.35, radius_km: 120 },
+    { name: "West",   lat: 40.05, lon: -87.25, radius_km: 120 }
+  ];
+
+  // ---------- DOM ----------
   const qEl = document.getElementById("q");
   const countEl = document.getElementById("count");
   const countNoteEl = document.getElementById("countNote");
@@ -56,10 +66,9 @@
     }[s]));
   }
 
-  // ---------- Leaflet map ----------
+  // ---------- Leaflet ----------
   const map = L.map("map", { zoomControl: true });
 
-  // Basemap tiles (OSM). If you expect heavy traffic, consider a hosted tiles provider.
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -67,30 +76,50 @@
 
   const markersLayer = L.layerGroup().addTo(map);
 
-  // Custom bitcoin-orange marker (fast + readable).
+  // Bitcoin-orange dot marker (DivIcon)
   const btcIcon = L.divIcon({
-    className: "", // don't use Leaflet default icon styles
+    className: "",
     html: '<div class="btc-marker" aria-hidden="true"></div>',
     iconSize: [18, 18],
     iconAnchor: [9, 9],
     popupAnchor: [0, -10]
   });
 
-  // We'll store the outline layer so we can fit bounds later.
   let indianaFeature = null;
   let indianaOutlineLayer = null;
+  let indianaBounds = null; // {minLon,minLat,maxLon,maxLat}
 
-  // A simple bounding box for Indiana used as a fast pre-filter
-  // (computed from the polygon once).
-  let indianaBounds = null; // {minLon, minLat, maxLon, maxLat}
-
-  // Data caches
-  let allPlaces = [];
-  let inPlaces = [];
+  // Data
+  let allFetched = [];  // pre-dedupe results from search
+  let inPlaces = [];    // final filtered places
 
   // ---------- Geo helpers ----------
-  // Ray-casting algorithm for a ring.
-  // GeoJSON uses [lon, lat] ordering.
+  function featureBounds(feature) {
+    const g = feature?.geometry;
+    if (!g) throw new Error("Cannot compute bounds: missing geometry.");
+
+    let minLon = Infinity, minLat = Infinity, maxLon = -Infinity, maxLat = -Infinity;
+
+    const scanRing = (ring) => {
+      for (const [lon, lat] of ring) {
+        if (lon < minLon) minLon = lon;
+        if (lat < minLat) minLat = lat;
+        if (lon > maxLon) maxLon = lon;
+        if (lat > maxLat) maxLat = lat;
+      }
+    };
+
+    if (g.type === "Polygon") scanRing(g.coordinates[0]);
+    else if (g.type === "MultiPolygon") for (const poly of g.coordinates) scanRing(poly[0]);
+    else throw new Error(`Unsupported geometry type: ${g.type}`);
+
+    return { minLon, minLat, maxLon, maxLat };
+  }
+
+  function pointInBounds([lon, lat], b) {
+    return lon >= b.minLon && lon <= b.maxLon && lat >= b.minLat && lat <= b.maxLat;
+  }
+
   function pointInRing(point, ring) {
     const x = point[0], y = point[1];
     let inside = false;
@@ -105,81 +134,25 @@
 
       if (intersect) inside = !inside;
     }
-
     return inside;
   }
 
-  // Polygon with optional holes.
   function pointInPolygon(point, polygonCoordinates) {
-    // polygonCoordinates: [ outerRing, holeRing1, ... ]
     if (!polygonCoordinates || polygonCoordinates.length === 0) return false;
-
-    // Must be inside outer ring
     if (!pointInRing(point, polygonCoordinates[0])) return false;
-
-    // Must NOT be inside any holes
     for (let i = 1; i < polygonCoordinates.length; i++) {
       if (pointInRing(point, polygonCoordinates[i])) return false;
     }
-
     return true;
   }
 
-  // Feature can be Polygon or MultiPolygon.
   function pointInFeature(point, feature) {
-    const g = feature && feature.geometry;
+    const g = feature?.geometry;
     if (!g) return false;
 
-    if (g.type === "Polygon") {
-      return pointInPolygon(point, g.coordinates);
-    }
-
-    if (g.type === "MultiPolygon") {
-      return g.coordinates.some(poly => pointInPolygon(point, poly));
-    }
-
+    if (g.type === "Polygon") return pointInPolygon(point, g.coordinates);
+    if (g.type === "MultiPolygon") return g.coordinates.some(poly => pointInPolygon(point, poly));
     return false;
-  }
-
-  // Compute a feature bounding box (min/max lon/lat).
-  // Used to quickly reject points far outside Indiana before point-in-polygon.
-  function featureBounds(feature) {
-    const g = feature?.geometry;
-    if (!g) throw new Error("Cannot compute bounds: missing geometry.");
-
-    let minLon = Infinity, minLat = Infinity, maxLon = -Infinity, maxLat = -Infinity;
-
-    const scanRing = (ring) => {
-      for (const coord of ring) {
-        const lon = coord[0];
-        const lat = coord[1];
-        if (lon < minLon) minLon = lon;
-        if (lat < minLat) minLat = lat;
-        if (lon > maxLon) maxLon = lon;
-        if (lat > maxLat) maxLat = lat;
-      }
-    };
-
-    if (g.type === "Polygon") {
-      // Only the outer ring is needed for bounds.
-      scanRing(g.coordinates[0]);
-    } else if (g.type === "MultiPolygon") {
-      for (const poly of g.coordinates) {
-        scanRing(poly[0]);
-      }
-    } else {
-      throw new Error(`Cannot compute bounds: unsupported geometry type ${g.type}`);
-    }
-
-    return { minLon, minLat, maxLon, maxLat };
-  }
-
-  function pointInBounds(point, b) {
-    // point: [lon, lat]
-    return (
-      point[0] >= b.minLon && point[0] <= b.maxLon &&
-      point[1] >= b.minLat && point[1] <= b.maxLat
-    );
   }
 
   // ---------- Filtering + rendering ----------
@@ -195,12 +168,10 @@
 
   function render() {
     const q = (qEl?.value || "").trim();
-
     markersLayer.clearLayers();
 
     const filtered = inPlaces.filter(p => matchesQuery(p, q));
 
-    // Render each place as a marker + popup.
     for (const p of filtered) {
       const title = p.name || `Place #${p.id}`;
       const btcMapUrl = `https://btcmap.org/merchant/${encodeURIComponent(p.id)}`;
@@ -227,7 +198,6 @@
         .bindPopup(popup);
     }
 
-    // Update count
     if (countEl) countEl.textContent = String(filtered.length);
     if (countNoteEl) countNoteEl.textContent = (filtered.length === 1) ? "location" : "locations";
   }
@@ -239,20 +209,15 @@
     const res = await fetch(INDIANA_GEOJSON_URL, {
       headers: { "accept": "application/geo+json,application/json" }
     });
-
     if (!res.ok) throw new Error(`Failed to load Indiana boundary (HTTP ${res.status}).`);
 
     const geo = await res.json();
-
-    // Accept either Feature or FeatureCollection (take first feature).
     if (geo.type === "Feature") indianaFeature = geo;
     else if (geo.type === "FeatureCollection" && Array.isArray(geo.features) && geo.features.length > 0) indianaFeature = geo.features[0];
     else throw new Error("indiana.geojson must be a GeoJSON Feature or FeatureCollection with at least one feature.");
 
-    // Compute bounds once (used for fast pre-filtering).
     indianaBounds = featureBounds(indianaFeature);
 
-    // Draw the outline (helpful context; also used for fitBounds).
     indianaOutlineLayer = L.geoJSON(indianaFeature, {
       style: { color: "#F7931A", weight: 2, opacity: 0.65, fillOpacity: 0.04 }
     }).addTo(map);
@@ -260,37 +225,63 @@
     map.fitBounds(indianaOutlineLayer.getBounds(), { padding: [14, 14] });
   }
 
-  async function loadPlaces() {
-    if (!indianaFeature || !indianaBounds) throw new Error("Indiana boundary not loaded.");
+  async function fetchCircle(circle) {
+    // Builds:
+    // https://api.btcmap.org/v4/places/search/?lat=..&lon=..&radius_km=..
+    const url = new URL(BTCMAP_SEARCH_URL);
+    url.searchParams.set("lat", String(circle.lat));
+    url.searchParams.set("lon", String(circle.lon));
+    url.searchParams.set("radius_km", String(circle.radius_km));
 
-    setStatus("Loading BTC Map places…");
-
-    const res = await fetch(BTCMAP_PLACES_URL, { headers: { "accept": "application/json" } });
-    if (!res.ok) throw new Error(`BTC Map API error (HTTP ${res.status}).`);
+    const res = await fetch(url.toString(), { headers: { "accept": "application/json" } });
+    if (!res.ok) throw new Error(`Search failed (${circle.name}) HTTP ${res.status}`);
 
     const data = await res.json();
-    if (!Array.isArray(data)) throw new Error("Unexpected BTC Map response: expected an array.");
+    if (!Array.isArray(data)) throw new Error(`Unexpected search response (${circle.name}): expected an array`);
 
-    allPlaces = data;
+    return data;
+  }
 
-    // Filter worldwide places down to Indiana-only + exclusions.
-    inPlaces = allPlaces.filter(p => {
+  async function loadPlacesViaSearch() {
+    if (!indianaFeature || !indianaBounds) throw new Error("Indiana boundary not loaded.");
+
+    setStatus("Loading BTC Map places for Indiana (search)…");
+
+    // Fetch circles in parallel (a few requests)
+    const results = await Promise.all(IN_COVERAGE.map(fetchCircle));
+
+    // Flatten
+    const flat = results.flat();
+
+    // De-duplicate by numeric id
+    const byId = new Map();
+    for (const p of flat) {
+      // Some safety checks
+      if (!p || typeof p.id !== "number") continue;
+      if (!byId.has(p.id)) byId.set(p.id, p);
+    }
+
+    allFetched = [...byId.values()];
+
+    // Final filtering:
+    // - must have coordinates
+    // - exclude categories
+    // - bounds pre-check
+    // - point-in-polygon
+    inPlaces = allFetched.filter(p => {
       if (typeof p.lat !== "number" || typeof p.lon !== "number") return false;
       if (isExcludedCategory(p)) return false;
 
-      // Fast pre-check: reject points outside Indiana bounding box.
       const pt = [p.lon, p.lat];
       if (!pointInBounds(pt, indianaBounds)) return false;
-
-      // Accurate check: point-in-polygon.
       return pointInFeature(pt, indianaFeature);
     });
 
-    setStatus(`Loaded ${allPlaces.length.toLocaleString()} places. Indiana: ${inPlaces.length.toLocaleString()}.`);
+    setStatus(`Fetched ${allFetched.length.toLocaleString()} unique places near Indiana. Indiana: ${inPlaces.length.toLocaleString()}.`);
     render();
   }
 
-  // ---------- Event wiring ----------
+  // ---------- Events ----------
   qEl?.addEventListener("input", render);
 
   btnFit?.addEventListener("click", () => {
@@ -299,7 +290,7 @@
 
   btnReload?.addEventListener("click", async () => {
     try {
-      await loadPlaces();
+      await loadPlacesViaSearch();
     } catch (e) {
       console.error(e);
       setStatus(e?.message || String(e));
@@ -310,7 +301,7 @@
   (async function boot() {
     try {
       await loadIndianaPolygon();
-      await loadPlaces();
+      await loadPlacesViaSearch();
       setStatus(`${statusEl.textContent} Ready.`);
     } catch (e) {
       console.error(e);
