@@ -1,41 +1,63 @@
 [
   {
-    "id": "indy-bitcoin-meetup",
+    "id": "indianapolis-bitcoin-meetup",
     "name": "Indy Bitcoin Meetup",
     "frequency": "Monthly",
-    "schedule": "Third Wednesday of each month at 7:00 PM",
-    "day": "Wed",
+    "schedule": "Third Wednesday of each month at 7:00 PM ET",
+    "day": "Wednesday",
     "venue": "Union Jack Pub",
     "address": "921 Broad Ripple Ave, Indianapolis, IN 46220",
     "city": "Indianapolis",
     "county": "Marion",
     "state": "IN",
     "zip": "46220",
-    "lat": 39.8687,
-    "lon": -86.1419,
+    "lat": 39.869526764597815,
+    "lon": -86.14215650472906,
     "links": [
       { "type": "website", "label": "indybitcoinmeetup.com", "url": "https://indybitcoinmeetup.com" },
       { "type": "meetup", "label": "meetup.com/indianapolis-bitcoin-meetup", "url": "https://www.meetup.com/indianapolis-bitcoin-meetup/" },
       { "type": "x", "label": "@IndyBitcoin", "url": "https://x.com/IndyBitcoin" }
-    ]
+    ],
+    "notes": "Confirm details with the organizer."
   },
   {
     "id": "marion-bitcoin-meetup",
     "name": "Marion Bitcoin Meetup",
     "frequency": "Monthly",
-    "schedule": "First Wednesday of each month at 6:00 PM",
-    "day": "Wed",
+    "schedule": "First Wednesday of each month at 6:00 PM ET",
+    "day": "Wednesday",
     "venue": "OBI's BBQ",
     "address": "402 S Washington St, Marion, IN 46953",
     "city": "Marion",
     "county": "Grant",
     "state": "IN",
     "zip": "46953",
-    "lat": 40.5569,
-    "lon": -85.6596,
+    "lat": 40.55768839543698,
+    "lon": -85.66018477501554,
     "links": [
-      { "type": "nostr", "label": "@Pleb2Polymath", "url": "https://primal.net/p/nprofile1qqsgmcmm3x987qfgzpaez6dc9kkgqwuc4m6w4xplv9ewl4pkqhg6nxgvxk2xc" }
+      {
+        "type": "nostr",
+        "label": "@Pleb2Polymath",
+        "url": "https://primal.net/p/nprofile1qqsgmcmm3x987qfgzpaez6dc9kkgqwuc4m6w4xplv9ewl4pkqhg6nxgvxk2xc"
+      }
     ],
-    "notes": "Confirm details with the organizer; links TBD."
+    "notes": "Confirm details with the organizer."
+  },
+  {
+    "id": "south-bend-bitcoin-meetup",
+    "name": "South Bend Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "First Thursday of each month at 6:30 PM ET",
+    "day": "Thursday",
+    "venue": "LangLab South Bend",
+    "address": "1302 High St, South Bend, IN 46601",
+    "city": "South Bend",
+    "county": "St. Joseph",
+    "state": "IN",
+    "zip": "46601",
+    "lat": 41.6611880824763,
+    "lon": -86.2389614476568,
+    "links": [],
+    "notes": "Confirm details with the organizer."
   }
 ]
