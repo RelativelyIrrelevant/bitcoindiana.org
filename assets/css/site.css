@@ -51,9 +51,13 @@ a:hover{ text-decoration:underline; }
 }
 
 .brand-logo{
-  width:28px;
-  height:28px;
+  height:32px;
+  width:auto;
   display:block;
+}
+
+@media (max-width: 600px){
+  .brand-logo{ height:28px; }
 }
 
 .brand-name{
