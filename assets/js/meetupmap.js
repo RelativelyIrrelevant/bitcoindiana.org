@@ -31,6 +31,15 @@
     }[s]));
   }
 
+  function googleMapsUrlForAddress(address) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  }
+
+  function googleMapsUrlForMeetup(m) {
+    // Coordinates-based link is robust even if address formatting varies
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${m.lat},${m.lon}`)}`;
+  }
+
   function asText(v) {
     return String(v ?? "").trim();
   }
@@ -171,9 +180,9 @@
         <div style="min-width:220px; max-width:360px;">
           <div style="font-weight:800; margin-bottom:6px;">${escapeHtml(m.name)}</div>
 
-          ${whenLine ? `<div style="margin-bottom:6px;"><strong>When:</strong> ${escapeHtml(whenLine)}</div>` : ""}
+          ${whenLine ? `<div style="margin-bottom:6px;"><strong>When:</strong><br/>${escapeHtml(whenLine)}</div>` : ""}
 
-          ${m.address ? `<div style="margin-bottom:6px;"><strong>Where:</strong> ${escapeHtml(m.address)}</div>` : ""}
+          ${m.address ? `<div style="margin-bottom:6px;"><strong>Where:</strong><br/><a href="${googleMapsUrlForAddress(m.address)}" target="_blank" rel="noopener noreferrer">${escapeHtml(m.address)}</a></div>` : ""}
           ${m.venue ? `<div style="color:#9db0c6; font-size:12.5px; margin-bottom:6px;">Venue: ${escapeHtml(m.venue)}</div>` : ""}
 
           ${renderLinks(m.links)}
