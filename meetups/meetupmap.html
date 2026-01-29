@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bitcoINdiana Meetups Map (test) | bitcoindiana.org</title>
+  <meta name="description" content="Bitcoin meetups in Indiana (test map)." />
+
+  <!-- Shared site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <!-- Leaflet CSS (UNPKG) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="topnav wrap" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Bitcoin Indiana (home)">
+        <img class="brand-logo" src="/assets/img/logo.svg" alt="" />
+        <span class="brand-name">bitcoINdiana | Bitcoin Indiana</span>
+      </a>
+
+      <div class="links">
+        <a href="/" data-nav="map">Map</a>
+        <a href="/meetups/" data-nav="meetups">Meetups</a>
+        <a href="/about/" data-nav="about">About</a>
+      </div>
+    </nav>
+
+    <div class="wrap header-content">
+      <h1 class="page-title">Bitcoin Indiana Meetups (Test Map)</h1>
+      <p class="page-intro">
+        Map of recurring Bitcoin meetups in Indiana. Data source:
+        <code>/assets/data/meetups.json</code>. Always confirm details before traveling.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <div class="grid">
+      <section class="panel" aria-label="Map of bitcoin meetups">
+        <div id="map" class="map" role="application" aria-label="Interactive map"></div>
+      </section>
+
+      <aside class="panel" aria-label="Filters and info">
+        <div class="controls">
+          <div class="field">
+            <label for="q">Search</label>
+            <input id="q" type="text" placeholder="Search name, city, venue, county, day…" autocomplete="off" />
+          </div>
+
+          <div class="chips" aria-label="Quick filters">
+            <span class="chip">Source: /assets/data/meetups.json</span>
+            <span class="chip">Indiana outline: /assets/data/indiana.geojson</span>
+          </div>
+
+          <div class="meta">
+            <div>
+              Showing: <strong><span id="count">0</span></strong> <span id="countNote">meetups</span>
+            </div>
+            <div class="btns">
+              <button id="btnFit" type="button">Fit Indiana</button>
+              <button id="btnReload" type="button">Reload</button>
+            </div>
+          </div>
+
+          <div class="status" id="status"></div>
+
+          <div class="note">
+            This is a temporary test page (<code>/meetupmap.html</code>). If it looks good, we can replace
+            <code>/meetups/index.html</code> with the same layout.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div><a href="/" title="Bitcoin Indiana">bitcoINdiana.org</a> by <a href="https://relativelyirrelevant.vip/" title="Relatively Irrelevant">relativelyirrelevant.vip</a></div>
+      <div class="footer-muted">
+        Map UI: <a href="https://leafletjs.com/" target="_blank" title="Leaflet">Leaflet</a> •
+        Basemap: <a href="https://www.openstreetmap.org/" target="_blank" title="OpenStreetMap">OpenStreetMap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared site JS (active nav, small helpers) -->
+  <script src="/assets/js/site.js"></script>
+
+  <!-- Leaflet JS (UNPKG) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Meetups map logic -->
+  <script src="/assets/js/meetupmap.js"></script>
+</body>
+</html>
