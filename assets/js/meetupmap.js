@@ -5,8 +5,9 @@
 //   python3 -m http.server 8000
 //
 (function () {
-  const INDIANA_GEOJSON_URL = "/assets/data/indiana.geojson";
-  const MEETUPS_URL = "/assets/data/meetups.json";
+  const BASE = new URL("..", window.location.href); // parent of /meetups/
+  const INDIANA_GEOJSON_URL = new URL("assets/data/indiana.geojson", BASE).toString();
+  const MEETUPS_URL = new URL("assets/data/meetups.json", BASE).toString();
 
   // ---------- DOM ----------
   const qEl = document.getElementById("q");
