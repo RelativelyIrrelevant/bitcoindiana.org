@@ -308,5 +308,25 @@
       }
     ],
     "notes": "10-25 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "st-louis-bitcoin-meetup",
+    "name": "St. Louis Bitcoin Users Group",
+    "frequency": "Monthly",
+    "schedule": "Monthly | Varies (often Thursday evenings) | ~7:00 PM CST",
+    "day": "Varies (often Thursday)",
+    "venue": "Sister Cities Cajun (recurring) or similar pub",
+    "address": "3550 S Broadway, St. Louis, MO 63118",
+    "city": "St. Louis",
+    "county": "St. Louis City",
+    "state": "MO",
+    "zip": "63118",
+    "lat": 38.593,
+    "lon": -90.231,
+    "links": [
+      { "type": "meetup", "label": "meetup.com/st-louis-bitcoin-users-group", "url": "https://www.meetup.com/st-louis-bitcoin-users-group" },
+      { "type": "x", "label": "@Stl_Meetup", "url": "https://x.com/Stl_Meetup" }
+    ],
+    "notes": "5 to 10 attend. Venue changes. Check Meetup/X for current schedule and location. Confirm details with the organizer."
   }
 ]
