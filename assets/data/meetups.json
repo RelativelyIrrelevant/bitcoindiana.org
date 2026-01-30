@@ -84,18 +84,13 @@
     "county": "Lawrence",
     "state": "IN",
     "zip": "47421",
-    "lat": 38.8612,
-    "lon": -86.4872,
+    "lat": 38.861306984950126,
+    "lon": -86.48432919252012,
     "links": [
       {
         "type": "meetup",
         "label": "meetup.com/bloomington-bitcoin-meetup",
         "url": "https://www.meetup.com/bloomington-bitcoin-meetup"
-      },
-      {
-        "type": "website",
-        "label": "bitcointhinkersclub.com",
-        "url": "https://www.bitcointhinkersclub.com/"
       },
       {
         "type": "x",
@@ -109,16 +104,16 @@
     "id": "detroit-bitcoin-meetup",
     "name": "Detroit Bitcoin Meetup",
     "frequency": "Monthly",
-    "schedule": "Monthly | 1st Thursday | Time varies (often evening)",
+    "schedule": "Monthly | 1st Thursday | 7:00 PM ET",
     "day": "Thursday",
-    "venue": "Varies (check Telegram/group)",
-    "address": "Detroit area, MI",
+    "venue": "Orange Pill Pharmacy",
+    "address": "298 Town Center Dr, Troy, MI 48084",
     "city": "Detroit",
     "county": "Wayne",
     "state": "MI",
-    "zip": "",
-    "lat": 42.3314,
-    "lon": -83.0458,
+    "zip": "48084",
+    "lat": 42.56831000755594,
+    "lon": -83.15257584715198,
     "links": [
       {
         "type": "meetup",
@@ -132,7 +127,7 @@
     "id": "grand-rapids-bitcoin-meetup",
     "name": "Grand Rapids Bitcoin Meetup",
     "frequency": "Monthly",
-    "schedule": "Monthly | Varies (e.g., Wednesdays like Feb 25, 2026 at 6:00 PM)",
+    "schedule": "Monthly | 1st Thursday | 7:00 PM ET",
     "day": "Varies",
     "venue": "Varies",
     "address": "Grand Rapids, MI",
@@ -155,17 +150,22 @@
     "id": "cincinnati-bitcoin-meetup",
     "name": "Cincinnati Bitcoin Meetup",
     "frequency": "Bi-monthly (learning + social)",
-    "schedule": "1st Wednesday (learning/content) | 3rd Thursday (social/no-agenda) | Evenings",
-    "day": "Wednesday/Thursday",
-    "venue": "Distributed Charge (learning) or rotating (social)",
-    "address": "315 E 15th St, Suite 2-1, Covington, KY 41011 (often; near Cincinnati)",
+    "schedule": "1st Wednesday (learning) | 3rd Thursday (social) | Evenings",
+    "day": "Wednesday | Thursday",
+    "venue": "Distributed Charge (learning)",
+    "address": "315 E 15th St 2 1, Covington, KY 41011",
     "city": "Covington (serves Cincinnati)",
     "county": "Kenton",
     "state": "KY",
     "zip": "41011",
-    "lat": 39.0717,
-    "lon": -84.5094,
+    "lat": 39.07400125757186,
+    "lon": -84.50172054476411,
     "links": [
+      {
+        "type": "website",
+        "label": "cincybtc.com",
+        "url": "https://cincybtc.com"
+      },
       {
         "type": "meetup",
         "label": "meetup.com/cincinnati-bitcoin",
@@ -185,14 +185,14 @@
     "frequency": "Monthly",
     "schedule": "Monthly | 2nd Friday | 7:00 PM ET",
     "day": "Friday",
-    "venue": "Lizardville or similar (recently Wild Eagle)",
-    "address": "79 Springside Dr, Fairlawn, OH 44333 (example recent venue)",
-    "city": "Cleveland area / Fairlawn",
+    "venue": "Wild Eagle Steak & Saloon Streetsboro",
+    "address": "9470 OH-14, Streetsboro, OH 44241",
+    "city": "Cleveland",
     "county": "Summit",
     "state": "OH",
-    "zip": "44333",
-    "lat": 41.1195,
-    "lon": -81.5598,
+    "zip": "44241",
+    "lat": 41.24409678693321,
+    "lon": -81.35473355501662,
     "links": [
       {
         "type": "website",
@@ -203,6 +203,11 @@
         "type": "x",
         "label": "@CleBitcoinClub",
         "url": "https://x.com/CleBitcoinClub"
+      },
+      {
+        "type": "nostr",
+        "label": "Cleveland Bitcoin",
+        "url": "https://primal.net/p/npub1lhuex5pzy833ekxpvdmjz9k6rvv5763e4h2cgdfsx62egu0wk6hs7yd2ck"
       }
     ],
     "notes": "10 to 20 attend. Confirm details with the organizer."
@@ -210,30 +215,30 @@
   {
     "id": "columbus-bitcoin-meetup",
     "name": "Columbus Bitcoin Meetup",
-    "frequency": "Bi-weekly",
-    "schedule": "Bi-weekly | Often every other Thursday or Tuesday | 6:00 PM ET",
-    "day": "Thursday or Tuesday",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 4th Tuesday | 6:00 PM ET",
+    "day": "Tuesday",
     "venue": "Varies (e.g., 16-Bit Bar and Arcade, Dublin or other spots)",
-    "address": "Varies, Columbus/Dublin area, OH",
+    "address": "2812 Fishinger Rd, Upper Arlington, OH 43221",
     "city": "Columbus",
     "county": "Franklin",
     "state": "OH",
-    "zip": "",
-    "lat": 39.9612,
-    "lon": -82.9988,
+    "zip": "43221",
+    "lat": 40.030779620654414,
+    "lon": -83.09096725448457,
     "links": [
-      {
-        "type": "meetup",
-        "label": "meetup.com/columbusbitcoin",
-        "url": "https://www.meetup.com/columbusbitcoin"
-      },
       {
         "type": "website",
         "label": "columbusbitcoin.io",
         "url": "http://columbusbitcoin.io/"
+      },
+      {
+        "type": "meetup",
+        "label": "meetup.com/columbusbitcoin",
+        "url": "https://www.meetup.com/columbusbitcoin"
       }
     ],
-    "notes": "10 to 30 attend. Schedule alternates. Confirm details with the organizer."
+    "notes": "10 to 30 attend. Schedule and location can change. Confirm details with the organizer."
   },
   {
     "id": "lexington-bitcoin-meetup",
@@ -247,8 +252,8 @@
     "county": "Fayette",
     "state": "KY",
     "zip": "40517",
-    "lat": 37.9887,
-    "lon": -84.4893,
+    "lat": 37.998084621789445,
+    "lon": -84.49899784046406,
     "links": [
       {
         "type": "meetup",
@@ -264,24 +269,29 @@
     "notes": "10 to 20 attend. Confirm details with the organizer."
   },
   {
-    "id": "louisville-bitcoin-meetup",
-    "name": "Louisville Bitcoin Meetup",
+    "id": "louisville-bitcoin-network",
+    "name": "Louisville Bitcoin Network",
     "frequency": "Monthly",
-    "schedule": "Monthly | 1st Sunday | 4:00 PM ET",
+    "schedule": "Monthly | 4th Sunday | 2:00 PM ET",
     "day": "Sunday",
-    "venue": "Varies",
-    "address": "Louisville area, KY",
+    "venue": "St. Matthews-Eline Branch Library",
+    "address": "3940 Grandview Ave, St Matthews, KY 40207",
     "city": "Louisville",
     "county": "Jefferson",
     "state": "KY",
-    "zip": "",
-    "lat": 38.2527,
-    "lon": -85.7585,
+    "zip": "40207",
+    "lat": 38.24937432221195,
+    "lon": -85.64970612786263,
     "links": [
       {
+        "type": "website",
+        "label": "loubitdevs.org/",
+        "url": "https://loubitdevs.org/"
+      },
+      {
         "type": "meetup",
-        "label": "meetup.com/louisville-bitcoin-meetup",
-        "url": "https://www.meetup.com/louisville-bitcoin-meetup"
+        "label": "meetup.com/louisville-bitcoin-network/",
+        "url": "https://www.meetup.com/louisville-bitcoin-network/"
       }
     ],
     "notes": "10 to 25 attend. Confirm details with the organizer."
@@ -290,16 +300,16 @@
     "id": "chicago-western-suburbs-bitcoin-meetup",
     "name": "Chicago Western Suburbs Bitcoin Meetup",
     "frequency": "Monthly",
-    "schedule": "Monthly | Varies (often Wednesdays/Thursdays) | Evening",
-    "day": "Varies",
-    "venue": "Pub/restaurant in Western Suburbs",
-    "address": "Chicago Western Suburbs, IL",
-    "city": "Chicago area (Western Suburbs)",
-    "county": "DuPage or similar",
+    "schedule": "Monthly | Last Wednesday | 6:00 PM CT",
+    "day": "Wednesday",
+    "venue": "Bottle Theory",
+    "address": "542 Spring Rd, Elmhurst, IL 60126",
+    "city": "Chicago",
+    "county": "DuPage and Cook",
     "state": "IL",
-    "zip": "",
-    "lat": 41.8781,
-    "lon": -87.6298,
+    "zip": "60126",
+    "lat": 41.88411662501635,
+    "lon": -87.94978588821736,
     "links": [
       {
         "type": "meetup",
@@ -313,20 +323,28 @@
     "id": "st-louis-bitcoin-meetup",
     "name": "St. Louis Bitcoin Users Group",
     "frequency": "Monthly",
-    "schedule": "Monthly | Varies (often Thursday evenings) | ~7:00 PM CST",
-    "day": "Varies (often Thursday)",
-    "venue": "Sister Cities Cajun (recurring) or similar pub",
-    "address": "3550 S Broadway, St. Louis, MO 63118",
+    "schedule": "Monthly | 4th Thursday | 7:00 PM CT",
+    "day": "Thursday",
+    "venue": "Sister Cities Cajun",
+    "address": "3550 S Broadway St, St. Louis, MO 63118",
     "city": "St. Louis",
     "county": "St. Louis City",
     "state": "MO",
     "zip": "63118",
-    "lat": 38.593,
-    "lon": -90.231,
+    "lat": 38.589629391172885,
+    "lon": -90.21830224221377,
     "links": [
-      { "type": "meetup", "label": "meetup.com/st-louis-bitcoin-users-group", "url": "https://www.meetup.com/st-louis-bitcoin-users-group" },
-      { "type": "x", "label": "@Stl_Meetup", "url": "https://x.com/Stl_Meetup" }
+      { 
+        "type": "meetup", 
+        "label": "meetup.com/st-louis-bitcoin-users-group", 
+        "url": "https://www.meetup.com/st-louis-bitcoin-users-group" 
+      },
+      { 
+        "type": "x", 
+        "label": "@Stl_Meetup", 
+        "url": "https://x.com/Stl_Meetup" 
+      }
     ],
-    "notes": "5 to 10 attend. Venue changes. Check Meetup/X for current schedule and location. Confirm details with the organizer."
+    "notes": "5 to 10 attend. Confirm details with the organizer."
   }
 ]
