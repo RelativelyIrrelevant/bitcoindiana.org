@@ -14,11 +14,23 @@
     "lat": 39.869526764597815,
     "lon": -86.14215650472906,
     "links": [
-      { "type": "website", "label": "indybitcoinmeetup.com", "url": "https://indybitcoinmeetup.com" },
-      { "type": "meetup", "label": "meetup.com/indianapolis-bitcoin-meetup", "url": "https://www.meetup.com/indianapolis-bitcoin-meetup/" },
-      { "type": "x", "label": "@IndyBitcoin", "url": "https://x.com/IndyBitcoin" }
+      {
+        "type": "website",
+        "label": "indybitcoinmeetup.com",
+        "url": "https://indybitcoinmeetup.com"
+      },
+      {
+        "type": "meetup",
+        "label": "meetup.com/indianapolis-bitcoin-meetup",
+        "url": "https://www.meetup.com/indianapolis-bitcoin-meetup/"
+      },
+      {
+        "type": "x",
+        "label": "@IndyBitcoin",
+        "url": "https://x.com/IndyBitcoin"
+      }
     ],
-    "notes": "Confirm details with the organizer."
+    "notes": "30 to 50 attend. Confirm details with the organizer."
   },
   {
     "id": "marion-bitcoin-meetup",
@@ -41,7 +53,7 @@
         "url": "https://primal.net/p/nprofile1qqsgmcmm3x987qfgzpaez6dc9kkgqwuc4m6w4xplv9ewl4pkqhg6nxgvxk2xc"
       }
     ],
-    "notes": "Confirm details with the organizer."
+    "notes": "5 to 10 attend. Confirm details with the organizer."
   },
   {
     "id": "south-bend-bitcoin-meetup",
@@ -58,6 +70,243 @@
     "lat": 41.6611880824763,
     "lon": -86.2389614476568,
     "links": [],
-    "notes": "Confirm details with the organizer."
+    "notes": "10 to 20 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "bedford-bitcoin-meetup",
+    "name": "Bloomington Bitcoin Meetup (Bedford)",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 1st Tuesday | 6:00 PM ET",
+    "day": "Tuesday",
+    "venue": "Private location / 1537 J St",
+    "address": "1537 J St, Bedford, IN 47421",
+    "city": "Bedford",
+    "county": "Lawrence",
+    "state": "IN",
+    "zip": "47421",
+    "lat": 38.8612,
+    "lon": -86.4872,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/bloomington-bitcoin-meetup",
+        "url": "https://www.meetup.com/bloomington-bitcoin-meetup"
+      },
+      {
+        "type": "website",
+        "label": "bitcointhinkersclub.com",
+        "url": "https://www.bitcointhinkersclub.com/"
+      },
+      {
+        "type": "x",
+        "label": "@btcthinkersclub",
+        "url": "https://x.com/btcthinkersclub"
+      }
+    ],
+    "notes": "5 to 10 attend. Meets in Bedford. Confirm details with the organizer."
+  },
+  {
+    "id": "detroit-bitcoin-meetup",
+    "name": "Detroit Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 1st Thursday | Time varies (often evening)",
+    "day": "Thursday",
+    "venue": "Varies (check Telegram/group)",
+    "address": "Detroit area, MI",
+    "city": "Detroit",
+    "county": "Wayne",
+    "state": "MI",
+    "zip": "",
+    "lat": 42.3314,
+    "lon": -83.0458,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/detbtc",
+        "url": "https://www.meetup.com/detbtc"
+      }
+    ],
+    "notes": "5 to 15 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "grand-rapids-bitcoin-meetup",
+    "name": "Grand Rapids Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "Monthly | Varies (e.g., Wednesdays like Feb 25, 2026 at 6:00 PM)",
+    "day": "Varies",
+    "venue": "Varies",
+    "address": "Grand Rapids, MI",
+    "city": "Grand Rapids",
+    "county": "Kent",
+    "state": "MI",
+    "zip": "",
+    "lat": 42.9634,
+    "lon": -85.6681,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/grand-rapids-bitcoin",
+        "url": "https://www.meetup.com/grand-rapids-bitcoin"
+      }
+    ],
+    "notes": "5 to 15 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "cincinnati-bitcoin-meetup",
+    "name": "Cincinnati Bitcoin Meetup",
+    "frequency": "Bi-monthly (learning + social)",
+    "schedule": "1st Wednesday (learning/content) | 3rd Thursday (social/no-agenda) | Evenings",
+    "day": "Wednesday/Thursday",
+    "venue": "Distributed Charge (learning) or rotating (social)",
+    "address": "315 E 15th St, Suite 2-1, Covington, KY 41011 (often; near Cincinnati)",
+    "city": "Covington (serves Cincinnati)",
+    "county": "Kenton",
+    "state": "KY",
+    "zip": "41011",
+    "lat": 39.0717,
+    "lon": -84.5094,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/cincinnati-bitcoin",
+        "url": "https://www.meetup.com/cincinnati-bitcoin"
+      },
+      {
+        "type": "linktree",
+        "label": "linktr.ee/BitcoinCincy",
+        "url": "https://linktr.ee/BitcoinCincy"
+      }
+    ],
+    "notes": "5 to 20 attend. Venue often in KY but serves OH area. Confirm details with the organizer."
+  },
+  {
+    "id": "cleveland-bitcoin-meetup",
+    "name": "Cleveland Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 2nd Friday | 7:00 PM ET",
+    "day": "Friday",
+    "venue": "Lizardville or similar (recently Wild Eagle)",
+    "address": "79 Springside Dr, Fairlawn, OH 44333 (example recent venue)",
+    "city": "Cleveland area / Fairlawn",
+    "county": "Summit",
+    "state": "OH",
+    "zip": "44333",
+    "lat": 41.1195,
+    "lon": -81.5598,
+    "links": [
+      {
+        "type": "website",
+        "label": "clevelandbitcoin.org",
+        "url": "https://clevelandbitcoin.org"
+      },
+      {
+        "type": "x",
+        "label": "@CleBitcoinClub",
+        "url": "https://x.com/CleBitcoinClub"
+      }
+    ],
+    "notes": "10 to 20 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "columbus-bitcoin-meetup",
+    "name": "Columbus Bitcoin Meetup",
+    "frequency": "Bi-weekly",
+    "schedule": "Bi-weekly | Often every other Thursday or Tuesday | 6:00 PM ET",
+    "day": "Thursday or Tuesday",
+    "venue": "Varies (e.g., 16-Bit Bar and Arcade, Dublin or other spots)",
+    "address": "Varies, Columbus/Dublin area, OH",
+    "city": "Columbus",
+    "county": "Franklin",
+    "state": "OH",
+    "zip": "",
+    "lat": 39.9612,
+    "lon": -82.9988,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/columbusbitcoin",
+        "url": "https://www.meetup.com/columbusbitcoin"
+      },
+      {
+        "type": "website",
+        "label": "columbusbitcoin.io",
+        "url": "http://columbusbitcoin.io/"
+      }
+    ],
+    "notes": "10 to 30 attend. Schedule alternates. Confirm details with the organizer."
+  },
+  {
+    "id": "lexington-bitcoin-meetup",
+    "name": "Lexington Bitcoin Meetup",
+    "frequency": "Weekly",
+    "schedule": "Weekly | Tuesdays | 6:00 PM ET",
+    "day": "Tuesday",
+    "venue": "The Cellar Bar & Grille",
+    "address": "3256 Lansdowne Dr, Lexington, KY 40517",
+    "city": "Lexington",
+    "county": "Fayette",
+    "state": "KY",
+    "zip": "40517",
+    "lat": 37.9887,
+    "lon": -84.4893,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/lexingtonbitcoin",
+        "url": "https://www.meetup.com/lexingtonbitcoin"
+      },
+      {
+        "type": "x",
+        "label": "@lexbitcoinorg",
+        "url": "https://x.com/lexbitcoinorg"
+      }
+    ],
+    "notes": "10 to 20 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "louisville-bitcoin-meetup",
+    "name": "Louisville Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 1st Sunday | 4:00 PM ET",
+    "day": "Sunday",
+    "venue": "Varies",
+    "address": "Louisville area, KY",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "state": "KY",
+    "zip": "",
+    "lat": 38.2527,
+    "lon": -85.7585,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/louisville-bitcoin-meetup",
+        "url": "https://www.meetup.com/louisville-bitcoin-meetup"
+      }
+    ],
+    "notes": "10 to 25 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "chicago-western-suburbs-bitcoin-meetup",
+    "name": "Chicago Western Suburbs Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "Monthly | Varies (often Wednesdays/Thursdays) | Evening",
+    "day": "Varies",
+    "venue": "Pub/restaurant in Western Suburbs",
+    "address": "Chicago Western Suburbs, IL",
+    "city": "Chicago area (Western Suburbs)",
+    "county": "DuPage or similar",
+    "state": "IL",
+    "zip": "",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "links": [
+      {
+        "type": "meetup",
+        "label": "meetup.com/chicago-western-suburbs-bitcoin-meetup",
+        "url": "https://www.meetup.com/chicago-western-suburbs-bitcoin-meetup"
+      }
+    ],
+    "notes": "10-25 attend. Confirm details with the organizer."
   }
 ]
