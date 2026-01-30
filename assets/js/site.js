@@ -12,9 +12,9 @@
   // Map current path to nav key.
   // Notes:
   // - GitHub Pages generally serves folder URLs with trailing slash (/meetups/).
-  // - We treat "/" as the Map page.
+  // - We treat "/" as the Merchants page.
   const navKey =
-    path === "/" ? "map" :
+    path === "/" ? "merchants" :
     path.startsWith("/meetups") ? "meetups" :
     path.startsWith("/events") ? "events" :
     path.startsWith("/resources") ? "resources" :
@@ -24,7 +24,12 @@
   if (!navKey) return;
 
   document.querySelectorAll(".topnav a[data-nav]").forEach(a => {
-    if (a.dataset.nav === navKey) a.setAttribute("aria-current", "page");
+    const key = a.dataset.nav;
+
+    // Allow "map" as a backward-compatible alias for the home page.
+    const isMatch = (key === navKey) || (navKey === "merchants" && key === "map");
+
+    if (isMatch) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
   });
 })();
-
