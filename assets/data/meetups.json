@@ -172,6 +172,11 @@
         "url": "https://www.meetup.com/cincinnati-bitcoin"
       },
       {
+        "type": "x",
+        "label": "@cincy_bitcoin",
+        "url": "https://x.com/cincy_bitcoin"
+      },
+      {
         "type": "linktree",
         "label": "linktr.ee/BitcoinCincy",
         "url": "https://linktr.ee/BitcoinCincy"
@@ -231,6 +236,11 @@
         "type": "website",
         "label": "columbusbitcoin.io",
         "url": "http://columbusbitcoin.io/"
+      },
+      {
+        "type": "x",
+        "label": "@ColumbusBitcoin",
+        "url": "https://x.com/ColumbusBitcoin/"
       },
       {
         "type": "meetup",
