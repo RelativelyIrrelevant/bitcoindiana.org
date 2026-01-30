@@ -1,35 +1,43 @@
 // assets/js/site.js
 //
-// Shared site behavior.
-// Keep it tiny + dependency-free so every page can include it.
+// Shared site behavior (tiny + dependency-free).
 //
 // Current features:
-// - Highlight current page in the top nav using aria-current="page".
+// - Highlight the current page in the top nav by setting aria-current="page"
+//   on the matching <a data-nav="..."> link.
+//
+// Site structure assumptions (current):
+// - Merchants page is reachable at both:
+//     /
+//     /merchants/   (or /merchants)
+// - Meetups page is reachable at:
+//     /meetups/     (or /meetups)
 
 (function () {
-  const path = window.location.pathname;
+  // Normalize the path so comparisons are consistent.
+  // Examples:
+  // - "/" stays "/"
+  // - "/meetups/" becomes "/meetups"
+  // - "/merchants///" becomes "/merchants"
+  let path = window.location.pathname || "/";
+  path = path.replace(/\/+$/, "") || "/";
 
-  // Map current path to nav key.
-  // Notes:
-  // - GitHub Pages generally serves folder URLs with trailing slash (/meetups/).
-  // - We treat "/" as the Merchants page.
+  // Map the current URL path to a nav key that matches data-nav attributes.
+  // NOTE: We treat BOTH "/" and "/merchants" as the Merchants page.
   const navKey =
-    path === "/" ? "merchants" :
+    (path === "/" || path === "/merchants") ? "merchants" :
     path.startsWith("/meetups") ? "meetups" :
     path.startsWith("/events") ? "events" :
     path.startsWith("/resources") ? "resources" :
     path.startsWith("/about") ? "about" :
     null;
 
+  // If we don't recognize the path, do nothing (no nav highlight).
   if (!navKey) return;
 
+  // Set aria-current="page" on the matching link; remove it from others.
   document.querySelectorAll(".topnav a[data-nav]").forEach(a => {
-    const key = a.dataset.nav;
-
-    // Allow "map" as a backward-compatible alias for the home page.
-    const isMatch = (key === navKey) || (navKey === "merchants" && key === "map");
-
-    if (isMatch) a.setAttribute("aria-current", "page");
+    if (a.dataset.nav === navKey) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   });
 })();
