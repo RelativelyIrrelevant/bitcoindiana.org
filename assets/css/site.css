@@ -64,6 +64,7 @@ a:hover{ text-decoration:underline; }
   font-weight:800;
   letter-spacing:.2px;
   color:var(--text);
+  display: none;
 }
 
 .links{
@@ -143,7 +144,8 @@ a:hover{ text-decoration:underline; }
 }
 .field input::placeholder{ color:rgba(157,176,198,0.75); }
 
-.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+/* ORIGINAL .chips{ display:flex; flex-wrap:wrap; gap:8px; } */
+.chips{ display:none; flex-wrap:wrap; gap:8px; }
 .chip{
   display:inline-flex;
   align-items:center;
