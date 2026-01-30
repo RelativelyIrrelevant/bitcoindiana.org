@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>bitcoINdiana | Meetups</title>
   <meta name="description" content="A map of Bitcoin Meetups that meet regularly in Indiana" />
+
+  <!-- Shared site CSS -->
   <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <!-- Leaflet CSS (UNPKG) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -19,8 +24,6 @@
       <div class="links">
         <a href="/" data-nav="merchants">Merchants</a>
         <a href="/meetups/" data-nav="meetups">Meetups</a>
-        <!-- <a href="/events/" data-nav="events">Events</a> -->
-        <!-- <a href="/resources/" data-nav="resources">Resources</a> -->
         <a href="/about/" data-nav="about">About</a>
       </div>
     </nav>
@@ -28,76 +31,66 @@
     <div class="wrap header-content">
       <h1 class="page-title">Bitcoin Indiana Meetups</h1>
       <p class="page-intro">
-        If you host a bitcoin-only meetup in Indiana, please let us know. Meanwhile, Indianapolis' meetup has 30 to 50 attend each month. 
-        Come meet merchants, educators, and plebs who are actually spending and earning sats locally.
+        Map of recurring Bitcoin meetups in Indiana. Please confirm details from the meetup before traveling.
       </p>
     </div>
   </header>
 
   <main class="wrap main">
-    <section class="panel pad">
-      <h2 class="h2">Recurring meetups</h2>
-      <p>As of 2026, regular Bitcoin meetups are occuring in these Indiana cities. Please check their websites and social media for details, for regularly scheduled plans can sometimes change.</p>
+    <div class="grid">
+      <section class="panel" aria-label="Map of bitcoin meetups">
+        <div id="map" class="map" role="application" aria-label="Interactive map"></div>
+      </section>
 
-      <hr />
-      
-      <h3 class="h3">Indianapolis, IN</h3>
-      
-      <ul class="list">
-        <li><strong>Indy Bitcoin Meetup</strong></li>
-        <li><strong>Monthly</strong>: Third Wednesday of each month at 7:00 pm ET</li>
-        <li><strong>Location</strong>: Union Jack Pub, 921 Broad Ripple Ave, Indianapolis, IN 46220</li>
-        <li><strong>Website</strong>: <a href="https://indybitcoinmeetup.com/">indybitcoinmeetup.com</a></li>
-        <li><strong>Meetup</strong>: <a href="https://www.meetup.com/indianapolis-bitcoin-meetup/">meetup.com/indianapolis-bitcoin-meetup</a></li>
-        <li><strong>X</strong>: <a href="https://x.com/IndyBitcoin">@IndyBitcoin</a></li>
-      </ul>
+      <aside class="panel" aria-label="Filters and info">
+        <div class="controls">
+          <div class="field">
+            <label for="q">Search</label>
+            <input id="q" type="text" placeholder="Search name, city, venue, county, day…" autocomplete="off" />
+          </div>
 
-      <hr />
-      
-      <h3 class="h3">Marion, IN</h3>
-      
-      <ul class="list">
-        <li><strong>Marion Bitcoin Meetup</strong></li>
-        <li><strong>Monthly</strong>: First Wednesday of each month at 6:00 pm ET</li>
-        <li><strong>Location</strong>: OBI's BBQ, 402 S Washington St, Marion, IN 46953</li>
-        <li><strong>Website</strong>: TBD</li>
-        <li><strong>Meetup</strong>: TBD</li>
-        <li><strong>Nostr</strong>: <a href="https://primal.net/p/nprofile1qqsgmcmm3x987qfgzpaez6dc9kkgqwuc4m6w4xplv9ewl4pkqhg6nxgvxk2xc">@Pleb2Polymath</a></li>
-      </ul>
+          <div class="chips" aria-label="Quick filters">
+            <span class="chip">Source: /assets/data/meetups.json</span>
+            <span class="chip">Indiana outline: /assets/data/indiana.geojson</span>
+          </div>
 
-      <hr />
-      
-      <h3 class="h3">South Bend, IN</h3>
-      
-      <ul class="list">
-        <li><strong>South Bend Bitcoin Meetup</strong></li>
-        <li><strong>Monthly</strong>: First Thursday of each month at 6:30 PM ET</li>
-        <li><strong>Location</strong>: LangLab South Bend, 1302 High St, South Bend, IN 46601</li>
-        <li><strong>Website</strong>: TBD</li>
-        <li><strong>Meetup</strong>: TBD</li>
-        <li><strong>Nostr</strong>: TBD</li>
-      </ul>
+          <div class="meta">
+            <div>
+              Showing: <strong><span id="count">0</span></strong> <span id="countNote">meetups</span>
+            </div>
+            <div class="btns">
+              <button id="btnFit" type="button">Fit Indiana</button>
+              <button id="btnReload" type="button">Reload</button>
+            </div>
+          </div>
 
-      <hr />
-      
-      <p class="muted">
-        Please contact the developer if you run a Bitcoin-only meetup in Indiana.
-      </p>
-    </section>
+          <div class="status" id="status"></div>
+
+          <div class="note">
+            You may search by city, county, meetup name, venue name, day of the week, and more.
+          </div>
+        </div>
+      </aside>
+    </div>
   </main>
-  
+
   <footer class="footer">
     <div class="wrap footer-inner">
       <div><a href="/" title="Bitcoin Indiana">bitcoINdiana.org</a> by <a href="https://relativelyirrelevant.vip/" title="Relatively Irrelevant">relativelyirrelevant.vip</a></div>
       <div class="footer-muted">
-        Map UI: <a href="https://leafletjs.com/" target="_blank" title="Leaflet">Leaflet</a> • 
-        Basemap: <a href="https://www.openstreetmap.org/" target="_blank" title="OpenStreetMap">OpenStreetMap</a> • 
-        Merchants: <a href="https://btcmap.org/" target="_blank" title="BTC Map">BTC Map</a>
+        Map UI: <a href="https://leafletjs.com/" target="_blank" title="Leaflet">Leaflet</a> •
+        Basemap: <a href="https://www.openstreetmap.org/" target="_blank" title="OpenStreetMap">OpenStreetMap</a>
       </div>
     </div>
   </footer>
 
+  <!-- Shared site JS (active nav, small helpers) -->
   <script src="/assets/js/site.js"></script>
+
+  <!-- Leaflet JS (UNPKG) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Meetups map logic -->
+  <script src="/assets/js/meetupmap.js"></script>
 </body>
 </html>
-
