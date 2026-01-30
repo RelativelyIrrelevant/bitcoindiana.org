@@ -182,9 +182,10 @@
 
           ${whenLine ? `<div style="margin-bottom:6px;"><strong>When:</strong><br/>${escapeHtml(whenLine)}</div>` : ""}
 
-          ${m.address ? `<div style="margin-bottom:6px;"><strong>Where:</strong><br/><a href="${googleMapsUrlForAddress(m.address)}" target="_blank" rel="noopener noreferrer">${escapeHtml(m.address)}</a></div>` : ""}
-          ${m.venue ? `<div style="color:#9db0c6; font-size:12.5px; margin-bottom:6px;">Venue: ${escapeHtml(m.venue)}</div>` : ""}
+          ${m.venue ? `<div style="margin-bottom:6px;"><strong>Where:</strong><br/>${escapeHtml(m.venue)}</div>` : ""}
 
+          ${m.address ? `<div style="margin-bottom:6px;"><strong>Address:</strong><br/><a href="${googleMapsUrlForAddress(m.address)}" target="_blank" rel="noopener noreferrer">${escapeHtml(m.address)}</a></div>` : ""}
+          
           ${renderLinks(m.links)}
 
           ${m.notes ? `<div style="margin-top:8px; color:#9db0c6; font-size:12.5px;">${escapeHtml(m.notes)}</div>` : ""}
