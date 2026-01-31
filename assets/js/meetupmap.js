@@ -44,21 +44,31 @@
     return /^[A-Z]{2}$/.test(s) ? s : "";
   }
 
-  function normalizeStateName(v) {
-    // Keep human casing as provided; just trim.
-    return asText(v);
+  function normalizeStringArray(arr) {
+    if (!Array.isArray(arr)) return [];
+    const out = [];
+    for (const v of arr) {
+      const t = asText(v);
+      if (t) out.push(t);
+    }
+    // De-dupe case-insensitively while preserving first casing
+    const seen = new Set();
+    return out.filter(v => {
+      const k = v.toLowerCase();
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
   }
 
   // If the user types exactly 2 letters (optionally with punctuation/spaces),
-  // treat it as a state code search (exact match) rather than substring search.
+  // treat it as a state code filter (exact match) rather than substring search.
   // Example: "IN" should match Indiana only, not "bitcoIN" in meetup names.
   function parseTwoLetterStateCodeQuery(qRaw) {
     const q = asText(qRaw);
     if (!q) return null;
 
-    // Remove anything that's not a letter, then upper-case
     const lettersOnly = q.replace(/[^a-z]/gi, "").toUpperCase();
-
     if (/^[A-Z]{2}$/.test(lettersOnly)) return lettersOnly;
     return null;
   }
@@ -73,7 +83,6 @@
 
   const markersLayer = L.layerGroup().addTo(map);
 
-  // Same orange dot as your merchant map
   const btcIcon = L.divIcon({
     className: "",
     html: '<div class="btc-marker" aria-hidden="true"></div>',
@@ -118,13 +127,31 @@
     const data = await res.json();
     if (!Array.isArray(data)) throw new Error("meetups.json must be an array of meetup objects.");
 
-    // Normalize + light validation
     meetups = data
       .filter(m => m && Number.isFinite(m.lat) && Number.isFinite(m.lon))
       .map(m => {
-        const stateLegacy = normalizeStateCode(m.state); // your original field
+        // Physical state (single)
+        const stateLegacy = normalizeStateCode(m.state);
         const stateCode = normalizeStateCode(m.state_code) || stateLegacy;
-        const stateName = normalizeStateName(m.state_name);
+        const stateName = asText(m.state_name);
+
+        // Coverage states (array)
+        const states = normalizeStringArray(m.states).map(normalizeStateCode).filter(Boolean);
+        const statesFinal = (() => {
+          const set = new Set(states);
+          if (stateCode) set.add(stateCode);
+          return [...set];
+        })();
+
+        // Physical city (single) + coverage cities (array)
+        const city = asText(m.city);
+        const cities = normalizeStringArray(m.cities);
+        const citiesFinal = (() => {
+          const set = new Map(); // lower -> original
+          for (const c of cities) set.set(c.toLowerCase(), c);
+          if (city) set.set(city.toLowerCase(), city);
+          return [...set.values()];
+        })();
 
         return {
           id: asText(m.id) || `${asText(m.name)}-${m.lat}-${m.lon}`,
@@ -134,15 +161,20 @@
           frequency: asText(m.frequency),
           venue: asText(m.venue),
           address: asText(m.address),
-          city: asText(m.city),
-          county: asText(m.county),
 
-          // Keep legacy + new fields
-          state: stateLegacy || stateCode,     // keep something reasonable here
+          city,
+          county: asText(m.county),
+          zip: asText(m.zip),
+
+          // legacy + new
+          state: stateLegacy || stateCode,
           state_code: stateCode,
           state_name: stateName,
 
-          zip: asText(m.zip),
+          // coverage / aliases
+          states: statesFinal,
+          cities: citiesFinal,
+
           lat: m.lat,
           lon: m.lon,
           notes: asText(m.notes),
@@ -159,20 +191,22 @@
 
   // ---------- Search ----------
   function meetupHaystack(m) {
-    // Search “most fields” including link label + url.
-    // Includes both state_code and state_name so either format can be found.
     const linkText = (m.links || [])
       .map(l => `${l.type} ${l.label} ${l.url}`.trim())
       .join(" ");
 
     return [
       m.name, m.schedule, m.day, m.frequency,
-      m.venue, m.address, m.city, m.county,
+      m.venue, m.address,
 
-      // State fields
-      m.state, m.state_code, m.state_name,
+      // physical location (single-value)
+      m.city, m.county, m.zip,
+      m.state_code, m.state_name,
 
-      m.zip,
+      // coverage arrays
+      ...(m.states || []),
+      ...(m.cities || []),
+
       m.notes,
       linkText
     ]
@@ -185,13 +219,14 @@
     const q = asText(qRaw);
     if (!q) return true;
 
-    // Special case: 2-letter query acts like "filter by state code"
+    // State-code filter (2 letters)
     const stateCodeQuery = parseTwoLetterStateCodeQuery(q);
     if (stateCodeQuery) {
-      return (m.state_code || "").toUpperCase() === stateCodeQuery;
+      if ((m.state_code || "").toUpperCase() === stateCodeQuery) return true;
+      return (m.states || []).some(s => (s || "").toUpperCase() === stateCodeQuery);
     }
 
-    // Otherwise do normal substring search
+    // Normal substring search (includes states[] and cities[] via haystack)
     return meetupHaystack(m).includes(q.toLowerCase());
   }
 
@@ -217,20 +252,21 @@
     const filtered = meetups.filter(m => matchesQuery(m, q));
 
     for (const m of filtered) {
-      const title = m.name;
       const whenLine = m.schedule || [m.frequency, m.day].filter(Boolean).join(" ");
-      const stateLine = [m.city, m.state_code || m.state_name || m.state].filter(Boolean).join(", ");
+
+      const whereParts = [];
+      if (m.city) whereParts.push(m.city);
+      if (m.state_code) whereParts.push(m.state_code);
+      const whereLine = whereParts.join(", ");
 
       const popup = `
         <div style="min-width:220px; max-width:360px;">
           <div style="font-weight:800; margin-bottom:6px;">${escapeHtml(m.name)}</div>
 
-          ${stateLine ? `<div style="margin-bottom:6px; color:#9db0c6; font-size:12.5px;">${escapeHtml(stateLine)}</div>` : ""}
+          ${whereLine ? `<div style="margin-bottom:6px; color:#9db0c6; font-size:12.5px;">${escapeHtml(whereLine)}</div>` : ""}
 
           ${whenLine ? `<div style="margin-bottom:6px;"><strong>When:</strong><br/>${escapeHtml(whenLine)}</div>` : ""}
-
           ${m.venue ? `<div style="margin-bottom:6px;"><strong>Where:</strong><br/>${escapeHtml(m.venue)}</div>` : ""}
-
           ${m.address ? `<div style="margin-bottom:6px;"><strong>Address:</strong><br/><a href="${googleMapsUrlForAddress(m.address)}" target="_blank" rel="noopener noreferrer">${escapeHtml(m.address)}</a></div>` : ""}
 
           ${renderLinks(m.links)}
@@ -239,7 +275,7 @@
         </div>
       `;
 
-      L.marker([m.lat, m.lon], { title, icon: btcIcon })
+      L.marker([m.lat, m.lon], { title: m.name, icon: btcIcon })
         .addTo(markersLayer)
         .bindPopup(popup);
     }
@@ -247,7 +283,7 @@
     if (countEl) countEl.textContent = String(filtered.length);
     if (countNoteEl) countNoteEl.textContent = (filtered.length === 1) ? "meetup" : "meetups";
 
-    // Optional: show a helpful status when state-code filtering is active
+    // Optional: show a helpful status when state filtering is active
     const stateCodeQuery = parseTwoLetterStateCodeQuery(q);
     if (stateCodeQuery) {
       setStatus(`Filtering by state code: ${stateCodeQuery}. Showing ${filtered.length} meetup(s).`);
