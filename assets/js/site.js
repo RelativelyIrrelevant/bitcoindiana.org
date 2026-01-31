@@ -7,11 +7,13 @@
 //   on the matching <a data-nav="..."> link.
 //
 // Site structure assumptions (current):
-// - Merchants page is reachable at both:
+// - Merchants pages live at:
 //     /
-//     /merchants/   (or /merchants)
-// - Meetups page is reachable at:
-//     /meetups/     (or /meetups)
+//     /merchants
+//     /merchants/...
+// - Meetups pages live at:
+//     /meetups
+//     /meetups/...
 
 (function () {
   // Normalize the path so comparisons are consistent.
@@ -22,17 +24,21 @@
   let path = window.location.pathname || "/";
   path = path.replace(/\/+$/, "") || "/";
 
+  // Helper: true if path is exactly "/segment" OR starts with "/segment/"
+  function isSection(segment) {
+    return path === `/${segment}` || path.startsWith(`/${segment}/`);
+  }
+
   // Map the current URL path to a nav key that matches data-nav attributes.
-  // NOTE: We treat BOTH "/" and "/merchants" as the Merchants page.
+  // NOTE: We treat "/" as Merchants (home page).
   const navKey =
-    (path === "/" || path === "/merchants") ? "merchants" :
-    path.startsWith("/meetups") ? "meetups" :
-    path.startsWith("/events") ? "events" :
-    path.startsWith("/resources") ? "resources" :
-    path.startsWith("/about") ? "about" :
+    (path === "/" || isSection("merchants")) ? "merchants" :
+    isSection("meetups") ? "meetups" :
+    isSection("events") ? "events" :
+    isSection("resources") ? "resources" :
+    isSection("about") ? "about" :
     null;
 
-  // If we don't recognize the path, do nothing (no nav highlight).
   if (!navKey) return;
 
   // Set aria-current="page" on the matching link; remove it from others.
