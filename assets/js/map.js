@@ -1,48 +1,39 @@
 // assets/js/map.js
 //
-// Indiana map page logic for bitcoindiana.org using BTC Map API v4 SEARCH endpoint
-// to avoid downloading worldwide places.
-//
-// Strategy:
-// - Load Indiana polygon (assets/data/indiana.geojson)
-// - Query BTC Map search endpoint with a few overlapping circles that cover Indiana
-// - De-duplicate results by place id
-// - Filter by Indiana polygon (point-in-polygon) for correctness near borders
-// - Exclude categories: currency_exchange, local_atm
+// Configurable merchants map for bitcoindiana.org using BTC Map API v4 SEARCH endpoint.
+// Defaults to Indiana, but can be overridden per-page by setting:
+//   window.BITCOININDIANA_MAP_CONFIG = { ... }  (before loading this script)
 //
 // Local testing:
 //   python3 -m http.server 8000
 
 (function () {
-  // ---------- Config ----------
-  const INDIANA_GEOJSON_URL = "/assets/data/indiana.geojson";
+  // ---------- Defaults (Indiana) ----------
+  const DEFAULT_CONFIG = {
+    stateName: "Indiana",
+    stateCode: "IN",
+    geojsonUrl: "/assets/data/indiana.geojson",
+    canonical: "https://bitcoinindiana.org/",
+    excludedIcons: ["currency_exchange", "local_atm"],
+    coverage: [
+      { name: "North",   lat: 41.55, lon: -86.20, radius_km: 120 },
+      { name: "Central", lat: 39.85, lon: -86.15, radius_km: 150 },
+      { name: "South",   lat: 38.35, lon: -86.75, radius_km: 140 },
+      { name: "East",    lat: 40.05, lon: -85.35, radius_km: 120 },
+      { name: "West",    lat: 40.05, lon: -87.25, radius_km: 120 }
+    ]
+  };
 
-  // BTC Map Search endpoint (radius-based)
-  // Docs: https://github.com/teambtcmap/btcmap-api/blob/master/docs/rest/v4/places.md
+  const CONFIG = Object.assign({}, DEFAULT_CONFIG, (window.BITCOININDIANA_MAP_CONFIG || {}));
+  CONFIG.coverage = (window.BITCOININDIANA_MAP_CONFIG?.coverage) || DEFAULT_CONFIG.coverage;
+
+  // ---------- Endpoints ----------
   const BTCMAP_SEARCH_URL = "https://api.btcmap.org/v4/places/search/";
 
-  // Choose fields returned by search.
-  // The docs show search returns many fields; field selection is not documented for search,
-  // so we accept the default response and just use what we need.
-  //
-  // If BTC Map later adds ?fields= support to /search, we can tighten payload.
-
-  const EXCLUDED_ICONS = new Set(["currency_exchange", "local_atm"]);
-
-  // Indiana coverage circles (center + radius_km).
-  // These are chosen to cover the state with overlap. Feel free to tweak.
-  //
-  // Notes:
-  // - Indiana is roughly ~500km N-S and ~225km E-W.
-  // - Larger radius = fewer requests but more over-fetch beyond borders.
-  // - We still polygon-filter afterward, so over-fetch is fine.
-  const IN_COVERAGE = [
-    { name: "North",  lat: 41.55, lon: -86.20, radius_km: 120 },
-    { name: "Central",lat: 39.85, lon: -86.15, radius_km: 150 },
-    { name: "South",  lat: 38.35, lon: -86.75, radius_km: 140 },
-    { name: "East",   lat: 40.05, lon: -85.35, radius_km: 120 },
-    { name: "West",   lat: 40.05, lon: -87.25, radius_km: 120 }
-  ];
+  // ---------- Config-derived ----------
+  const GEOJSON_URL = CONFIG.geojsonUrl;
+  const EXCLUDED_ICONS = new Set(CONFIG.excludedIcons || DEFAULT_CONFIG.excludedIcons);
+  const COVERAGE = CONFIG.coverage;
 
   // ---------- DOM ----------
   const qEl = document.getElementById("q");
@@ -51,6 +42,13 @@
   const statusEl = document.getElementById("status");
   const btnFit = document.getElementById("btnFit");
   const btnReload = document.getElementById("btnReload");
+
+  // Optional: allow per-page label changes without editing HTML
+  const pageTitleEl = document.getElementById("pageTitle");
+  const pageIntroEl = document.getElementById("pageIntro");
+  if (pageTitleEl && CONFIG.pageTitle) pageTitleEl.textContent = CONFIG.pageTitle;
+  if (pageIntroEl && CONFIG.pageIntro) pageIntroEl.textContent = CONFIG.pageIntro;
+  if (btnFit && CONFIG.fitLabel) btnFit.textContent = CONFIG.fitLabel;
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg || "";
@@ -76,7 +74,6 @@
 
   const markersLayer = L.layerGroup().addTo(map);
 
-  // Bitcoin-orange dot marker (DivIcon)
   const btcIcon = L.divIcon({
     className: "",
     html: '<div class="btc-marker" aria-hidden="true"></div>',
@@ -85,13 +82,13 @@
     popupAnchor: [0, -10]
   });
 
-  let indianaFeature = null;
-  let indianaOutlineLayer = null;
-  let indianaBounds = null; // {minLon,minLat,maxLon,maxLat}
+  let stateFeature = null;
+  let stateOutlineLayer = null;
+  let stateBounds = null; // {minLon,minLat,maxLon,maxLat}
 
   // Data
-  let allFetched = [];  // pre-dedupe results from search
-  let inPlaces = [];    // final filtered places
+  let allFetched = [];
+  let inPlaces = [];
 
   // ---------- Geo helpers ----------
   function featureBounds(feature) {
@@ -139,9 +136,9 @@
 
   function pointInPolygon(point, polygonCoordinates) {
     if (!polygonCoordinates || polygonCoordinates.length === 0) return false;
-    if (!pointInRing(point, polygonCoordinates[0])) return false;
+    if (!pointInRing(point, polygonCoordinates[0])) return false; // outer ring
     for (let i = 1; i < polygonCoordinates.length; i++) {
-      if (pointInRing(point, polygonCoordinates[i])) return false;
+      if (pointInRing(point, polygonCoordinates[i])) return false; // holes
     }
     return true;
   }
@@ -203,31 +200,29 @@
   }
 
   // ---------- Loaders ----------
-  async function loadIndianaPolygon() {
-    setStatus("Loading Indiana boundary…");
+  async function loadStatePolygon() {
+    setStatus(`Loading ${CONFIG.stateName} boundary…`);
 
-    const res = await fetch(INDIANA_GEOJSON_URL, {
+    const res = await fetch(GEOJSON_URL, {
       headers: { "accept": "application/geo+json,application/json" }
     });
-    if (!res.ok) throw new Error(`Failed to load Indiana boundary (HTTP ${res.status}).`);
+    if (!res.ok) throw new Error(`Failed to load ${CONFIG.stateName} boundary (HTTP ${res.status}).`);
 
     const geo = await res.json();
-    if (geo.type === "Feature") indianaFeature = geo;
-    else if (geo.type === "FeatureCollection" && Array.isArray(geo.features) && geo.features.length > 0) indianaFeature = geo.features[0];
-    else throw new Error("indiana.geojson must be a GeoJSON Feature or FeatureCollection with at least one feature.");
+    if (geo.type === "Feature") stateFeature = geo;
+    else if (geo.type === "FeatureCollection" && Array.isArray(geo.features) && geo.features.length > 0) stateFeature = geo.features[0];
+    else throw new Error(`State GeoJSON must be a Feature or FeatureCollection with at least one feature.`);
 
-    indianaBounds = featureBounds(indianaFeature);
+    stateBounds = featureBounds(stateFeature);
 
-    indianaOutlineLayer = L.geoJSON(indianaFeature, {
+    stateOutlineLayer = L.geoJSON(stateFeature, {
       style: { color: "#F7931A", weight: 2, opacity: 0.65, fillOpacity: 0.04 }
     }).addTo(map);
 
-    map.fitBounds(indianaOutlineLayer.getBounds(), { padding: [14, 14] });
+    map.fitBounds(stateOutlineLayer.getBounds(), { padding: [14, 14] });
   }
 
   async function fetchCircle(circle) {
-    // Builds:
-    // https://api.btcmap.org/v4/places/search/?lat=..&lon=..&radius_km=..
     const url = new URL(BTCMAP_SEARCH_URL);
     url.searchParams.set("lat", String(circle.lat));
     url.searchParams.set("lon", String(circle.lon));
@@ -238,46 +233,38 @@
 
     const data = await res.json();
     if (!Array.isArray(data)) throw new Error(`Unexpected search response (${circle.name}): expected an array`);
-
     return data;
   }
 
   async function loadPlacesViaSearch() {
-    if (!indianaFeature || !indianaBounds) throw new Error("Indiana boundary not loaded.");
+    if (!stateFeature || !stateBounds) throw new Error("State boundary not loaded.");
 
-    setStatus("Loading BTC Map places for Indiana (search)…");
+    setStatus(`Loading BTC Map places for ${CONFIG.stateName} (search)…`);
 
-    // Fetch circles in parallel (a few requests)
-    const results = await Promise.all(IN_COVERAGE.map(fetchCircle));
-
-    // Flatten
+    const results = await Promise.all(COVERAGE.map(fetchCircle));
     const flat = results.flat();
 
-    // De-duplicate by numeric id
     const byId = new Map();
     for (const p of flat) {
-      // Some safety checks
       if (!p || typeof p.id !== "number") continue;
       if (!byId.has(p.id)) byId.set(p.id, p);
     }
 
     allFetched = [...byId.values()];
 
-    // Final filtering:
-    // - must have coordinates
-    // - exclude categories
-    // - bounds pre-check
-    // - point-in-polygon
     inPlaces = allFetched.filter(p => {
       if (typeof p.lat !== "number" || typeof p.lon !== "number") return false;
       if (isExcludedCategory(p)) return false;
 
       const pt = [p.lon, p.lat];
-      if (!pointInBounds(pt, indianaBounds)) return false;
-      return pointInFeature(pt, indianaFeature);
+      if (!pointInBounds(pt, stateBounds)) return false;
+      return pointInFeature(pt, stateFeature);
     });
 
-    setStatus(`Fetched ${allFetched.length.toLocaleString()} unique places near Indiana. Indiana: ${inPlaces.length.toLocaleString()}.`);
+    setStatus(
+      `Fetched ${allFetched.length.toLocaleString()} unique places near ${CONFIG.stateName}. ` +
+      `${CONFIG.stateName}: ${inPlaces.length.toLocaleString()}.`
+    );
     render();
   }
 
@@ -285,7 +272,7 @@
   qEl?.addEventListener("input", render);
 
   btnFit?.addEventListener("click", () => {
-    if (indianaOutlineLayer) map.fitBounds(indianaOutlineLayer.getBounds(), { padding: [14, 14] });
+    if (stateOutlineLayer) map.fitBounds(stateOutlineLayer.getBounds(), { padding: [14, 14] });
   });
 
   btnReload?.addEventListener("click", async () => {
@@ -300,7 +287,7 @@
   // ---------- Boot ----------
   (async function boot() {
     try {
-      await loadIndianaPolygon();
+      await loadStatePolygon();
       await loadPlacesViaSearch();
       setStatus(`${statusEl.textContent} Ready.`);
     } catch (e) {
