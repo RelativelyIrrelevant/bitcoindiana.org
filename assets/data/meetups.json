@@ -12,25 +12,28 @@
     "state": "IN",
     "state_code": "IN",
     "state_name": "Indiana",
+    "states": ["IN"],
+    "cities": [
+      "Avon",
+      "Brownsburg",
+      "Carmel",
+      "Fishers",
+      "Greenwood",
+      "Indianapolis",
+      "Indy",
+      "Noblesville",
+      "Plainfield",
+      "Speedway",
+      "Westfield",
+      "Zionsville"
+    ],
     "zip": "46220",
     "lat": 39.869526764597815,
     "lon": -86.14215650472906,
     "links": [
-      {
-        "type": "website",
-        "label": "indybitcoinmeetup.com",
-        "url": "https://indybitcoinmeetup.com"
-      },
-      {
-        "type": "meetup",
-        "label": "meetup.com/indianapolis-bitcoin-meetup",
-        "url": "https://www.meetup.com/indianapolis-bitcoin-meetup/"
-      },
-      {
-        "type": "x",
-        "label": "@IndyBitcoin",
-        "url": "https://x.com/IndyBitcoin"
-      }
+      { "type": "website", "label": "indybitcoinmeetup.com", "url": "https://indybitcoinmeetup.com" },
+      { "type": "meetup", "label": "meetup.com/indianapolis-bitcoin-meetup", "url": "https://www.meetup.com/indianapolis-bitcoin-meetup/" },
+      { "type": "x", "label": "@IndyBitcoin", "url": "https://x.com/IndyBitcoin" }
     ],
     "notes": "30 to 50 attend. Confirm details with the organizer."
   },
@@ -47,6 +50,17 @@
     "state": "IN",
     "state_code": "IN",
     "state_name": "Indiana",
+    "states": ["IN"],
+    "cities": [
+      "Fairmount",
+      "Gas City",
+      "Jonesboro",
+      "La Fontaine",
+      "Marion",
+      "Swayzee",
+      "Sweetser",
+      "Upland"
+    ],
     "zip": "46953",
     "lat": 40.55768839543698,
     "lon": -85.66018477501554,
@@ -72,6 +86,19 @@
     "state": "IN",
     "state_code": "IN",
     "state_name": "Indiana",
+    "states": ["IN", "MI"],
+    "cities": [
+      "Berrien Springs",
+      "Cassopolis",
+      "Dunlap",
+      "Elkhart",
+      "Goshen",
+      "Granger",
+      "Mishawaka",
+      "Niles",
+      "Osceola",
+      "South Bend"
+    ],
     "zip": "46601",
     "lat": 41.6611880824763,
     "lon": -86.2389614476568,
@@ -91,20 +118,26 @@
     "state": "IN",
     "state_code": "IN",
     "state_name": "Indiana",
+    "states": ["IN"],
+    "cities": [
+      "Avoca",
+      "Bedford",
+      "Bloomington",
+      "Harrodsburg",
+      "Heltonville",
+      "Medora",
+      "Mitchell",
+      "Oolitic",
+      "Orleans",
+      "Smithville-Sanders",
+      "Williams"
+    ],
     "zip": "47421",
     "lat": 38.861306984950126,
     "lon": -86.48432919252012,
     "links": [
-      {
-        "type": "meetup",
-        "label": "meetup.com/bloomington-bitcoin-meetup",
-        "url": "https://www.meetup.com/bloomington-bitcoin-meetup"
-      },
-      {
-        "type": "x",
-        "label": "@btcthinkersclub",
-        "url": "https://x.com/btcthinkersclub"
-      }
+      { "type": "meetup", "label": "meetup.com/bloomington-bitcoin-meetup", "url": "https://www.meetup.com/bloomington-bitcoin-meetup" },
+      { "type": "x", "label": "@btcthinkersclub", "url": "https://x.com/btcthinkersclub" }
     ],
     "notes": "5 to 10 attend. Meets in Bedford. Confirm details with the organizer."
   },
@@ -121,15 +154,26 @@
     "state": "MI",
     "state_code": "MI",
     "state_name": "Michigan",
+    "states": ["MI"],
+    "cities": [
+      "Auburn Hills",
+      "Berkley",
+      "Birmingham",
+      "Bloomfield Hills",
+      "Clawson",
+      "Detroit",
+      "Madison Heights",
+      "Oak Park",
+      "Pontiac",
+      "Rochester Hills",
+      "Southfield",
+      "Troy"
+    ],
     "zip": "48084",
     "lat": 42.56831000755594,
     "lon": -83.15257584715198,
     "links": [
-      {
-        "type": "meetup",
-        "label": "meetup.com/detbtc",
-        "url": "https://www.meetup.com/detbtc"
-      }
+      { "type": "meetup", "label": "meetup.com/detbtc", "url": "https://www.meetup.com/detbtc" }
     ],
     "notes": "5 to 15 attend. Confirm details with the organizer."
   },
@@ -137,24 +181,34 @@
     "id": "grand-rapids-bitcoin-meetup",
     "name": "Grand Rapids Bitcoin Meetup",
     "frequency": "Monthly",
-    "schedule": "Monthly | 1st Thursday | 7:00 PM ET",
-    "day": "Varies",
-    "venue": "Varies",
-    "address": "Grand Rapids, MI",
+    "schedule": "Monthly | 4th Wednesday | 6:00 PM ET",
+    "day": "Wednesday",
+    "venue": "The Factory",
+    "address": "77 Monroe Center St NW, Grand Rapids, MI 49503",
     "city": "Grand Rapids",
     "county": "Kent",
     "state": "MI",
     "state_code": "MI",
     "state_name": "Michigan",
-    "zip": "",
-    "lat": 42.9634,
-    "lon": -85.6681,
+    "states": ["MI"],
+    "cities": [
+      "Ada",
+      "East Grand Rapids",
+      "Grand Haven",
+      "Grand Rapids",
+      "Grandville",
+      "Holland",
+      "Kentwood",
+      "Lowell",
+      "Rockford",
+      "Walker",
+      "Wyoming"
+    ],
+    "zip": "49503",
+    "lat": 42.9644706834301,
+    "lon": -85.66958165667647,
     "links": [
-      {
-        "type": "meetup",
-        "label": "meetup.com/grand-rapids-bitcoin",
-        "url": "https://www.meetup.com/grand-rapids-bitcoin"
-      }
+      { "type": "meetup", "label": "meetup.com/grand-rapids-bitcoin", "url": "https://www.meetup.com/grand-rapids-bitcoin" }
     ],
     "notes": "5 to 15 attend. Confirm details with the organizer."
   },
@@ -166,35 +220,33 @@
     "day": "Wednesday | Thursday",
     "venue": "Distributed Charge (learning)",
     "address": "315 E 15th St 2 1, Covington, KY 41011",
-    "city": "Covington (serves Cincinnati)",
+    "city": "Covington",
     "county": "Kenton",
     "state": "KY",
     "state_code": "KY",
     "state_name": "Kentucky",
+    "states": ["KY", "OH"],
+    "cities": [
+      "Alexandria",
+      "Cincinnati",
+      "Covington",
+      "Edgewood",
+      "Erlanger",
+      "Florence",
+      "Fort Mitchell",
+      "Fort Thomas",
+      "Newport",
+      "Taylor Mill",
+      "Villa Hills"
+    ],
     "zip": "41011",
     "lat": 39.07400125757186,
     "lon": -84.50172054476411,
     "links": [
-      {
-        "type": "website",
-        "label": "cincybtc.com",
-        "url": "https://cincybtc.com"
-      },
-      {
-        "type": "meetup",
-        "label": "meetup.com/cincinnati-bitcoin",
-        "url": "https://www.meetup.com/cincinnati-bitcoin"
-      },
-      {
-        "type": "x",
-        "label": "@cincy_bitcoin",
-        "url": "https://x.com/cincy_bitcoin"
-      },
-      {
-        "type": "linktree",
-        "label": "linktr.ee/BitcoinCincy",
-        "url": "https://linktr.ee/BitcoinCincy"
-      }
+      { "type": "website", "label": "cincybtc.com", "url": "https://cincybtc.com" },
+      { "type": "meetup", "label": "meetup.com/cincinnati-bitcoin", "url": "https://www.meetup.com/cincinnati-bitcoin" },
+      { "type": "x", "label": "@cincy_bitcoin", "url": "https://x.com/cincy_bitcoin" },
+      { "type": "linktree", "label": "linktr.ee/BitcoinCincy", "url": "https://linktr.ee/BitcoinCincy" }
     ],
     "notes": "5 to 20 attend. Venue often in KY but serves OH area. Confirm details with the organizer."
   },
@@ -211,25 +263,28 @@
     "state": "OH",
     "state_code": "OH",
     "state_name": "Ohio",
+    "states": ["OH"],
+    "cities": [
+      "Akron",
+      "Aurora",
+      "Brady Lake",
+      "Cleveland",
+      "Hudson",
+      "Kent",
+      "Mantua",
+      "Munroe Falls",
+      "Reminderville",
+      "Stow",
+      "Streetsboro",
+      "Twinsburg"
+    ],
     "zip": "44241",
     "lat": 41.24409678693321,
     "lon": -81.35473355501662,
     "links": [
-      {
-        "type": "website",
-        "label": "clevelandbitcoin.org",
-        "url": "https://clevelandbitcoin.org"
-      },
-      {
-        "type": "x",
-        "label": "@CleBitcoinClub",
-        "url": "https://x.com/CleBitcoinClub"
-      },
-      {
-        "type": "nostr",
-        "label": "Cleveland Bitcoin",
-        "url": "https://primal.net/p/npub1lhuex5pzy833ekxpvdmjz9k6rvv5763e4h2cgdfsx62egu0wk6hs7yd2ck"
-      }
+      { "type": "website", "label": "clevelandbitcoin.org", "url": "https://clevelandbitcoin.org" },
+      { "type": "x", "label": "@CleBitcoinClub", "url": "https://x.com/CleBitcoinClub" },
+      { "type": "nostr", "label": "Cleveland Bitcoin", "url": "https://primal.net/p/npub1lhuex5pzy833ekxpvdmjz9k6rvv5763e4h2cgdfsx62egu0wk6hs7yd2ck" }
     ],
     "notes": "10 to 20 attend. Confirm details with the organizer."
   },
@@ -246,25 +301,27 @@
     "state": "OH",
     "state_code": "OH",
     "state_name": "Ohio",
+    "states": ["OH"],
+    "cities": [
+      "Columbus",
+      "Delaware",
+      "Dublin",
+      "Gahanna",
+      "Grove City",
+      "Hilliard",
+      "Pickerington",
+      "Reynoldsburg",
+      "Upper Arlington",
+      "Westerville",
+      "Worthington"
+    ],
     "zip": "43221",
     "lat": 40.030779620654414,
     "lon": -83.09096725448457,
     "links": [
-      {
-        "type": "website",
-        "label": "columbusbitcoin.io",
-        "url": "http://columbusbitcoin.io/"
-      },
-      {
-        "type": "x",
-        "label": "@ColumbusBitcoin",
-        "url": "https://x.com/ColumbusBitcoin/"
-      },
-      {
-        "type": "meetup",
-        "label": "meetup.com/columbusbitcoin",
-        "url": "https://www.meetup.com/columbusbitcoin"
-      }
+      { "type": "website", "label": "columbusbitcoin.io", "url": "http://columbusbitcoin.io/" },
+      { "type": "x", "label": "@ColumbusBitcoin", "url": "https://x.com/ColumbusBitcoin/" },
+      { "type": "meetup", "label": "meetup.com/columbusbitcoin", "url": "https://www.meetup.com/columbusbitcoin" }
     ],
     "notes": "10 to 30 attend. Schedule and location can change. Confirm details with the organizer."
   },
@@ -281,20 +338,25 @@
     "state": "KY",
     "state_code": "KY",
     "state_name": "Kentucky",
+    "states": ["KY"],
+    "cities": [
+      "Danville",
+      "Fayette County",
+      "Florence",
+      "Frankfort",
+      "Georgetown",
+      "Harrodsburg",
+      "Lexington",
+      "Nicholasville",
+      "Paris",
+      "Versailles"
+    ],
     "zip": "40517",
     "lat": 37.998084621789445,
     "lon": -84.49899784046406,
     "links": [
-      {
-        "type": "meetup",
-        "label": "meetup.com/lexingtonbitcoin",
-        "url": "https://www.meetup.com/lexingtonbitcoin"
-      },
-      {
-        "type": "x",
-        "label": "@lexbitcoinorg",
-        "url": "https://x.com/lexbitcoinorg"
-      }
+      { "type": "meetup", "label": "meetup.com/lexingtonbitcoin", "url": "https://www.meetup.com/lexingtonbitcoin" },
+      { "type": "x", "label": "@lexbitcoinorg", "url": "https://x.com/lexbitcoinorg" }
     ],
     "notes": "10 to 20 attend. Confirm details with the organizer."
   },
@@ -311,20 +373,28 @@
     "state": "KY",
     "state_code": "KY",
     "state_name": "Kentucky",
+    "states": ["IN", "KY"],
+    "cities": [
+      "Buechel",
+      "Crestwood",
+      "Douglass Hills",
+      "Jeffersontown",
+      "La Grange",
+      "Louisville",
+      "Lyndon",
+      "Middletown",
+      "Mount Washington",
+      "Pewee Valley",
+      "Shelbyville",
+      "St Matthews",
+      "West Buechel"
+    ],
     "zip": "40207",
     "lat": 38.24937432221195,
     "lon": -85.64970612786263,
     "links": [
-      {
-        "type": "website",
-        "label": "loubitdevs.org/",
-        "url": "https://loubitdevs.org/"
-      },
-      {
-        "type": "meetup",
-        "label": "meetup.com/louisville-bitcoin-network/",
-        "url": "https://www.meetup.com/louisville-bitcoin-network/"
-      }
+      { "type": "website", "label": "loubitdevs.org/", "url": "https://loubitdevs.org/" },
+      { "type": "meetup", "label": "meetup.com/louisville-bitcoin-network/", "url": "https://www.meetup.com/louisville-bitcoin-network/" }
     ],
     "notes": "10 to 25 attend. Confirm details with the organizer."
   },
@@ -341,15 +411,25 @@
     "state": "IL",
     "state_code": "IL",
     "state_name": "Illinois",
+    "states": ["IL"],
+    "cities": [
+      "Addison",
+      "Bellwood",
+      "Bensenville",
+      "Berkeley",
+      "Chicago",
+      "Downers Grove",
+      "Elk Grove Village",
+      "Elmhurst",
+      "Glen Ellyn",
+      "Lombard",
+      "Naperville"
+    ],
     "zip": "60126",
     "lat": 41.88411662501635,
     "lon": -87.94978588821736,
     "links": [
-      {
-        "type": "meetup",
-        "label": "meetup.com/chicago-western-suburbs-bitcoin-meetup",
-        "url": "https://www.meetup.com/chicago-western-suburbs-bitcoin-meetup"
-      }
+      { "type": "meetup", "label": "meetup.com/chicago-western-suburbs-bitcoin-meetup", "url": "https://www.meetup.com/chicago-western-suburbs-bitcoin-meetup" }
     ],
     "notes": "10-25 attend. Confirm details with the organizer."
   },
@@ -366,20 +446,27 @@
     "state": "MO",
     "state_code": "MO",
     "state_name": "Missouri",
+    "states": ["MO", "IL"],
+    "cities": [
+      "Belleville",
+      "Chesterfield",
+      "Edwardsville",
+      "Fenton",
+      "Florissant",
+      "Gladstone",
+      "Granite City",
+      "O'Fallon",
+      "Saint Louis",
+      "St. Charles",
+      "St. Louis",
+      "St. Peters"
+    ],
     "zip": "63118",
     "lat": 38.589629391172885,
     "lon": -90.21830224221377,
     "links": [
-      {
-        "type": "meetup",
-        "label": "meetup.com/st-louis-bitcoin-users-group",
-        "url": "https://www.meetup.com/st-louis-bitcoin-users-group"
-      },
-      {
-        "type": "x",
-        "label": "@Stl_Meetup",
-        "url": "https://x.com/Stl_Meetup"
-      }
+      { "type": "meetup", "label": "meetup.com/st-louis-bitcoin-users-group", "url": "https://www.meetup.com/st-louis-bitcoin-users-group" },
+      { "type": "x", "label": "@Stl_Meetup", "url": "https://x.com/Stl_Meetup" }
     ],
     "notes": "5 to 10 attend. Confirm details with the organizer."
   }
