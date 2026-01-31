@@ -1,9 +1,11 @@
 # bitcoindiana.org
-Bitcoin Indiana is a home for all things bitcoin-related in the state of Indiana.
+Bitcoin Indiana is a home for all things bitcoin-related in the state of Indiana (and some neighboring states).
 
 ## Naming Convention
 We don't know how to best pronouce this portmanteau.
 
-- Bitcoin + Indiana (bit-COIN-dee-AN-uh)
-- Bitcoin In Indiana (bit-COIN-in-IN-dee-AN-uh)
+- Bitcoin-Diana
+- Bitco-Indiana
+- Bitcoin-Indiana
+- Bitcoin-In-Indiana
 
