@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merchants (OH) | bitcoINdiana</title>
+  <meta name="description" content="A map of merchants that accept Bitcoin in Ohio" />
+
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="topnav wrap" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Bitcoin Indiana (home)">
+        <img class="brand-logo" src="/assets/img/logo.svg" alt="bitcoINdiana | Bitcoin Indiana" title="bitcoINdiana | Bitcoin Indiana" />
+        <span class="brand-name">bitcoINdiana | Bitcoin Indiana</span>
+      </a>
+
+      <div class="links">
+        <a href="/merchants/" data-nav="merchants">Merchants</a>
+        <a href="/meetups/" data-nav="meetups">Meetups</a>
+      </div>
+    </nav>
+
+    <div class="wrap header-content">
+      <h1 class="page-title" id="pageTitle">Bitcoin Ohio Merchants</h1>
+      <p class="page-intro" id="pageIntro">
+        Map of Bitcoin-accepting merchants in Ohio.
+        Please confirm details from the merchant before traveling.
+        Return to <a href="/merchants/">Bitcoin Indiana Merchants</a>.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <div class="grid">
+      <section class="panel" aria-label="Map of bitcoin accepting merchants">
+        <div id="map" class="map" role="application" aria-label="Interactive map"></div>
+      </section>
+
+      <aside class="panel" aria-label="Filters and info">
+        <div class="controls">
+          <div class="field">
+            <label for="q">Search</label>
+            <input id="q" type="text" placeholder="Search name, address…" autocomplete="off" />
+          </div>
+
+          <div class="chips" aria-label="Quick filters">
+            <span class="chip">Source: api.btcmap.org (Places v4)</span>
+            <span class="chip">Ohio: point-in-polygon</span>
+            <span class="chip">Excluded: currency_exchange, local_atm</span>
+          </div>
+
+          <div class="meta">
+            <div>
+              Showing: <strong><span id="count">0</span></strong> <span id="countNote">locations</span>
+            </div>
+            <div class="btns">
+              <button id="btnFit" type="button">Fit Ohio</button>
+              <button id="btnReload" type="button">Reload</button>
+            </div>
+          </div>
+
+          <div class="status" id="status"></div>
+
+          <div class="note">
+            Data is maintained upstream by <a href="https://btcmap.org/add-location" target="_blank">BTC Map</a>
+            and <a href="https://www.openstreetmap.org/about" target="_blank">OpenStreetMap</a>.
+            If a place is missing or misplaced, please make the correct via <a href="https://btcmap.org/add-location" target="_blank">BTC Map</a>
+            and it will appear here in a few days.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div><a href="/about/" data-nav="about">About bitcoINdiana</a> by <a href="https://relativelyirrelevant.vip/" title="Relatively Irrelevant">relativelyirrelevant.vip</a></div>
+      <div class="footer-muted">
+        Map UI: <a href="https://leafletjs.com/" target="_blank" title="Leaflet">Leaflet</a> •
+        Basemap: <a href="https://www.openstreetmap.org/" target="_blank" title="OpenStreetMap">OpenStreetMap</a> •
+        Merchants: <a href="https://btcmap.org/" target="_blank" title="BTC Map">BTC Map</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- State-specific config MUST come before map.js -->
+  <script>
+    window.BITCOININDIANA_MAP_CONFIG = {
+      stateName: "Ohio",
+      stateCode: "OH",
+      geojsonUrl: "/assets/data/ohio.geojson",
+      fitLabel: "Fit Ohio",
+      pageTitle: "Bitcoin Ohio Merchants",
+      coverage: [
+        { name: "NW (Toledo)",     lat: 41.65, lon: -83.55, radius_km: 120 },
+        { name: "NE (Cleveland)",  lat: 41.50, lon: -81.70, radius_km: 120 },
+        { name: "Central (CBus)",  lat: 39.96, lon: -82.99, radius_km: 140 },
+        { name: "SW (Cincy)",      lat: 39.10, lon: -84.51, radius_km: 120 },
+        { name: "SE (Appalachia)", lat: 38.60, lon: -82.50, radius_km: 140 }
+      ]
+    };
+  </script>
+
+  <script src="/assets/js/map.js"></script>
+</body>
+</html>
