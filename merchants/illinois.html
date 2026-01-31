@@ -58,7 +58,7 @@
 
           <div class="chips" aria-label="Quick filters">
             <span class="chip">Source: api.btcmap.org (Places v4)</span>
-            <span class="chip">Indiana: point-in-polygon</span>
+            <span class="chip">Illinois: point-in-polygon</span>
             <span class="chip">Excluded: currency_exchange, local_atm</span>
           </div>
 
@@ -67,7 +67,7 @@
               Showing: <strong><span id="count">0</span></strong> <span id="countNote">locations</span>
             </div>
             <div class="btns">
-              <button id="btnFit" type="button">Fit Indiana</button>
+              <button id="btnFit" type="button">Fit Illinois</button>
               <button id="btnReload" type="button">Reload</button>
             </div>
           </div>
@@ -110,8 +110,6 @@
       geojsonUrl: "/assets/data/illinois.geojson",
       fitLabel: "Fit Illinois",
       pageTitle: "Bitcoin Illinois Merchants",
-      // leave your linked intro if you prefer; otherwise this will replace it:
-      // pageIntro: "Map of Bitcoin-accepting merchants in Illinois. Please confirm details from the merchant before traveling.",
       coverage: [
         { name: "Chicago / NE",  lat: 41.88, lon: -87.63, radius_km: 110 },
         { name: "North",        lat: 42.25, lon: -89.10, radius_km: 140 },
