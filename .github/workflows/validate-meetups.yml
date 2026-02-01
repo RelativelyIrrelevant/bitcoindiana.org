@@ -1,0 +1,29 @@
+name: Validate meetups.json
+
+on:
+  pull_request:
+    paths:
+      - "assets/data/meetups.json"
+      - ".github/workflows/validate-meetups.yml"
+      - "scripts/validate-meetups.mjs"
+  push:
+    branches: ["main"]
+    paths:
+      - "assets/data/meetups.json"
+      - ".github/workflows/validate-meetups.yml"
+      - "scripts/validate-meetups.mjs"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate meetups.json
+        run: node scripts/validate-meetups.mjs
