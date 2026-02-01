@@ -1,0 +1,50 @@
+name: Auto-format meetups.json (PRs)
+
+on:
+  pull_request:
+    paths:
+      - "assets/data/meetups.json"
+      - ".github/workflows/format-meetups.yml"
+      - "scripts/format-meetups.mjs"
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: format-meetups-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  format:
+    # Avoid running on draft PRs (optional; remove if you want it to run anyway)
+    if: ${{ github.event.pull_request.draft == false }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Format meetups.json
+        run: node scripts/format-meetups.mjs
+
+      - name: Commit changes (if any)
+        run: |
+          if git diff --quiet; then
+            echo "No formatting changes needed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/data/meetups.json
+          git commit -m "chore: format meetups.json"
+          git push
