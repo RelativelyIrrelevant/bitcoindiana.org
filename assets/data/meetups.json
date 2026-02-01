@@ -245,8 +245,8 @@
     "links": [
       { "type": "website", "label": "cincybtc.com", "url": "https://cincybtc.com" },
       { "type": "meetup", "label": "meetup.com/cincinnati-bitcoin", "url": "https://www.meetup.com/cincinnati-bitcoin" },
-      { "type": "x", "label": "@cincy_bitcoin", "url": "https://x.com/cincy_bitcoin" },
-      { "type": "linktree", "label": "linktr.ee/BitcoinCincy", "url": "https://linktr.ee/BitcoinCincy" }
+      { "type": "linktree", "label": "linktr.ee/BitcoinCincy", "url": "https://linktr.ee/BitcoinCincy" },
+      { "type": "x", "label": "@cincy_bitcoin", "url": "https://x.com/cincy_bitcoin" }
     ],
     "notes": "5 to 20 attend. Venue often in KY but serves OH area. Confirm details with the organizer."
   },
