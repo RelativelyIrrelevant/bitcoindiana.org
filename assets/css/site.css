@@ -224,3 +224,15 @@ button:active{ transform:translateY(1px); }
   border: 2px solid rgba(255,255,255,0.9);
   box-shadow: 0 6px 14px rgba(0,0,0,0.45);
 }
+
+/* Playful "IN" highlight */
+.in {
+  color: inherit;
+  transition: color 120ms ease, text-shadow 120ms ease;
+}
+
+/* When hovering the word containing "in" */
+.in-word:hover .in {
+  color: #F7931A; /* Bitcoin orange */
+  text-shadow: 0 0 10px rgba(247, 147, 26, 0.25);
+}
