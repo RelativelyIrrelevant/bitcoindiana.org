@@ -1,8 +1,8 @@
 # bitcoindiana.org
 
 **bitcoINdiana.org** helps people find:
-- **Bitcoin-accepting merchants** ([map](/merchants/))
-- **Recurring Bitcoin meetups** ([map](/meetups/))
+- **Bitcoin-accepting merchants** ([map](https://bitcoindiana.org/merchants/))
+- **Recurring Bitcoin meetups** ([map](https://bitcoindiana.org/meetups/))
 
 Our current focus is **Indiana** and its bordering states (**IL, KY, MI, OH**). We may expand to additional states over time.
 
