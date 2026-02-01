@@ -320,8 +320,8 @@
     "lon": -83.09096725448457,
     "links": [
       { "type": "website", "label": "columbusbitcoin.io", "url": "http://columbusbitcoin.io/" },
-      { "type": "x", "label": "@ColumbusBitcoin", "url": "https://x.com/ColumbusBitcoin/" },
-      { "type": "meetup", "label": "meetup.com/columbusbitcoin", "url": "https://www.meetup.com/columbusbitcoin" }
+      { "type": "meetup", "label": "meetup.com/columbusbitcoin", "url": "https://www.meetup.com/columbusbitcoin" },
+      { "type": "x", "label": "@ColumbusBitcoin", "url": "https://x.com/ColumbusBitcoin/" }
     ],
     "notes": "10 to 30 attend. Schedule and location can change. Confirm details with the organizer."
   },
