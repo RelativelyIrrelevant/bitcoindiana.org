@@ -5,8 +5,8 @@
     "frequency": "Monthly",
     "schedule": "Monthly | 3rd Wednesday | 7:00 PM ET",
     "day": "Wednesday",
-    "venue": "Union Jack Pub",
-    "address": "921 Broad Ripple Ave, Indianapolis, IN 46220",
+    "venue": "Keystone Sports Review",
+    "address": "2131 E 71st St, Indianapolis, IN 46220",
     "city": "Indianapolis",
     "county": "Marion",
     "state": "IN",
@@ -28,14 +28,14 @@
       "Zionsville"
     ],
     "zip": "46220",
-    "lat": 39.869526764597815,
-    "lon": -86.14215650472906,
+    "lat": 39.88276056075816,
+    "lon":  -86.12291933698,
     "links": [
       { "type": "website", "label": "indybitcoinmeetup.com", "url": "https://indybitcoinmeetup.com" },
       { "type": "meetup", "label": "meetup.com/indianapolis-bitcoin-meetup", "url": "https://www.meetup.com/indianapolis-bitcoin-meetup/" },
       { "type": "x", "label": "@IndyBitcoin", "url": "https://x.com/IndyBitcoin" }
     ],
-    "notes": "30 to 50 attend. Confirm details with the organizer."
+    "notes": "Feb 2026 new location, upstairs at Keystone Sports Review. Confirm details with the organizer."
   },
   {
     "id": "marion-bitcoin-meetup",
