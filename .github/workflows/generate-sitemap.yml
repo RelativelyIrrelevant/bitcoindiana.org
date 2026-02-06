@@ -1,0 +1,33 @@
+name: Generate Sitemap & robots.txt
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # allows manual trigger from Actions tab
+
+jobs:
+  generate-sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # optional, but useful if you later want commit dates
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # or whatever you use elsewhere
+
+      - name: Generate sitemap.xml and robots.txt
+        run: node scripts/generate-sitemap.mjs
+
+      - name: Commit changes if any
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-update sitemap.xml and robots.txt"
+          file_pattern: sitemap.xml robots.txt
+          skip_dirty_check: false
+          skip_fetch: true
+          skip_checkout: true
