@@ -214,14 +214,8 @@
         })
       );
 
-      // ── Final status + re-apply playful "IN" highlighting ─────────────────
-      // IMPORTANT: Called LAST after all text updates so highlightPlayfulIn()
-      // can see final content (with links) and apply "in" spans safely.
+      // ── Final status ────────────────────────────────────────────────────────
       setStatus(`Selected: ${chosen.name}. Loading merchants…`);
-
-      if (window.highlightPlayfulIn) {
-        window.highlightPlayfulIn(); // from site.js – makes "in" glow on hover
-      }
 
     } catch (e) {
       console.error(e);
