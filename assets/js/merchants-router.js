@@ -1,216 +1,213 @@
 // assets/js/merchants-router.js
-// Chooses a state config based on ?state= (code or slug), canonicalizes to slug,
-// then exposes window.BITCOININDIANA_MAP_CONFIG for map.js.
 //
-// Expected registry format (JSON):
-// {
-//   "default": "indiana",              // optional, slug
-//   "states": [
-//     {
-//       "code": "IN",
-//       "slug": "indiana",
-//       "name": "Indiana",
-//       "stateCode": "IN",             // optional; if omitted, code is used
-//       "geojsonUrl": "/assets/data/us-states/indiana.geojson",
-//       "fitLabel": "Indiana",
-//       "pageTitle": "Indiana Merchants",
-//       "coverage": [ { "lat":..., "lon":..., "radius_km":... }, ... ]
-//     }
-//   ]
-// }
+// Single-page merchants router:
+// - Loads /assets/data/merchant-states.json
+// - Parses ?state= (accepts slug "kentucky" or code "ky", case-insensitive)
+// - Defaults to registry.default (indiana)
+// - Canonicalizes URL to slug form (?state=kentucky) via history.replaceState
+// - Sets window.BITCOININDIANA_MAP_CONFIG for map.js
+// - Updates: document.title, meta description, canonical link, H1, intro, chips
+// - Populates dropdown (#stateSelect)
 
 (function () {
   "use strict";
 
   const REGISTRY_URL = "/assets/data/merchant-states.json";
 
-  // If you later want to use this router on other pages, you can override via:
-  // window.BITCOININDIANA_MERCHANTS_ROUTER = { registryUrl: "..." }
-  const OVERRIDE = window.BITCOININDIANA_MERCHANTS_ROUTER || {};
-  const registryUrl = OVERRIDE.registryUrl || REGISTRY_URL;
-
-  function normalizeToken(s) {
+  function norm(s) {
     return String(s || "")
       .trim()
       .toLowerCase()
-      // be forgiving about users typing spaces/underscores
       .replace(/_/g, "-")
       .replace(/\s+/g, "-")
-      // strip leading/trailing hyphens
+      .replace(/[^a-z0-9-]/g, "")
+      .replace(/-+/g, "-")
       .replace(/^-+|-+$/g, "");
   }
 
-  function getQueryParam(name) {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(name);
+  function getStateParam() {
+    const u = new URL(window.location.href);
+    return u.searchParams.get("state");
   }
 
-  function setCanonicalStateParam(slug) {
-    const url = new URL(window.location.href);
-    url.searchParams.set("state", slug);
-
-    // Keep other query params intact; just normalize state=.
-    // Replace instead of push so back button doesn't bounce between aliases.
-    window.history.replaceState({}, "", url.toString());
+  function setCanonicalSlug(slug) {
+    const u = new URL(window.location.href);
+    u.searchParams.set("state", slug);
+    // Replace (not push) to avoid back button bouncing between aliases.
+    window.history.replaceState({}, "", u.toString());
   }
 
-  function buildLookups(states) {
-    const bySlug = Object.create(null);
-    const byCode = Object.create(null);
+  function setCanonicalLink(url) {
+    const link = document.querySelector('link[rel="canonical"]');
+    if (!link) return;
+    link.setAttribute("href", url);
+  }
+
+  function setMetaDescription(desc) {
+    const meta = document.querySelector('meta[name="description"]');
+    if (!meta) return;
+    meta.setAttribute("content", desc);
+  }
+
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = value;
+  }
+
+  function ensureSlugLinksInIntro(introEl, chosen) {
+    // Build a consistent intro with links (so we don't lose anchors via textContent).
+    // This replaces the intro contents entirely.
+    // If you prefer to keep your existing intro markup, remove this function call.
+    if (!introEl) return;
+
+    const stateName = chosen.name;
+    const stateSlug = chosen.slug;
+
+    introEl.innerHTML = `
+      Map of Bitcoin-accepting merchants in
+      <a href="/merchants/?state=${encodeURIComponent(stateSlug)}">${escapeHtml(stateName)}</a>.
+      Please confirm merchant details before traveling.
+      Return (Back Home Again in) <a href="/merchants/?state=indiana">Indiana</a>.
+    `.trim();
+  }
+
+  function escapeHtml(str) {
+    return String(str ?? "").replace(/[&<>"']/g, s => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[s]));
+  }
+
+  function populateDropdown(selectEl, states, chosenSlug) {
+    if (!selectEl) return;
+
+    // Clear existing options (if any)
+    selectEl.innerHTML = "";
 
     for (const st of states) {
-      if (!st || !st.slug || !st.name) continue;
-
-      const slug = normalizeToken(st.slug);
-      const code = normalizeToken(st.code || st.stateCode || "");
-
-      bySlug[slug] = st;
-      if (code) byCode[code] = st;
-
-      // Optional additional aliases field, if you want it later:
-      // "aliases": ["ill.", "illinois-us"] etc.
-      if (Array.isArray(st.aliases)) {
-        for (const a of st.aliases) {
-          const alias = normalizeToken(a);
-          if (alias && !bySlug[alias] && !byCode[alias]) {
-            // Prefer slug-space; but treat aliases as slug-like
-            bySlug[alias] = st;
-          }
-        }
-      }
-    }
-
-    return { bySlug, byCode };
-  }
-
-  function chooseState(registry) {
-    const states = Array.isArray(registry.states) ? registry.states : [];
-    const { bySlug, byCode } = buildLookups(states);
-
-    const defaultSlug = normalizeToken(registry.default || "indiana");
-
-    const raw = getQueryParam("state");
-    const token = normalizeToken(raw);
-
-    let chosen = null;
-
-    if (!token) {
-      chosen = bySlug[defaultSlug] || states[0] || null;
-      return { chosen, tokenUsed: null, canonicalSlug: chosen ? normalizeToken(chosen.slug) : null };
-    }
-
-    // Try code match first (il), then slug match (illinois)
-    chosen = byCode[token] || bySlug[token] || null;
-
-    if (!chosen) {
-      chosen = bySlug[defaultSlug] || states[0] || null;
-      return { chosen, tokenUsed: token, canonicalSlug: chosen ? normalizeToken(chosen.slug) : null, unknown: true };
-    }
-
-    return { chosen, tokenUsed: token, canonicalSlug: normalizeToken(chosen.slug) };
-  }
-
-  function stateToMapConfig(st) {
-    // Map.js expects these keys (per your notes):
-    // stateName, stateCode, geojsonUrl, fitLabel, pageTitle(optional), coverage
-    return {
-      stateName: st.name,
-      stateCode: st.stateCode || st.code || "",
-      geojsonUrl: st.geojsonUrl,
-      fitLabel: st.fitLabel || st.name,
-      pageTitle: st.pageTitle || `${st.name} Bitcoin Merchants`,
-      coverage: Array.isArray(st.coverage) ? st.coverage : []
-    };
-  }
-
-  function updatePageText(config) {
-    // Optional hooks you already support:
-    const titleEl = document.getElementById("pageTitle");
-    if (titleEl && config.pageTitle) titleEl.textContent = config.pageTitle;
-  }
-
-  function populateDropdown(registry, chosenSlug) {
-    const select = document.getElementById("stateSelect");
-    if (!select) return;
-
-    // If the markup already has options, don't duplicate.
-    if (select.options && select.options.length > 0) return;
-
-    const states = Array.isArray(registry.states) ? registry.states : [];
-    // Sort by display name
-    const sorted = [...states].sort((a, b) => String(a.name).localeCompare(String(b.name)));
-
-    for (const st of sorted) {
       const opt = document.createElement("option");
-      opt.value = normalizeToken(st.slug);
+      opt.value = st.slug;          // canonical value is slug
       opt.textContent = st.name;
-      if (normalizeToken(st.slug) === chosenSlug) opt.selected = true;
-      select.appendChild(opt);
+      if (st.slug === chosenSlug) opt.selected = true;
+      selectEl.appendChild(opt);
     }
 
-    // Navigation on change (canonical slug form)
-    select.addEventListener("change", () => {
-      const slug = normalizeToken(select.value);
-      const url = new URL(window.location.href);
-      url.searchParams.set("state", slug);
-      window.location.href = url.toString();
+    selectEl.addEventListener("change", () => {
+      const slug = norm(selectEl.value);
+      const u = new URL(window.location.href);
+      u.searchParams.set("state", slug);
+      // full navigation (simpler, ensures clean boot)
+      window.location.href = u.toString();
     });
   }
 
-  async function loadRegistry() {
-    const res = await fetch(registryUrl, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Failed to load merchant states registry: ${res.status} ${res.statusText}`);
-    return await res.json();
+  function buildLookups(states) {
+    const bySlug = new Map();
+    const byCode = new Map();
+
+    for (const st of states) {
+      const slug = norm(st.slug);
+      const code = norm(st.code);
+
+      if (slug) bySlug.set(slug, st);
+      if (code) byCode.set(code, st);
+    }
+    return { bySlug, byCode };
   }
 
   async function main() {
     const statusEl = document.getElementById("status");
-    const setStatus = (msg) => {
-      if (statusEl) statusEl.textContent = msg;
-    };
+    const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg || ""; };
 
     try {
-      setStatus("Loading state registry…");
+      setStatus("Loading states…");
 
-      const registry = await loadRegistry();
-      const result = chooseState(registry);
+      const res = await fetch(REGISTRY_URL, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Failed to load merchant-states.json (HTTP ${res.status})`);
+      const registry = await res.json();
 
-      if (!result.chosen) {
-        setStatus("No states configured.");
-        return;
+      const states = Array.isArray(registry.states) ? registry.states : [];
+      if (!states.length) throw new Error("No states found in merchant-states.json");
+
+      // Sort for dropdown (stable UX)
+      const sortedStates = [...states].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+
+      const { bySlug, byCode } = buildLookups(sortedStates);
+
+      const defaultSlug = norm(registry.default || "indiana");
+
+      const rawParam = getStateParam();
+      const token = norm(rawParam);
+
+      let chosen = null;
+
+      if (!token) {
+        chosen = bySlug.get(defaultSlug) || sortedStates[0];
+      } else {
+        chosen = bySlug.get(token) || byCode.get(token) || null;
+        if (!chosen) chosen = bySlug.get(defaultSlug) || sortedStates[0];
       }
 
-      // Canonicalize URL to slug form.
-      // If user used ?state=il we rewrite to ?state=illinois.
-      // If unknown token, we rewrite to the default slug as well.
-      if (result.canonicalSlug) {
-        const raw = getQueryParam("state");
-        const token = normalizeToken(raw);
-        if (token !== result.canonicalSlug) {
-          setCanonicalStateParam(result.canonicalSlug);
-        } else if (!raw) {
-          // Ensure state param exists (optional). If you don't want this, delete this block.
-          setCanonicalStateParam(result.canonicalSlug);
-        }
+      const chosenSlug = norm(chosen.slug);
+
+      // Canonicalize to slug form
+      // - If user used code (ky), rewrite to slug (kentucky)
+      // - If missing param, add ?state=indiana (optional but keeps URL explicit)
+      const canonicalWanted = chosenSlug;
+      const tokenNow = norm(getStateParam());
+      if (tokenNow !== canonicalWanted) {
+        setCanonicalSlug(canonicalWanted);
       }
 
-      const config = stateToMapConfig(result.chosen);
+      // Update SEO + page copy
+      const title = `${chosen.name} Merchants | bitcoINdiana`;
+      const desc = `A map of merchants that accept Bitcoin in ${chosen.name}.`;
 
-      window.BITCOININDIANA_MAP_CONFIG = config;
+      document.title = title;
+      setMetaDescription(desc);
 
-      updatePageText(config);
-      populateDropdown(registry, normalizeToken(result.chosen.slug));
+      // Canonical URL should point to the slug form
+      // Keep current origin, but normalize path + query.
+      const canonicalUrl = `${window.location.origin}/merchants/?state=${encodeURIComponent(chosenSlug)}`;
+      setCanonicalLink(canonicalUrl);
 
-      // If map.js is loaded with "defer" after this file, it will run afterward.
-      // If map.js was loaded before this router, you'll need to refactor map.js into an init function.
-      setStatus(`Selected: ${config.stateName}. Loading merchants…`);
-    } catch (err) {
-      console.error(err);
+      // H1
+      setText("pageTitle", `Bitcoin ${chosen.name} Merchants`);
+
+      // Intro (with links)
+      const introEl = document.getElementById("pageIntro");
+      ensureSlugLinksInIntro(introEl, chosen);
+
+      // Chips / labels
+      const pipChip = document.getElementById("pipChip");
+      if (pipChip) pipChip.textContent = `${chosen.name}: point-in-polygon`;
+
+      // Fit button baseline text will be set by map.js, but we can set a placeholder
+      const btnFit = document.getElementById("btnFit");
+      if (btnFit) btnFit.textContent = `Fit ${chosen.name}`;
+
+      // Dropdown
+      populateDropdown(document.getElementById("stateSelect"), sortedStates, chosenSlug);
+
+      // Expose config for map.js
+      window.BITCOININDIANA_MAP_CONFIG = {
+        stateName: chosen.name,
+        stateCode: chosen.code,
+        geojsonUrl: chosen.geojsonUrl,
+        coverage: Array.isArray(chosen.coverage) ? chosen.coverage : []
+      };
+
+      setStatus(`Selected: ${chosen.name}. Loading merchants…`);
+    } catch (e) {
+      console.error(e);
       const statusEl = document.getElementById("status");
-      if (statusEl) statusEl.textContent = `Error: ${err.message}`;
+      if (statusEl) statusEl.textContent = e?.message || String(e);
     }
   }
 
-  // Run ASAP (after DOM is parsed if script uses defer).
   main();
 })();
