@@ -2,16 +2,545 @@
   "default": "indiana",
   "states": [
     {
-      "code": "IN",
-      "slug": "indiana",
-      "name": "Indiana",
-      "geojsonUrl": "/assets/data/us-states/indiana.geojson",
+      "code": "AL",
+      "slug": "alabama",
+      "name": "Alabama",
+      "geojsonUrl": "/assets/data/us-states/alabama.geojson",
       "coverage": [
-        { "name": "North",   "lat": 41.55, "lon": -86.2,  "radius_km": 120 },
-        { "name": "Central", "lat": 39.85, "lon": -86.15, "radius_km": 150 },
-        { "name": "South",   "lat": 38.35, "lon": -86.75, "radius_km": 140 },
-        { "name": "East",    "lat": 40.05, "lon": -85.35, "radius_km": 120 },
-        { "name": "West",    "lat": 40.05, "lon": -87.25, "radius_km": 120 }
+        {
+          "name": "Grid 1",
+          "lat": 31.41778,
+          "lon": -87.87752,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 2",
+          "lat": 31.41778,
+          "lon": -86.69013,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 3",
+          "lat": 31.41778,
+          "lon": -85.50275,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 4",
+          "lat": 33.81107,
+          "lon": -87.87752,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 5",
+          "lat": 33.81107,
+          "lon": -86.69013,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 6",
+          "lat": 33.81107,
+          "lon": -85.50275,
+          "radius_km": 130
+        }
+      ]
+    },
+    {
+      "code": "AK",
+      "slug": "alaska",
+      "name": "Alaska",
+      "geojsonUrl": "/assets/data/us-states/alaska.geojson",
+      "coverage": [
+        {
+          "name": "Anchorage",
+          "lat": 61.2181,
+          "lon": -149.9003,
+          "radius_km": 260
+        },
+        {
+          "name": "Fairbanks",
+          "lat": 64.8378,
+          "lon": -147.7164,
+          "radius_km": 260
+        },
+        {
+          "name": "Juneau",
+          "lat": 58.3019,
+          "lon": -134.4197,
+          "radius_km": 220
+        },
+        {
+          "name": "Nome",
+          "lat": 64.5011,
+          "lon": -165.4064,
+          "radius_km": 260
+        },
+        {
+          "name": "Bethel",
+          "lat": 60.7922,
+          "lon": -161.7558,
+          "radius_km": 260
+        }
+      ]
+    },
+    {
+      "code": "AZ",
+      "slug": "arizona",
+      "name": "Arizona",
+      "geojsonUrl": "/assets/data/us-states/arizona.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 32.75035,
+          "lon": -113.85221,
+          "radius_km": 163
+        },
+        {
+          "name": "Grid 2",
+          "lat": 32.75035,
+          "lon": -111.92942,
+          "radius_km": 163
+        },
+        {
+          "name": "Grid 3",
+          "lat": 32.75035,
+          "lon": -110.00662,
+          "radius_km": 163
+        },
+        {
+          "name": "Grid 4",
+          "lat": 35.58603,
+          "lon": -113.85221,
+          "radius_km": 163
+        },
+        {
+          "name": "Grid 5",
+          "lat": 35.58603,
+          "lon": -111.92942,
+          "radius_km": 163
+        },
+        {
+          "name": "Grid 6",
+          "lat": 35.58603,
+          "lon": -110.00662,
+          "radius_km": 163
+        }
+      ]
+    },
+    {
+      "code": "AR",
+      "slug": "arkansas",
+      "name": "Arkansas",
+      "geojsonUrl": "/assets/data/us-states/arkansas.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 33.87795,
+          "lon": -93.79609,
+          "radius_km": 111
+        },
+        {
+          "name": "Grid 2",
+          "lat": 33.87795,
+          "lon": -92.15242,
+          "radius_km": 111
+        },
+        {
+          "name": "Grid 3",
+          "lat": 33.87795,
+          "lon": -90.50876,
+          "radius_km": 111
+        },
+        {
+          "name": "Grid 4",
+          "lat": 35.62565,
+          "lon": -93.79609,
+          "radius_km": 111
+        },
+        {
+          "name": "Grid 5",
+          "lat": 35.62565,
+          "lon": -92.15242,
+          "radius_km": 111
+        },
+        {
+          "name": "Grid 6",
+          "lat": 35.62565,
+          "lon": -90.50876,
+          "radius_km": 111
+        }
+      ]
+    },
+    {
+      "code": "CA",
+      "slug": "california",
+      "name": "California",
+      "geojsonUrl": "/assets/data/us-states/california.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 34.11338,
+          "lon": -122.69657,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 2",
+          "lat": 34.11338,
+          "lon": -119.27054,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 3",
+          "lat": 34.11338,
+          "lon": -115.84451,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 4",
+          "lat": 37.27184,
+          "lon": -122.69657,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 5",
+          "lat": 37.27184,
+          "lon": -119.27054,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 6",
+          "lat": 37.27184,
+          "lon": -115.84451,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 7",
+          "lat": 40.43029,
+          "lon": -122.69657,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 8",
+          "lat": 40.43029,
+          "lon": -119.27054,
+          "radius_km": 209
+        },
+        {
+          "name": "Grid 9",
+          "lat": 40.43029,
+          "lon": -115.84451,
+          "radius_km": 209
+        }
+      ]
+    },
+    {
+      "code": "CO",
+      "slug": "colorado",
+      "name": "Colorado",
+      "geojsonUrl": "/assets/data/us-states/colorado.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 37.99518,
+          "lon": -107.89031,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 2",
+          "lat": 37.99518,
+          "lon": -105.55082,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 3",
+          "lat": 37.99518,
+          "lon": -103.21132,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 4",
+          "lat": 40.00069,
+          "lon": -107.89031,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 5",
+          "lat": 40.00069,
+          "lon": -105.55082,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 6",
+          "lat": 40.00069,
+          "lon": -103.21132,
+          "radius_km": 135
+        }
+      ]
+    },
+    {
+      "code": "CT",
+      "slug": "connecticut",
+      "name": "Connecticut",
+      "geojsonUrl": "/assets/data/us-states/connecticut.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 41.5174,
+          "lon": -73.24317,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 2",
+          "lat": 41.5174,
+          "lon": -72.27396,
+          "radius_km": 80
+        },
+        {
+          "name": "Center",
+          "lat": 41.5174,
+          "lon": -72.75857,
+          "radius_km": 92
+        }
+      ]
+    },
+    {
+      "code": "DE",
+      "slug": "delaware",
+      "name": "Delaware",
+      "geojsonUrl": "/assets/data/us-states/delaware.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 39.14477,
+          "lon": -75.60373,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 2",
+          "lat": 39.14477,
+          "lon": -75.23387,
+          "radius_km": 80
+        },
+        {
+          "name": "Center",
+          "lat": 39.14477,
+          "lon": -75.4188,
+          "radius_km": 92
+        }
+      ]
+    },
+    {
+      "code": "DC",
+      "slug": "district-of-columbia",
+      "name": "District Of Columbia",
+      "geojsonUrl": "/assets/data/us-states/district-of-columbia.geojson",
+      "coverage": [
+        {
+          "name": "Washington, DC",
+          "lat": 38.9072,
+          "lon": -77.0369,
+          "radius_km": 45
+        }
+      ]
+    },
+    {
+      "code": "FL",
+      "slug": "florida",
+      "name": "Florida",
+      "geojsonUrl": "/assets/data/us-states/florida.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 25.62073,
+          "lon": -86.36768,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 2",
+          "lat": 25.62073,
+          "lon": -83.83315,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 3",
+          "lat": 25.62073,
+          "lon": -81.29862,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 4",
+          "lat": 27.77279,
+          "lon": -86.36768,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 5",
+          "lat": 27.77279,
+          "lon": -83.83315,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 6",
+          "lat": 27.77279,
+          "lon": -81.29862,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 7",
+          "lat": 29.92486,
+          "lon": -86.36768,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 8",
+          "lat": 29.92486,
+          "lon": -83.83315,
+          "radius_km": 156
+        },
+        {
+          "name": "Grid 9",
+          "lat": 29.92486,
+          "lon": -81.29862,
+          "radius_km": 156
+        }
+      ]
+    },
+    {
+      "code": "GA",
+      "slug": "georgia",
+      "name": "Georgia",
+      "geojsonUrl": "/assets/data/us-states/georgia.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 31.51872,
+          "lon": -84.81106,
+          "radius_km": 134
+        },
+        {
+          "name": "Grid 2",
+          "lat": 31.51872,
+          "lon": -83.22286,
+          "radius_km": 134
+        },
+        {
+          "name": "Grid 3",
+          "lat": 31.51872,
+          "lon": -81.63465,
+          "radius_km": 134
+        },
+        {
+          "name": "Grid 4",
+          "lat": 33.84009,
+          "lon": -84.81106,
+          "radius_km": 134
+        },
+        {
+          "name": "Grid 5",
+          "lat": 33.84009,
+          "lon": -83.22286,
+          "radius_km": 134
+        },
+        {
+          "name": "Grid 6",
+          "lat": 33.84009,
+          "lon": -81.63465,
+          "radius_km": 134
+        }
+      ]
+    },
+    {
+      "code": "HI",
+      "slug": "hawaii",
+      "name": "Hawaii",
+      "geojsonUrl": "/assets/data/us-states/hawaii.geojson",
+      "coverage": [
+        {
+          "name": "Oahu (Honolulu)",
+          "lat": 21.3069,
+          "lon": -157.8583,
+          "radius_km": 80
+        },
+        {
+          "name": "Hawaii (Hilo)",
+          "lat": 19.707,
+          "lon": -155.087,
+          "radius_km": 90
+        },
+        {
+          "name": "Maui (Kahului)",
+          "lat": 20.8893,
+          "lon": -156.4729,
+          "radius_km": 80
+        },
+        {
+          "name": "Kauai (Lihue)",
+          "lat": 21.9811,
+          "lon": -159.3711,
+          "radius_km": 70
+        }
+      ]
+    },
+    {
+      "code": "ID",
+      "slug": "idaho",
+      "name": "Idaho",
+      "geojsonUrl": "/assets/data/us-states/idaho.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 43.15687,
+          "lon": -116.18639,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 2",
+          "lat": 43.15687,
+          "lon": -114.12941,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 3",
+          "lat": 43.15687,
+          "lon": -112.07242,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 4",
+          "lat": 45.49448,
+          "lon": -116.18639,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 5",
+          "lat": 45.49448,
+          "lon": -114.12941,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 6",
+          "lat": 45.49448,
+          "lon": -112.07242,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 7",
+          "lat": 47.8321,
+          "lon": -116.18639,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 8",
+          "lat": 47.8321,
+          "lon": -114.12941,
+          "radius_km": 137
+        },
+        {
+          "name": "Grid 9",
+          "lat": 47.8321,
+          "lon": -112.07242,
+          "radius_km": 137
+        }
       ]
     },
     {
@@ -20,11 +549,174 @@
       "name": "Illinois",
       "geojsonUrl": "/assets/data/us-states/illinois.geojson",
       "coverage": [
-        { "name": "Chicago / NE", "lat": 41.88, "lon": -87.63, "radius_km": 110 },
-        { "name": "North",        "lat": 42.25, "lon": -89.1,  "radius_km": 140 },
-        { "name": "Central",      "lat": 40.1,  "lon": -89.2,  "radius_km": 180 },
-        { "name": "West",         "lat": 40.6,  "lon": -91.1,  "radius_km": 130 },
-        { "name": "South",        "lat": 37.55, "lon": -89.25, "radius_km": 160 }
+        {
+          "name": "Grid 1",
+          "lat": 38.3548,
+          "lon": -90.84335,
+          "radius_km": 148
+        },
+        {
+          "name": "Grid 2",
+          "lat": 38.3548,
+          "lon": -89.50409,
+          "radius_km": 148
+        },
+        {
+          "name": "Grid 3",
+          "lat": 38.3548,
+          "lon": -88.16484,
+          "radius_km": 148
+        },
+        {
+          "name": "Grid 4",
+          "lat": 41.1238,
+          "lon": -90.84335,
+          "radius_km": 148
+        },
+        {
+          "name": "Grid 5",
+          "lat": 41.1238,
+          "lon": -89.50409,
+          "radius_km": 148
+        },
+        {
+          "name": "Grid 6",
+          "lat": 41.1238,
+          "lon": -88.16484,
+          "radius_km": 148
+        }
+      ]
+    },
+    {
+      "code": "IN",
+      "slug": "indiana",
+      "name": "Indiana",
+      "geojsonUrl": "/assets/data/us-states/indiana.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 38.77278,
+          "lon": -87.52373,
+          "radius_km": 108
+        },
+        {
+          "name": "Grid 2",
+          "lat": 38.77278,
+          "lon": -86.42828,
+          "radius_km": 108
+        },
+        {
+          "name": "Grid 3",
+          "lat": 38.77278,
+          "lon": -85.33283,
+          "radius_km": 108
+        },
+        {
+          "name": "Grid 4",
+          "lat": 40.76465,
+          "lon": -87.52373,
+          "radius_km": 108
+        },
+        {
+          "name": "Grid 5",
+          "lat": 40.76465,
+          "lon": -86.42828,
+          "radius_km": 108
+        },
+        {
+          "name": "Grid 6",
+          "lat": 40.76465,
+          "lon": -85.33283,
+          "radius_km": 108
+        }
+      ]
+    },
+    {
+      "code": "IA",
+      "slug": "iowa",
+      "name": "Iowa",
+      "geojsonUrl": "/assets/data/us-states/iowa.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 41.15893,
+          "lon": -95.55652,
+          "radius_km": 112
+        },
+        {
+          "name": "Grid 2",
+          "lat": 41.15893,
+          "lon": -93.39016,
+          "radius_km": 112
+        },
+        {
+          "name": "Grid 3",
+          "lat": 41.15893,
+          "lon": -91.22379,
+          "radius_km": 112
+        },
+        {
+          "name": "Grid 4",
+          "lat": 42.72027,
+          "lon": -95.55652,
+          "radius_km": 112
+        },
+        {
+          "name": "Grid 5",
+          "lat": 42.72027,
+          "lon": -93.39016,
+          "radius_km": 112
+        },
+        {
+          "name": "Grid 6",
+          "lat": 42.72027,
+          "lon": -91.22379,
+          "radius_km": 112
+        }
+      ]
+    },
+    {
+      "code": "KS",
+      "slug": "kansas",
+      "name": "Kansas",
+      "geojsonUrl": "/assets/data/us-states/kansas.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 37.7456,
+          "lon": -100.80811,
+          "radius_km": 123
+        },
+        {
+          "name": "Grid 2",
+          "lat": 37.7456,
+          "lon": -98.32084,
+          "radius_km": 123
+        },
+        {
+          "name": "Grid 3",
+          "lat": 37.7456,
+          "lon": -95.83357,
+          "radius_km": 123
+        },
+        {
+          "name": "Grid 4",
+          "lat": 39.25064,
+          "lon": -100.80811,
+          "radius_km": 123
+        },
+        {
+          "name": "Grid 5",
+          "lat": 39.25064,
+          "lon": -98.32084,
+          "radius_km": 123
+        },
+        {
+          "name": "Grid 6",
+          "lat": 39.25064,
+          "lon": -95.83357,
+          "radius_km": 123
+        }
       ]
     },
     {
@@ -33,11 +725,206 @@
       "name": "Kentucky",
       "geojsonUrl": "/assets/data/us-states/kentucky.geojson",
       "coverage": [
-        { "name": "Louisville / North", "lat": 38.25, "lon": -85.76, "radius_km": 120 },
-        { "name": "Central",           "lat": 37.8,  "lon": -84.27, "radius_km": 170 },
-        { "name": "West",              "lat": 37.2,  "lon": -87.15, "radius_km": 150 },
-        { "name": "East",              "lat": 37.8,  "lon": -82.85, "radius_km": 150 },
-        { "name": "South",             "lat": 36.8,  "lon": -85.8,  "radius_km": 150 }
+        {
+          "name": "Grid 1",
+          "lat": 37.15971,
+          "lon": -88.30431,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 2",
+          "lat": 37.15971,
+          "lon": -85.7699,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 3",
+          "lat": 37.15971,
+          "lon": -83.2355,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 4",
+          "lat": 38.48488,
+          "lon": -88.30431,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 5",
+          "lat": 38.48488,
+          "lon": -85.7699,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 6",
+          "lat": 38.48488,
+          "lon": -83.2355,
+          "radius_km": 120
+        }
+      ]
+    },
+    {
+      "code": "LA",
+      "slug": "louisiana",
+      "name": "Louisiana",
+      "geojsonUrl": "/assets/data/us-states/louisiana.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 29.9486,
+          "lon": -93.17213,
+          "radius_km": 127
+        },
+        {
+          "name": "Grid 2",
+          "lat": 29.9486,
+          "lon": -91.43008,
+          "radius_km": 127
+        },
+        {
+          "name": "Grid 3",
+          "lat": 29.9486,
+          "lon": -89.68804,
+          "radius_km": 127
+        },
+        {
+          "name": "Grid 4",
+          "lat": 31.99578,
+          "lon": -93.17213,
+          "radius_km": 127
+        },
+        {
+          "name": "Grid 5",
+          "lat": 31.99578,
+          "lon": -91.43008,
+          "radius_km": 127
+        },
+        {
+          "name": "Grid 6",
+          "lat": 31.99578,
+          "lon": -89.68804,
+          "radius_km": 127
+        }
+      ]
+    },
+    {
+      "code": "ME",
+      "slug": "maine",
+      "name": "Maine",
+      "geojsonUrl": "/assets/data/us-states/maine.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 44.15964,
+          "lon": -70.39526,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 2",
+          "lat": 44.15964,
+          "lon": -69.01711,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 3",
+          "lat": 44.15964,
+          "lon": -67.63897,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 4",
+          "lat": 46.35967,
+          "lon": -70.39526,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 5",
+          "lat": 46.35967,
+          "lon": -69.01711,
+          "radius_km": 120
+        },
+        {
+          "name": "Grid 6",
+          "lat": 46.35967,
+          "lon": -67.63897,
+          "radius_km": 120
+        }
+      ]
+    },
+    {
+      "code": "MD",
+      "slug": "maryland",
+      "name": "Maryland",
+      "geojsonUrl": "/assets/data/us-states/maryland.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 38.36448,
+          "lon": -78.37797,
+          "radius_km": 98
+        },
+        {
+          "name": "Grid 2",
+          "lat": 38.36448,
+          "lon": -76.15862,
+          "radius_km": 98
+        },
+        {
+          "name": "Grid 3",
+          "lat": 39.27001,
+          "lon": -78.37797,
+          "radius_km": 98
+        },
+        {
+          "name": "Grid 4",
+          "lat": 39.27001,
+          "lon": -76.15862,
+          "radius_km": 98
+        },
+        {
+          "name": "Center",
+          "lat": 38.81725,
+          "lon": -77.26829,
+          "radius_km": 113
+        }
+      ]
+    },
+    {
+      "code": "MA",
+      "slug": "massachusetts",
+      "name": "Massachusetts",
+      "geojsonUrl": "/assets/data/us-states/massachusetts.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 41.65012,
+          "lon": -72.61317,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 2",
+          "lat": 41.65012,
+          "lon": -70.82323,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 3",
+          "lat": 42.47443,
+          "lon": -72.61317,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 4",
+          "lat": 42.47443,
+          "lon": -70.82323,
+          "radius_km": 80
+        },
+        {
+          "name": "Center",
+          "lat": 42.06228,
+          "lon": -71.7182,
+          "radius_km": 92
+        }
       ]
     },
     {
@@ -46,12 +933,648 @@
       "name": "Michigan",
       "geojsonUrl": "/assets/data/us-states/michigan.geojson",
       "coverage": [
-        { "name": "SE (Detroit)",    "lat": 42.33, "lon": -83.05, "radius_km": 120 },
-        { "name": "South Central",   "lat": 42.7,  "lon": -84.55, "radius_km": 140 },
-        { "name": "SW (GR/Kzoo)",    "lat": 42.95, "lon": -85.67, "radius_km": 140 },
-        { "name": "Northern LP",     "lat": 44.8,  "lon": -85.6,  "radius_km": 170 },
-        { "name": "UP West",         "lat": 46.55, "lon": -90.0,  "radius_km": 170 },
-        { "name": "UP Central/East", "lat": 46.35, "lon": -87.0,  "radius_km": 190 }
+        {
+          "name": "Grid 1",
+          "lat": 42.77857,
+          "lon": -89.08444,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 2",
+          "lat": 42.77857,
+          "lon": -86.41704,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 3",
+          "lat": 42.77857,
+          "lon": -83.74964,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 4",
+          "lat": 44.94353,
+          "lon": -89.08444,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 5",
+          "lat": 44.94353,
+          "lon": -86.41704,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 6",
+          "lat": 44.94353,
+          "lon": -83.74964,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 7",
+          "lat": 47.10849,
+          "lon": -89.08444,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 8",
+          "lat": 47.10849,
+          "lon": -86.41704,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 9",
+          "lat": 47.10849,
+          "lon": -83.74964,
+          "radius_km": 144
+        }
+      ]
+    },
+    {
+      "code": "MN",
+      "slug": "minnesota",
+      "name": "Minnesota",
+      "geojsonUrl": "/assets/data/us-states/minnesota.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 44.48019,
+          "lon": -95.9475,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 2",
+          "lat": 44.48019,
+          "lon": -93.36419,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 3",
+          "lat": 44.48019,
+          "lon": -90.78088,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 4",
+          "lat": 46.44186,
+          "lon": -95.9475,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 5",
+          "lat": 46.44186,
+          "lon": -93.36419,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 6",
+          "lat": 46.44186,
+          "lon": -90.78088,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 7",
+          "lat": 48.40352,
+          "lon": -95.9475,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 8",
+          "lat": 48.40352,
+          "lon": -93.36419,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 9",
+          "lat": 48.40352,
+          "lon": -90.78088,
+          "radius_km": 133
+        }
+      ]
+    },
+    {
+      "code": "MS",
+      "slug": "mississippi",
+      "name": "Mississippi",
+      "geojsonUrl": "/assets/data/us-states/mississippi.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 31.37947,
+          "lon": -91.0471,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 2",
+          "lat": 31.37947,
+          "lon": -89.86741,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 3",
+          "lat": 31.37947,
+          "lon": -88.68773,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 4",
+          "lat": 33.79052,
+          "lon": -91.0471,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 5",
+          "lat": 33.79052,
+          "lon": -89.86741,
+          "radius_km": 130
+        },
+        {
+          "name": "Grid 6",
+          "lat": 33.79052,
+          "lon": -88.68773,
+          "radius_km": 130
+        }
+      ]
+    },
+    {
+      "code": "MO",
+      "slug": "missouri",
+      "name": "Missouri",
+      "geojsonUrl": "/assets/data/us-states/missouri.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 37.15027,
+          "lon": -94.66238,
+          "radius_km": 145
+        },
+        {
+          "name": "Grid 2",
+          "lat": 37.15027,
+          "lon": -92.43774,
+          "radius_km": 145
+        },
+        {
+          "name": "Grid 3",
+          "lat": 37.15027,
+          "lon": -90.21309,
+          "radius_km": 145
+        },
+        {
+          "name": "Grid 4",
+          "lat": 39.45918,
+          "lon": -94.66238,
+          "radius_km": 145
+        },
+        {
+          "name": "Grid 5",
+          "lat": 39.45918,
+          "lon": -92.43774,
+          "radius_km": 145
+        },
+        {
+          "name": "Grid 6",
+          "lat": 39.45918,
+          "lon": -90.21309,
+          "radius_km": 145
+        }
+      ]
+    },
+    {
+      "code": "MT",
+      "slug": "montana",
+      "name": "Montana",
+      "geojsonUrl": "/assets/data/us-states/montana.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 45.14271,
+          "lon": -114.04786,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 2",
+          "lat": 45.14271,
+          "lon": -110.04476,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 3",
+          "lat": 45.14271,
+          "lon": -106.04166,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 4",
+          "lat": 46.68606,
+          "lon": -114.04786,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 5",
+          "lat": 46.68606,
+          "lon": -110.04476,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 6",
+          "lat": 46.68606,
+          "lon": -106.04166,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 7",
+          "lat": 48.2294,
+          "lon": -114.04786,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 8",
+          "lat": 48.2294,
+          "lon": -110.04476,
+          "radius_km": 158
+        },
+        {
+          "name": "Grid 9",
+          "lat": 48.2294,
+          "lon": -106.04166,
+          "radius_km": 158
+        }
+      ]
+    },
+    {
+      "code": "NE",
+      "slug": "nebraska",
+      "name": "Nebraska",
+      "geojsonUrl": "/assets/data/us-states/nebraska.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 40.75034,
+          "lon": -102.59576,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 2",
+          "lat": 40.75034,
+          "lon": -99.68077,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 3",
+          "lat": 40.75034,
+          "lon": -96.76578,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 4",
+          "lat": 42.25103,
+          "lon": -102.59576,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 5",
+          "lat": 42.25103,
+          "lon": -99.68077,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 6",
+          "lat": 42.25103,
+          "lon": -96.76578,
+          "radius_km": 133
+        }
+      ]
+    },
+    {
+      "code": "NV",
+      "slug": "nevada",
+      "name": "Nevada",
+      "geojsonUrl": "/assets/data/us-states/nevada.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 36.16845,
+          "lon": -119.01144,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 2",
+          "lat": 36.16845,
+          "lon": -117.02281,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 3",
+          "lat": 36.16845,
+          "lon": -115.03419,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 4",
+          "lat": 38.50117,
+          "lon": -119.01144,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 5",
+          "lat": 38.50117,
+          "lon": -117.02281,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 6",
+          "lat": 38.50117,
+          "lon": -115.03419,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 7",
+          "lat": 40.83389,
+          "lon": -119.01144,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 8",
+          "lat": 40.83389,
+          "lon": -117.02281,
+          "radius_km": 140
+        },
+        {
+          "name": "Grid 9",
+          "lat": 40.83389,
+          "lon": -115.03419,
+          "radius_km": 140
+        }
+      ]
+    },
+    {
+      "code": "NH",
+      "slug": "new-hampshire",
+      "name": "New Hampshire",
+      "geojsonUrl": "/assets/data/us-states/new-hampshire.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 43.34907,
+          "lon": -72.09314,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 2",
+          "lat": 43.34907,
+          "lon": -71.16701,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 3",
+          "lat": 44.65322,
+          "lon": -72.09314,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 4",
+          "lat": 44.65322,
+          "lon": -71.16701,
+          "radius_km": 80
+        },
+        {
+          "name": "Center",
+          "lat": 44.00114,
+          "lon": -71.63008,
+          "radius_km": 92
+        }
+      ]
+    },
+    {
+      "code": "NJ",
+      "slug": "new-jersey",
+      "name": "New Jersey",
+      "geojsonUrl": "/assets/data/us-states/new-jersey.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 39.53574,
+          "lon": -75.14308,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 2",
+          "lat": 39.53574,
+          "lon": -74.31035,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 3",
+          "lat": 40.7502,
+          "lon": -75.14308,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 4",
+          "lat": 40.7502,
+          "lon": -74.31035,
+          "radius_km": 80
+        },
+        {
+          "name": "Center",
+          "lat": 40.14297,
+          "lon": -74.72671,
+          "radius_km": 92
+        }
+      ]
+    },
+    {
+      "code": "NM",
+      "slug": "new-mexico",
+      "name": "New Mexico",
+      "geojsonUrl": "/assets/data/us-states/new-mexico.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 32.27693,
+          "lon": -108.04203,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 2",
+          "lat": 32.27693,
+          "lon": -106.026,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 3",
+          "lat": 32.27693,
+          "lon": -104.00998,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 4",
+          "lat": 34.1662,
+          "lon": -108.04203,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 5",
+          "lat": 34.1662,
+          "lon": -106.026,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 6",
+          "lat": 34.1662,
+          "lon": -104.00998,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 7",
+          "lat": 36.05547,
+          "lon": -108.04203,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 8",
+          "lat": 36.05547,
+          "lon": -106.026,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 9",
+          "lat": 36.05547,
+          "lon": -104.00998,
+          "radius_km": 126
+        }
+      ]
+    },
+    {
+      "code": "NY",
+      "slug": "new-york",
+      "name": "New York",
+      "geojsonUrl": "/assets/data/us-states/new-york.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 41.62604,
+          "lon": -78.4445,
+          "radius_km": 149
+        },
+        {
+          "name": "Grid 2",
+          "lat": 41.62604,
+          "lon": -75.80918,
+          "radius_km": 149
+        },
+        {
+          "name": "Grid 3",
+          "lat": 41.62604,
+          "lon": -73.17387,
+          "radius_km": 149
+        },
+        {
+          "name": "Grid 4",
+          "lat": 43.88591,
+          "lon": -78.4445,
+          "radius_km": 149
+        },
+        {
+          "name": "Grid 5",
+          "lat": 43.88591,
+          "lon": -75.80918,
+          "radius_km": 149
+        },
+        {
+          "name": "Grid 6",
+          "lat": 43.88591,
+          "lon": -73.17387,
+          "radius_km": 149
+        }
+      ]
+    },
+    {
+      "code": "NC",
+      "slug": "north-carolina",
+      "name": "North Carolina",
+      "geojsonUrl": "/assets/data/us-states/north-carolina.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 34.53042,
+          "lon": -82.84467,
+          "radius_km": 139
+        },
+        {
+          "name": "Grid 2",
+          "lat": 34.53042,
+          "lon": -79.89026,
+          "radius_km": 139
+        },
+        {
+          "name": "Grid 3",
+          "lat": 34.53042,
+          "lon": -76.93586,
+          "radius_km": 139
+        },
+        {
+          "name": "Grid 4",
+          "lat": 35.90222,
+          "lon": -82.84467,
+          "radius_km": 139
+        },
+        {
+          "name": "Grid 5",
+          "lat": 35.90222,
+          "lon": -79.89026,
+          "radius_km": 139
+        },
+        {
+          "name": "Grid 6",
+          "lat": 35.90222,
+          "lon": -76.93586,
+          "radius_km": 139
+        }
+      ]
+    },
+    {
+      "code": "ND",
+      "slug": "north-dakota",
+      "name": "North Dakota",
+      "geojsonUrl": "/assets/data/us-states/north-dakota.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 46.70146,
+          "lon": -102.79989,
+          "radius_km": 114
+        },
+        {
+          "name": "Grid 2",
+          "lat": 46.70146,
+          "lon": -100.30187,
+          "radius_km": 114
+        },
+        {
+          "name": "Grid 3",
+          "lat": 46.70146,
+          "lon": -97.80385,
+          "radius_km": 114
+        },
+        {
+          "name": "Grid 4",
+          "lat": 48.23428,
+          "lon": -102.79989,
+          "radius_km": 114
+        },
+        {
+          "name": "Grid 5",
+          "lat": 48.23428,
+          "lon": -100.30187,
+          "radius_km": 114
+        },
+        {
+          "name": "Grid 6",
+          "lat": 48.23428,
+          "lon": -97.80385,
+          "radius_km": 114
+        }
       ]
     },
     {
@@ -60,11 +1583,722 @@
       "name": "Ohio",
       "geojsonUrl": "/assets/data/us-states/ohio.geojson",
       "coverage": [
-        { "name": "NW (Toledo)",     "lat": 41.65, "lon": -83.55, "radius_km": 120 },
-        { "name": "NE (Cleveland)",  "lat": 41.5,  "lon": -81.7,  "radius_km": 120 },
-        { "name": "Central (CBus)",  "lat": 39.96, "lon": -82.99, "radius_km": 140 },
-        { "name": "SW (Cincy)",      "lat": 39.1,  "lon": -84.51, "radius_km": 120 },
-        { "name": "SE (Appalachia)", "lat": 38.6,  "lon": -82.5,  "radius_km": 140 }
+        {
+          "name": "Grid 1",
+          "lat": 39.29763,
+          "lon": -84.10325,
+          "radius_km": 105
+        },
+        {
+          "name": "Grid 2",
+          "lat": 39.29763,
+          "lon": -82.66942,
+          "radius_km": 105
+        },
+        {
+          "name": "Grid 3",
+          "lat": 39.29763,
+          "lon": -81.2356,
+          "radius_km": 105
+        },
+        {
+          "name": "Grid 4",
+          "lat": 41.08423,
+          "lon": -84.10325,
+          "radius_km": 105
+        },
+        {
+          "name": "Grid 5",
+          "lat": 41.08423,
+          "lon": -82.66942,
+          "radius_km": 105
+        },
+        {
+          "name": "Grid 6",
+          "lat": 41.08423,
+          "lon": -81.2356,
+          "radius_km": 105
+        }
+      ]
+    },
+    {
+      "code": "OK",
+      "slug": "oklahoma",
+      "name": "Oklahoma",
+      "geojsonUrl": "/assets/data/us-states/oklahoma.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 34.46238,
+          "lon": -101.57401,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 2",
+          "lat": 34.46238,
+          "lon": -98.71689,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 3",
+          "lat": 34.46238,
+          "lon": -95.85977,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 4",
+          "lat": 36.1556,
+          "lon": -101.57401,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 5",
+          "lat": 36.1556,
+          "lon": -98.71689,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 6",
+          "lat": 36.1556,
+          "lon": -95.85977,
+          "radius_km": 144
+        }
+      ]
+    },
+    {
+      "code": "OR",
+      "slug": "oregon",
+      "name": "Oregon",
+      "geojsonUrl": "/assets/data/us-states/oregon.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 43.06189,
+          "lon": -123.20428,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 2",
+          "lat": 43.06189,
+          "lon": -120.50797,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 3",
+          "lat": 43.06189,
+          "lon": -117.81166,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 4",
+          "lat": 45.20032,
+          "lon": -123.20428,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 5",
+          "lat": 45.20032,
+          "lon": -120.50797,
+          "radius_km": 144
+        },
+        {
+          "name": "Grid 6",
+          "lat": 45.20032,
+          "lon": -117.81166,
+          "radius_km": 144
+        }
+      ]
+    },
+    {
+      "code": "PA",
+      "slug": "pennsylvania",
+      "name": "Pennsylvania",
+      "geojsonUrl": "/assets/data/us-states/pennsylvania.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 40.35746,
+          "lon": -79.54812,
+          "radius_km": 97
+        },
+        {
+          "name": "Grid 2",
+          "lat": 40.35746,
+          "lon": -77.60478,
+          "radius_km": 97
+        },
+        {
+          "name": "Grid 3",
+          "lat": 40.35746,
+          "lon": -75.66144,
+          "radius_km": 97
+        },
+        {
+          "name": "Grid 4",
+          "lat": 41.63239,
+          "lon": -79.54812,
+          "radius_km": 97
+        },
+        {
+          "name": "Grid 5",
+          "lat": 41.63239,
+          "lon": -77.60478,
+          "radius_km": 97
+        },
+        {
+          "name": "Grid 6",
+          "lat": 41.63239,
+          "lon": -75.66144,
+          "radius_km": 97
+        }
+      ]
+    },
+    {
+      "code": "PR",
+      "slug": "puerto-rico",
+      "name": "Puerto Rico",
+      "geojsonUrl": "/assets/data/us-states/puerto-rico.geojson",
+      "coverage": [
+        {
+          "name": "San Juan Metro",
+          "lat": 18.4655,
+          "lon": -66.1057,
+          "radius_km": 80
+        },
+        {
+          "name": "West",
+          "lat": 18.2,
+          "lon": -67.14,
+          "radius_km": 80
+        },
+        {
+          "name": "South",
+          "lat": 18.01,
+          "lon": -66.62,
+          "radius_km": 80
+        }
+      ]
+    },
+    {
+      "code": "RI",
+      "slug": "rhode-island",
+      "name": "Rhode Island",
+      "geojsonUrl": "/assets/data/us-states/rhode-island.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 41.58257,
+          "lon": -71.67722,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 2",
+          "lat": 41.58257,
+          "lon": -71.30612,
+          "radius_km": 80
+        },
+        {
+          "name": "Center",
+          "lat": 41.58257,
+          "lon": -71.49167,
+          "radius_km": 92
+        }
+      ]
+    },
+    {
+      "code": "SC",
+      "slug": "south-carolina",
+      "name": "South Carolina",
+      "geojsonUrl": "/assets/data/us-states/south-carolina.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 32.82859,
+          "lon": -82.55059,
+          "radius_km": 104
+        },
+        {
+          "name": "Grid 2",
+          "lat": 32.82859,
+          "lon": -80.94679,
+          "radius_km": 104
+        },
+        {
+          "name": "Grid 3",
+          "lat": 32.82859,
+          "lon": -79.34299,
+          "radius_km": 104
+        },
+        {
+          "name": "Grid 4",
+          "lat": 34.41656,
+          "lon": -82.55059,
+          "radius_km": 104
+        },
+        {
+          "name": "Grid 5",
+          "lat": 34.41656,
+          "lon": -80.94679,
+          "radius_km": 104
+        },
+        {
+          "name": "Grid 6",
+          "lat": 34.41656,
+          "lon": -79.34299,
+          "radius_km": 104
+        }
+      ]
+    },
+    {
+      "code": "SD",
+      "slug": "south-dakota",
+      "name": "South Dakota",
+      "geojsonUrl": "/assets/data/us-states/south-dakota.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 43.34625,
+          "lon": -102.78751,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 2",
+          "lat": 43.34625,
+          "lon": -100.24714,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 3",
+          "lat": 43.34625,
+          "lon": -97.70677,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 4",
+          "lat": 45.07905,
+          "lon": -102.78751,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 5",
+          "lat": 45.07905,
+          "lon": -100.24714,
+          "radius_km": 126
+        },
+        {
+          "name": "Grid 6",
+          "lat": 45.07905,
+          "lon": -97.70677,
+          "radius_km": 126
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "slug": "tennessee",
+      "name": "Tennessee",
+      "geojsonUrl": "/assets/data/us-states/tennessee.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 35.40706,
+          "lon": -88.86605,
+          "radius_km": 125
+        },
+        {
+          "name": "Grid 2",
+          "lat": 35.40706,
+          "lon": -85.97839,
+          "radius_km": 125
+        },
+        {
+          "name": "Grid 3",
+          "lat": 35.40706,
+          "lon": -83.09073,
+          "radius_km": 125
+        },
+        {
+          "name": "Grid 4",
+          "lat": 36.25443,
+          "lon": -88.86605,
+          "radius_km": 125
+        },
+        {
+          "name": "Grid 5",
+          "lat": 36.25443,
+          "lon": -85.97839,
+          "radius_km": 125
+        },
+        {
+          "name": "Grid 6",
+          "lat": 36.25443,
+          "lon": -83.09073,
+          "radius_km": 125
+        }
+      ]
+    },
+    {
+      "code": "TX",
+      "slug": "texas",
+      "name": "Texas",
+      "geojsonUrl": "/assets/data/us-states/texas.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 27.63045,
+          "lon": -104.44445,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 2",
+          "lat": 27.63045,
+          "lon": -100.07773,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 3",
+          "lat": 27.63045,
+          "lon": -95.711,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 4",
+          "lat": 31.17843,
+          "lon": -104.44445,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 5",
+          "lat": 31.17843,
+          "lon": -100.07773,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 6",
+          "lat": 31.17843,
+          "lon": -95.711,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 7",
+          "lat": 34.72641,
+          "lon": -104.44445,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 8",
+          "lat": 34.72641,
+          "lon": -100.07773,
+          "radius_km": 258
+        },
+        {
+          "name": "Grid 9",
+          "lat": 34.72641,
+          "lon": -95.711,
+          "radius_km": 258
+        }
+      ]
+    },
+    {
+      "code": "UT",
+      "slug": "utah",
+      "name": "Utah",
+      "geojsonUrl": "/assets/data/us-states/utah.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 38.24887,
+          "lon": -113.21755,
+          "radius_km": 141
+        },
+        {
+          "name": "Grid 2",
+          "lat": 38.24887,
+          "lon": -111.54722,
+          "radius_km": 141
+        },
+        {
+          "name": "Grid 3",
+          "lat": 38.24887,
+          "lon": -109.87689,
+          "radius_km": 141
+        },
+        {
+          "name": "Grid 4",
+          "lat": 40.75067,
+          "lon": -113.21755,
+          "radius_km": 141
+        },
+        {
+          "name": "Grid 5",
+          "lat": 40.75067,
+          "lon": -111.54722,
+          "radius_km": 141
+        },
+        {
+          "name": "Grid 6",
+          "lat": 40.75067,
+          "lon": -109.87689,
+          "radius_km": 141
+        }
+      ]
+    },
+    {
+      "code": "VT",
+      "slug": "vermont",
+      "name": "Vermont",
+      "geojsonUrl": "/assets/data/us-states/vermont.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 43.2993,
+          "lon": -72.94421,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 2",
+          "lat": 43.2993,
+          "lon": -71.95777,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 3",
+          "lat": 44.44421,
+          "lon": -72.94421,
+          "radius_km": 80
+        },
+        {
+          "name": "Grid 4",
+          "lat": 44.44421,
+          "lon": -71.95777,
+          "radius_km": 80
+        },
+        {
+          "name": "Center",
+          "lat": 43.87176,
+          "lon": -72.45099,
+          "radius_km": 92
+        }
+      ]
+    },
+    {
+      "code": "VA",
+      "slug": "virginia",
+      "name": "Virginia",
+      "geojsonUrl": "/assets/data/us-states/virginia.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 37.27206,
+          "lon": -82.26989,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 2",
+          "lat": 37.27206,
+          "lon": -79.45884,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 3",
+          "lat": 37.27206,
+          "lon": -76.64779,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 4",
+          "lat": 38.73469,
+          "lon": -82.26989,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 5",
+          "lat": 38.73469,
+          "lon": -79.45884,
+          "radius_km": 133
+        },
+        {
+          "name": "Grid 6",
+          "lat": 38.73469,
+          "lon": -76.64779,
+          "radius_km": 133
+        }
+      ]
+    },
+    {
+      "code": "WA",
+      "slug": "washington",
+      "name": "Washington",
+      "geojsonUrl": "/assets/data/us-states/washington.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 46.40825,
+          "lon": -123.43031,
+          "radius_km": 124
+        },
+        {
+          "name": "Grid 2",
+          "lat": 46.40825,
+          "lon": -120.82458,
+          "radius_km": 124
+        },
+        {
+          "name": "Grid 3",
+          "lat": 46.40825,
+          "lon": -118.21885,
+          "radius_km": 124
+        },
+        {
+          "name": "Grid 4",
+          "lat": 48.13765,
+          "lon": -123.43031,
+          "radius_km": 124
+        },
+        {
+          "name": "Grid 5",
+          "lat": 48.13765,
+          "lon": -120.82458,
+          "radius_km": 124
+        },
+        {
+          "name": "Grid 6",
+          "lat": 48.13765,
+          "lon": -118.21885,
+          "radius_km": 124
+        }
+      ]
+    },
+    {
+      "code": "WV",
+      "slug": "west-virginia",
+      "name": "West Virginia",
+      "geojsonUrl": "/assets/data/us-states/west-virginia.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 38.06155,
+          "lon": -81.82379,
+          "radius_km": 107
+        },
+        {
+          "name": "Grid 2",
+          "lat": 38.06155,
+          "lon": -80.18188,
+          "radius_km": 107
+        },
+        {
+          "name": "Grid 3",
+          "lat": 38.06155,
+          "lon": -78.53998,
+          "radius_km": 107
+        },
+        {
+          "name": "Grid 4",
+          "lat": 39.77972,
+          "lon": -81.82379,
+          "radius_km": 107
+        },
+        {
+          "name": "Grid 5",
+          "lat": 39.77972,
+          "lon": -80.18188,
+          "radius_km": 107
+        },
+        {
+          "name": "Grid 6",
+          "lat": 39.77972,
+          "lon": -78.53998,
+          "radius_km": 107
+        }
+      ]
+    },
+    {
+      "code": "WI",
+      "slug": "wisconsin",
+      "name": "Wisconsin",
+      "geojsonUrl": "/assets/data/us-states/wisconsin.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 43.63833,
+          "lon": -91.87433,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 2",
+          "lat": 43.63833,
+          "lon": -89.84676,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 3",
+          "lat": 43.63833,
+          "lon": -87.8192,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 4",
+          "lat": 45.93116,
+          "lon": -91.87433,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 5",
+          "lat": 45.93116,
+          "lon": -89.84676,
+          "radius_km": 135
+        },
+        {
+          "name": "Grid 6",
+          "lat": 45.93116,
+          "lon": -87.8192,
+          "radius_km": 135
+        }
+      ]
+    },
+    {
+      "code": "WY",
+      "slug": "wyoming",
+      "name": "Wyoming",
+      "geojsonUrl": "/assets/data/us-states/wyoming.geojson",
+      "coverage": [
+        {
+          "name": "Grid 1",
+          "lat": 41.99754,
+          "lon": -109.88943,
+          "radius_km": 132
+        },
+        {
+          "name": "Grid 2",
+          "lat": 41.99754,
+          "lon": -107.55452,
+          "radius_km": 132
+        },
+        {
+          "name": "Grid 3",
+          "lat": 41.99754,
+          "lon": -105.21961,
+          "radius_km": 132
+        },
+        {
+          "name": "Grid 4",
+          "lat": 44.00311,
+          "lon": -109.88943,
+          "radius_km": 132
+        },
+        {
+          "name": "Grid 5",
+          "lat": 44.00311,
+          "lon": -107.55452,
+          "radius_km": 132
+        },
+        {
+          "name": "Grid 6",
+          "lat": 44.00311,
+          "lon": -105.21961,
+          "radius_km": 132
+        }
       ]
     }
   ]
