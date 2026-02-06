@@ -12,60 +12,56 @@
   "use strict";
 
   function applyPlayfulIn() {
-    console.log("playful-in.js: starting applyPlayfulIn");
+    console.log("[playful-in] Starting applyPlayfulIn");
 
     const roots = document.querySelectorAll(".header-content .page-title, .header-content .page-intro");
     if (!roots.length) {
-      console.log("playful-in.js: no roots found");
+      console.log("[playful-in] No roots found");
       return;
     }
+    console.log("[playful-in] Found", roots.length, "roots");
 
     const IN_RE = /in/gi;
 
-    // Step 1: Clean old .in spans safely (unwrap without losing text)
+    // Step 1: Clean old .in spans safely
     roots.forEach(root => {
       root.querySelectorAll(".in").forEach(span => {
-        const parent = span.parentNode;
-        while (span.firstChild) {
-          parent.insertBefore(span.firstChild, span);
-        }
-        parent.removeChild(span);
+        span.replaceWith(...span.childNodes);
       });
     });
 
-    // Step 2: Collect all eligible text nodes FIRST (snapshot to avoid mutation issues)
-    const textNodesToProcess = [];
+    // Step 2: Collect all eligible text nodes FIRST (snapshot)
+    const textNodes = [];
 
     roots.forEach(root => {
       const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_TEXT,
-        {
-          acceptNode(node) {
-            const parent = node.parentElement;
-            if (!parent) return NodeFilter.FILTER_REJECT;
-            if (parent.closest("a")) return NodeFilter.FILTER_REJECT; // protect links
-            if (["SCRIPT", "STYLE", "CODE", "PRE", "NOSCRIPT", "TEXTAREA"].includes(parent.tagName)) {
-              return NodeFilter.FILTER_REJECT;
-            }
-            if (parent.classList.contains("in")) return NodeFilter.FILTER_REJECT; // skip already wrapped
-            return NodeFilter.FILTER_ACCEPT;
+        node => {
+          const parent = node.parentElement;
+          if (!parent) return NodeFilter.FILTER_REJECT;
+          if (parent.closest("a")) return NodeFilter.FILTER_REJECT; // protect links
+          if (["SCRIPT","STYLE","CODE","PRE","NOSCRIPT","TEXTAREA"].includes(parent.tagName)) {
+            return NodeFilter.FILTER_REJECT;
           }
+          if (parent.classList.contains("in")) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
         }
       );
 
       while (walker.nextNode()) {
         const tn = walker.currentNode;
-        if (tn.nodeValue && IN_RE.test(tn.nodeValue)) {
-          textNodesToProcess.push(tn);
+        const text = tn.nodeValue;
+        if (text && text.trim() && IN_RE.test(text)) {
+          textNodes.push(tn);
         }
       }
     });
 
-    console.log("playful-in.js: found", textNodesToProcess.length, "text nodes to process");
+    console.log("[playful-in] Collected", textNodes.length, "text nodes to wrap");
 
-    // Step 3: Process collected nodes (mutations are now safe)
-    textNodesToProcess.forEach(tn => {
+    // Step 3: Now mutate (safe, no live iteration)
+    textNodes.forEach(tn => {
       const text = tn.nodeValue;
       IN_RE.lastIndex = 0;
 
@@ -96,15 +92,15 @@
       tn.parentNode.replaceChild(frag, tn);
     });
 
-    console.log("playful-in.js: applyPlayfulIn completed");
+    console.log("[playful-in] Completed");
   }
 
-  // Run once after full page load (after all deferred scripts)
+  // Run once after full load
   window.addEventListener("load", () => {
-    console.log("playful-in.js: load event fired");
+    console.log("[playful-in] Load event fired");
     applyPlayfulIn();
   });
 
-  // Expose for manual testing in console if needed
+  // Manual trigger if needed (type applyPlayfulIn() in console)
   window.applyPlayfulIn = applyPlayfulIn;
 })();
