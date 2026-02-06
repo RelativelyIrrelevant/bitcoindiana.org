@@ -9,23 +9,18 @@
 //    so that hovering the word containing "in" turns the "in" substring Bitcoin-orange
 //    via CSS: .in-word:hover .in { color: #F7931A; }
 //
-// Site structure assumptions (current):
-// - Merchants pages live at: /  /merchants  /merchants/...
-// - Meetups pages live at:   /meetups  /meetups/...
-//
 // Important notes on playful "IN" highlighting:
 // - Runs automatically once on DOMContentLoaded for static pages (/meetups/ etc.)
-// - On /merchants/ pages, merchants-router.js overwrites #pageTitle and #pageIntro
-//   using .textContent or innerHTML → this destroys any existing <span> wrappers.
-// - Therefore we expose window.highlightPlayfulIn() so the router can call it *after*
-//   it has finished updating the header text.
-// - The function is idempotent-ish: it first strips old wrappers before re-applying.
+// - On /merchants/ pages, merchants-router.js updates #pageTitle and #pageIntro
+//   (using innerHTML for links) → we must preserve <a> tags and other markup.
+// - We walk and process only text nodes that need wrapping, skipping anything inside <a>
+// - No global reset of content (avoids destroying links)
+// - Small optimization: skip nodes already inside .in-word or .in spans
 
 (function () {
   // ── NAV HIGHLIGHTING ────────────────────────────────────────────────────────
 
-  // Normalize the path so comparisons are consistent.
-  // Examples: "/" stays "/", "/meetups/" → "/meetups", "/merchants///" → "/merchants"
+  // Normalize path for consistent comparison
   let path = window.location.pathname || "/";
   path = path.replace(/\/+$/, "") || "/";
 
@@ -34,8 +29,8 @@
     return path === `/${segment}` || path.startsWith(`/${segment}/`);
   }
 
-  // Map current URL path to nav key that matches data-nav attributes.
-  // Treat "/" as Merchants (home page).
+  // Map URL path to nav key matching data-nav attributes
+  // Treat "/" as Merchants (home page)
   const navKey =
     (path === "/" || isSection("merchants")) ? "merchants" :
     isSection("meetups")   ? "meetups" :
@@ -56,13 +51,11 @@
 
   // ── PLAYFUL "IN" HIGHLIGHTING ───────────────────────────────────────────────
 
-  // This function can be called multiple times (e.g. after router updates text).
-  // It first clears any previous .in / .in-word spans, then reapplies them.
   window.highlightPlayfulIn = function () {
     const roots = document.querySelectorAll(".header-content .page-title, .header-content .page-intro");
     if (!roots.length) return;
 
-    const IN_RE = /in/gi; // case-insensitive "in"
+    const IN_RE = /in/gi;
     const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "NOSCRIPT", "TEXTAREA"]);
 
     // Helper: wraps "in" substrings inside a single text node
@@ -99,67 +92,60 @@
       textNode.parentNode.replaceChild(frag, textNode);
     }
 
-    // Helper: processes one root element (h1 or p)
-    function processElement(root) {
-      // Step 1: Strip any existing .in / .in-word wrappers (prevents nesting)
-      root.textContent = root.textContent;
+    // Process a single text node
+    function processTextNode(tn) {
+      const parent = tn.parentElement;
+      if (!parent) return;
 
-      // Step 2: Walk text nodes (skip links, scripts, etc.)
+      // Skip protected tags and anything inside links
+      if (SKIP_TAGS.has(parent.tagName)) return;
+      if (parent.closest("a")) return;
+
+      // Small improvement: skip if already wrapped in .in-word or .in
+      if (parent.classList.contains("in-word") || parent.classList.contains("in")) {
+        return;
+      }
+
+      const text = tn.nodeValue;
+      if (!text || !text.trim()) return;
+
+      // Only process if contains "in"
+      if (!IN_RE.test(text)) return;
+      IN_RE.lastIndex = 0;
+
+      wrapInTextNode(tn);
+    }
+
+    roots.forEach(root => {
+      // Tree walker to find text nodes safely
       const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_TEXT,
         {
           acceptNode(node) {
-            const parent = node.parentElement;
-            if (!parent) return NodeFilter.FILTER_REJECT;
-            if (SKIP_TAGS.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
-            if (parent.closest("a")) return NodeFilter.FILTER_REJECT; // protect links
-            if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+            const p = node.parentElement;
+            if (!p) return NodeFilter.FILTER_REJECT;
+            if (SKIP_TAGS.has(p.tagName)) return NodeFilter.FILTER_REJECT;
+            if (p.closest("a")) return NodeFilter.FILTER_REJECT;
             return NodeFilter.FILTER_ACCEPT;
           }
         }
       );
 
+      // Collect nodes first (to avoid live DOM mutations during walking)
       const textNodes = [];
-      while (walker.nextNode()) textNodes.push(walker.currentNode);
-
-      for (const tn of textNodes) {
-        const text = tn.nodeValue;
-        const parts = text.split(/(\s+)/); // preserve whitespace
-        const frag = document.createDocumentFragment();
-
-        for (const part of parts) {
-          if (part === "") continue;
-
-          if (/^\s+$/.test(part)) {
-            frag.appendChild(document.createTextNode(part));
-            continue;
-          }
-
-          // Wrap word in hover container
-          const wordSpan = document.createElement("span");
-          wordSpan.className = "in-word";
-          wordSpan.textContent = part;
-
-          // If word contains "in", wrap the substring(s)
-          if (IN_RE.test(part)) {
-            IN_RE.lastIndex = 0;
-            wrapInTextNode(wordSpan.firstChild);
-          }
-
-          frag.appendChild(wordSpan);
-        }
-
-        tn.parentNode.replaceChild(frag, tn);
+      while (walker.nextNode()) {
+        textNodes.push(walker.currentNode);
       }
-    }
 
-    roots.forEach(processElement);
+      // Process collected nodes
+      textNodes.forEach(processTextNode);
+    });
   };
 
-  // Run once when the DOM is ready (covers static pages like /meetups/)
+  // Run once when DOM is ready (covers static pages like /meetups/)
   document.addEventListener("DOMContentLoaded", () => {
     window.highlightPlayfulIn();
   });
 
-})();   // end IIFE
+})();
