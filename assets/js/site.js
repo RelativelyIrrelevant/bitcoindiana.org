@@ -1,36 +1,36 @@
 // assets/js/site.js
 //
-// Shared site behavior (tiny + dependency-free).
+// Shared lightweight behaviors for the entire site (no dependencies).
 //
-// Current features:
-// 1. Highlight the current page in the top nav by setting aria-current="page"
-//    on the matching <a data-nav="..."> link.
-// 2. Playful "IN" highlight: wraps "in" (case-insensitive) inside header titles/intros
-//    so that hovering the word containing "in" turns the "in" substring Bitcoin-orange
-//    via CSS: .in-word:hover .in { color: #F7931A; }
+// Features:
+// 1. Nav highlighting: sets aria-current="page" on the active topnav link
+//    based on current URL path.
+// 2. Playful "IN" highlighting: wraps case-insensitive "in" substrings in header
+//    titles and intros so hovering the containing word turns "in" Bitcoin-orange
+//    (CSS: .in-word:hover .in { color: #F7931A; }).
 //
-// Important notes on playful "IN" highlighting:
-// - Runs automatically once on DOMContentLoaded for static pages (/meetups/ etc.)
-// - On /merchants/ pages, merchants-router.js updates #pageTitle and #pageIntro
-//   (using innerHTML for links) → we must preserve <a> tags and other markup.
-// - We walk and process only text nodes that need wrapping, skipping anything inside <a>
-// - No global reset of content (avoids destroying links)
-// - Small optimization: skip nodes already inside .in-word or .in spans
+// Important timing notes:
+// - Runs once on DOMContentLoaded for static pages (/meetups/, etc.).
+// - For /merchants/ pages: merchants-router.js updates #pageTitle and #pageIntro
+//   using innerHTML (inserting <a> links) → we must preserve those links.
+// - highlightPlayfulIn() is designed to be called multiple times safely.
+// - It cleans old spans first, then processes only unwrapped text nodes outside links.
 
 (function () {
+  "use strict";
+
   // ── NAV HIGHLIGHTING ────────────────────────────────────────────────────────
 
-  // Normalize path for consistent comparison
+  // Normalize path (remove trailing slashes, handle root)
   let path = window.location.pathname || "/";
   path = path.replace(/\/+$/, "") || "/";
 
-  // Helper: true if path is exactly "/segment" OR starts with "/segment/"
+  // Helper: matches exact "/segment" or starts with "/segment/"
   function isSection(segment) {
     return path === `/${segment}` || path.startsWith(`/${segment}/`);
   }
 
-  // Map URL path to nav key matching data-nav attributes
-  // Treat "/" as Merchants (home page)
+  // Determine active nav section ("/" counts as merchants)
   const navKey =
     (path === "/" || isSection("merchants")) ? "merchants" :
     isSection("meetups")   ? "meetups" :
@@ -51,6 +51,7 @@
 
   // ── PLAYFUL "IN" HIGHLIGHTING ───────────────────────────────────────────────
 
+  // Exposed function so merchants-router.js can call it after updating text
   window.highlightPlayfulIn = function () {
     const roots = document.querySelectorAll(".header-content .page-title, .header-content .page-intro");
     if (!roots.length) return;
@@ -58,7 +59,7 @@
     const IN_RE = /in/gi;
     const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "NOSCRIPT", "TEXTAREA"]);
 
-    // Helper: wraps "in" substrings inside a single text node
+    // Wrap all "in" occurrences inside a single text node
     function wrapInTextNode(textNode) {
       const text = textNode.nodeValue;
       if (!text || !IN_RE.test(text)) return;
@@ -66,15 +67,15 @@
       IN_RE.lastIndex = 0;
 
       const frag = document.createDocumentFragment();
-      let last = 0;
+      let lastIndex = 0;
       let match;
 
       while ((match = IN_RE.exec(text)) !== null) {
         const start = match.index;
         const end = start + match[0].length;
 
-        if (start > last) {
-          frag.appendChild(document.createTextNode(text.slice(last, start)));
+        if (start > lastIndex) {
+          frag.appendChild(document.createTextNode(text.slice(lastIndex, start)));
         }
 
         const span = document.createElement("span");
@@ -82,68 +83,67 @@
         span.textContent = text.slice(start, end);
         frag.appendChild(span);
 
-        last = end;
+        lastIndex = end;
       }
 
-      if (last < text.length) {
-        frag.appendChild(document.createTextNode(text.slice(last)));
+      if (lastIndex < text.length) {
+        frag.appendChild(document.createTextNode(text.slice(lastIndex)));
       }
 
       textNode.parentNode.replaceChild(frag, textNode);
     }
 
-    // Process a single text node
-    function processTextNode(tn) {
-      const parent = tn.parentElement;
-      if (!parent) return;
+    // Recursively walk the DOM and process text nodes
+    function walk(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const parent = node.parentElement;
+        if (!parent) return;
 
-      // Skip protected tags and anything inside links
-      if (SKIP_TAGS.has(parent.tagName)) return;
-      if (parent.closest("a")) return;
+        // Skip protected tags and anything inside or part of a link
+        if (SKIP_TAGS.has(parent.tagName)) return;
+        if (parent.closest("a")) return;
 
-      // Small improvement: skip if already wrapped in .in-word or .in
-      if (parent.classList.contains("in-word") || parent.classList.contains("in")) {
+        // Small optimization: skip already processed wrappers
+        if (parent.classList.contains("in") || parent.classList.contains("in-word")) {
+          return;
+        }
+
+        const text = node.nodeValue.trim();
+        if (text && IN_RE.test(text)) {
+          IN_RE.lastIndex = 0;
+          wrapInTextNode(node);
+        }
         return;
       }
 
-      const text = tn.nodeValue;
-      if (!text || !text.trim()) return;
+      if (node.nodeType !== Node.ELEMENT_NODE) return;
 
-      // Only process if contains "in"
-      if (!IN_RE.test(text)) return;
-      IN_RE.lastIndex = 0;
+      // Don't recurse into <a> elements (protect link text)
+      if (node.tagName === "A") return;
 
-      wrapInTextNode(tn);
+      // Process children
+      for (const child of node.childNodes) {
+        walk(child);
+      }
     }
 
     roots.forEach(root => {
-      // Tree walker to find text nodes safely
-      const walker = document.createTreeWalker(
-        root,
-        NodeFilter.SHOW_TEXT,
-        {
-          acceptNode(node) {
-            const p = node.parentElement;
-            if (!p) return NodeFilter.FILTER_REJECT;
-            if (SKIP_TAGS.has(p.tagName)) return NodeFilter.FILTER_REJECT;
-            if (p.closest("a")) return NodeFilter.FILTER_REJECT;
-            return NodeFilter.FILTER_ACCEPT;
-          }
+      // Step 1: Clean up any old .in / .in-word spans from previous runs
+      // (unwrap them without losing text)
+      root.querySelectorAll(".in, .in-word").forEach(el => {
+        const parent = el.parentNode;
+        while (el.firstChild) {
+          parent.insertBefore(el.firstChild, el);
         }
-      );
+        parent.removeChild(el);
+      });
 
-      // Collect nodes first (to avoid live DOM mutations during walking)
-      const textNodes = [];
-      while (walker.nextNode()) {
-        textNodes.push(walker.currentNode);
-      }
-
-      // Process collected nodes
-      textNodes.forEach(processTextNode);
+      // Step 2: Walk and apply new highlighting to current text nodes
+      walk(root);
     });
   };
 
-  // Run once when DOM is ready (covers static pages like /meetups/)
+  // Auto-run once when the DOM is fully loaded (covers static pages)
   document.addEventListener("DOMContentLoaded", () => {
     window.highlightPlayfulIn();
   });
