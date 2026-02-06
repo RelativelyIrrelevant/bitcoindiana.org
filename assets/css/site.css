@@ -229,30 +229,10 @@ button:active{ transform:translateY(1px); }
 .in {
   color: inherit;
   transition: color 120ms ease, text-shadow 120ms ease;
-  position: relative; /* Required for absolute pseudo-elements */
-  display: inline-block; /* Keeps inline flow, but allows positioning */
 }
 
-/* Invisible expanded hover trigger area */
-.in::before {
-  content: "";
-  position: absolute;
-  inset: -0.5em; /* Expands 0.5em in all directions (top/right/bottom/left) */
-  z-index: -1; /* Behind the text */
-}
-
-/* Highlight effect on hover (now triggers on the expanded area) */
+/* When hovering directly over the "in" letters */
 .in:hover {
-  color: #ffdd80; /* Light yellow from logo */
+  color: #ffdd80; /* Light yellow from bitcoINdiana logo */
   text-shadow: 0 0 10px rgba(247, 147, 26, 0.25);
-}
-
-/* Optional: subtle visual feedback only on the actual "in" text */
-.in:hover::after {
-  content: "";
-  position: absolute;
-  inset: 0; /* Only on the original span */
-  background: rgba(255, 221, 128, 0.08); /* Very faint background for debug/testing */
-  pointer-events: none; /* Doesn't interfere with hover */
-  z-index: -1;
 }
