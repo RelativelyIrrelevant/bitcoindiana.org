@@ -96,10 +96,10 @@
     console.log("[playful-in] applyPlayfulIn completed");
   }
 
-  // Run once after full load
+  // Run once after full load, but delay the highlighting by 2 seconds
   window.addEventListener("load", () => {
     console.log("[playful-in] Load event fired");
-    applyPlayfulIn();
+    setTimeout(applyPlayfulIn, 2000); // 2 seconds delay
   });
 
   // Manual trigger (type applyPlayfulIn() in console for re-test)
