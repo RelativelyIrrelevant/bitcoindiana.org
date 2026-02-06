@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- Symmetrical URLs, making /index.html and /merchants/index.html the same content -->
-  <link rel="canonical" href="https://bitcoinindiana.org/" />
+  <link rel="canonical" href="https://bitcoinindiana.org/merchants/" />
 </head>
 
 <body>
@@ -67,13 +67,17 @@
       <aside class="panel" aria-label="Filters and info">
         <div class="controls">
           <div class="field">
+            <label for="stateSelect">State</label>
+            <select id="stateSelect"></select>
+          </div>
+          <div class="field">
             <label for="q">Search</label>
             <input id="q" type="text" placeholder="Search name, address…" autocomplete="off" />
           </div>
 
           <div class="chips" aria-label="Quick filters">
             <span class="chip">Source: api.btcmap.org (Places v4)</span>
-            <span class="chip">Indiana: point-in-polygon</span>
+            <span class="chip" id="pipChip">State: point-in-polygon</span>
             <span class="chip">Excluded: currency_exchange, local_atm</span>
           </div>
 
@@ -82,7 +86,7 @@
               Showing: <strong><span id="count">0</span></strong> <span id="countNote">locations</span>
             </div>
             <div class="btns">
-              <button id="btnFit" type="button">Fit Indiana</button>
+              <button id="btnFit" type="button">Fit</button>
               <button id="btnReload" type="button">Reload</button>
             </div>
           </div>
@@ -112,12 +116,15 @@
   </footer>
 
   <!-- Shared site JS (active nav, small helpers) -->
-  <script src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/site.js"></script>
 
   <!-- Leaflet JS (UNPKG) -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- State-Specific merchants router -->
+  <script defer src="/assets/js/merchants-router.js"></script>
 
   <!-- Map logic -->
-  <script src="/assets/js/map.js"></script>
+  <script defer src="/assets/js/map.js"></script>
 </body>
 </html>
