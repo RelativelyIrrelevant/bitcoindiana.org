@@ -231,9 +231,8 @@ button:active{ transform:translateY(1px); }
   transition: color 120ms ease, text-shadow 120ms ease;
 }
 
-/* When hovering the word containing "in" */
-.in-word:hover .in {
-  /* color: #F7931A; Bitcoin orange */
-  color: #ffdd80; /* Light yellow of IN in bitcoINdiana logo */
+/* Highlight "in" when hovering the span itself (or its containing word) */
+.in:hover {
+  color: #ffdd80; /* Light yellow from logo */
   text-shadow: 0 0 10px rgba(247, 147, 26, 0.25);
 }
