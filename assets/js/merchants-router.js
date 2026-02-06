@@ -63,19 +63,25 @@
   }
 
   // Rebuild intro paragraph with dynamic state link + fallback to Indiana
-  // Uses innerHTML so links survive; escapeHtml prevents XSS if state name is weird
+  // Uses concatenated strings (safer than multi-line template to avoid parse bugs)
+  // escapeHtml prevents XSS if state name is weird
   function ensureSlugLinksInIntro(introEl, chosen) {
-    if (!introEl) return;
+    if (!introEl || !chosen || !chosen.name || !chosen.slug) return;
 
     const stateName = chosen.name;
     const stateSlug = chosen.slug;
 
-    introEl.innerHTML = `
-      Map of Bitcoin-accepting merchants in
-      <a href="/merchants/?state=${encodeURIComponent(stateSlug)}">${escapeHtml(stateName)}</a>.
-      Please confirm merchant details before traveling.
-      Return (Back Home Again in) <a href="/merchants/?state=indiana">Indiana</a>.
-    `.trim();
+    const currentLink = `<a href="/merchants/?state=${encodeURIComponent(stateSlug)}">${escapeHtml(stateName)}</a>`;
+    const indianaLink = `<a href="/merchants/?state=indiana">Indiana</a>`;
+
+    introEl.innerHTML =
+      'Map of Bitcoin-accepting merchants in ' +
+      currentLink +
+      '. ' +
+      'Please confirm merchant details before traveling. ' +
+      'Return (Back Home Again in) ' +
+      indianaLink +
+      '.';
   }
 
   function escapeHtml(str) {
@@ -83,7 +89,7 @@
       "&": "&amp;",
       "<": "&lt;",
       ">": "&gt;",
-      '"": "&quot;",
+      '"': "&quot;",
       "'": "&#39;"
     }[s]));
   }
@@ -209,9 +215,8 @@
       );
 
       // ── Final status + re-apply playful "IN" highlighting ─────────────────
-      // IMPORTANT: We call this LAST, AFTER all text updates (title, intro, chips)
-      // so that highlightPlayfulIn() can see the final content with links and wrap "in"
-      // without destroying markup. This ensures both links and playful spans coexist.
+      // IMPORTANT: Called LAST after all text updates so highlightPlayfulIn()
+      // can see final content (with links) and apply "in" spans safely.
       setStatus(`Selected: ${chosen.name}. Loading merchants…`);
 
       if (window.highlightPlayfulIn) {
