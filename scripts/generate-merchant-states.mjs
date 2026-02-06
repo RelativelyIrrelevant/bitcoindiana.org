@@ -92,12 +92,12 @@ function clamp(n, a, b) {
 function chooseGridDims(widthKm, heightKm) {
   const areaLike = widthKm * heightKm;
 
-  // Rough tiers
-  if (areaLike < 25000) return { nx: 2, ny: 2 };      // small
-  if (areaLike < 70000) return { nx: 3, ny: 2 };      // medium
-  if (areaLike < 140000) return { nx: 3, ny: 3 };     // large
-  if (areaLike < 260000) return { nx: 4, ny: 3 };     // very large
-  return { nx: 4, ny: 4 };                            // huge (CA, TX, AK bounds still huge)
+  // fewer circles overall
+  if (areaLike < 25000) return { nx: 1, ny: 2 };   // very small: 2 + center = 3
+  if (areaLike < 70000) return { nx: 2, ny: 2 };   // small: 4 + center = 5
+  if (areaLike < 140000) return { nx: 3, ny: 2 };  // medium: 6 + center = 7
+  if (areaLike < 260000) return { nx: 3, ny: 3 };  // large: 9 + center = 10
+  return { nx: 4, ny: 3 };                         // huge: 12 + center = 13
 }
 
 // Choose radius based on cell size.
