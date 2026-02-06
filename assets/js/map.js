@@ -1,31 +1,23 @@
 // assets/js/map.js
 //
 // Configurable merchants map for bitcoindiana.org using BTC Map API v4 SEARCH endpoint.
-// Defaults to Indiana, but can be overridden per-page by setting:
-//   window.BITCOININDIANA_MAP_CONFIG = { ... }  (before loading this script)
+//
+// IMPORTANT (new single-page merchants setup):
+// - merchants-router.js must run first and set:
+//     window.BITCOININDIANA_MAP_CONFIG = { stateName, stateCode, geojsonUrl, coverage, ... }
 //
 // Local testing:
 //   python3 -m http.server 8000
 
 (function () {
-  // ---------- Defaults (Indiana) ----------
+  // ---------- Config (provided by merchants-router.js) ----------
   const DEFAULT_CONFIG = {
-    stateName: "Indiana",
-    stateCode: "IN",
-    geojsonUrl: "/assets/data/indiana.geojson",
-    canonical: "https://bitcoinindiana.org/",
-    excludedIcons: ["currency_exchange", "local_atm"],
-    coverage: [
-      { name: "North",   lat: 41.55, lon: -86.20, radius_km: 120 },
-      { name: "Central", lat: 39.85, lon: -86.15, radius_km: 150 },
-      { name: "South",   lat: 38.35, lon: -86.75, radius_km: 140 },
-      { name: "East",    lat: 40.05, lon: -85.35, radius_km: 120 },
-      { name: "West",    lat: 40.05, lon: -87.25, radius_km: 120 }
-    ]
+    excludedIcons: ["currency_exchange", "local_atm"]
   };
 
-  const CONFIG = Object.assign({}, DEFAULT_CONFIG, (window.BITCOININDIANA_MAP_CONFIG || {}));
-  CONFIG.coverage = (window.BITCOININDIANA_MAP_CONFIG?.coverage) || DEFAULT_CONFIG.coverage;
+  const PAGE_CONFIG = window.BITCOININDIANA_MAP_CONFIG || {};
+  const CONFIG = Object.assign({}, DEFAULT_CONFIG, PAGE_CONFIG);
+  CONFIG.coverage = Array.isArray(PAGE_CONFIG.coverage) ? PAGE_CONFIG.coverage : [];
 
   // ---------- Endpoints ----------
   const BTCMAP_SEARCH_URL = "https://api.btcmap.org/v4/places/search/";
@@ -47,8 +39,13 @@
   const pageTitleEl = document.getElementById("pageTitle");
   const pageIntroEl = document.getElementById("pageIntro");
   if (pageTitleEl && CONFIG.pageTitle) pageTitleEl.textContent = CONFIG.pageTitle;
+
+  // Note: using textContent here will remove links if CONFIG.pageIntro contains HTML.
+  // If you want HTML intros, change to `innerHTML` and ensure it's trusted.
   if (pageIntroEl && CONFIG.pageIntro) pageIntroEl.textContent = CONFIG.pageIntro;
-  if (btnFit && CONFIG.fitLabel) btnFit.textContent = CONFIG.fitLabel;
+
+  // Fit button text is now standardized: derived from stateName.
+  if (btnFit) btnFit.textContent = CONFIG.fitLabel || `Fit ${CONFIG.stateName || "state"}`;
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg || "";
@@ -62,6 +59,11 @@
       '"': "&quot;",
       "'": "&#39;"
     }[s]));
+  }
+
+  // Basic config sanity checks (non-fatal; shows helpful status)
+  if (!CONFIG.stateName || !GEOJSON_URL) {
+    setStatus("Missing state config. Did merchants-router.js load before map.js?");
   }
 
   // ---------- Leaflet ----------
@@ -179,7 +181,7 @@
           ${p.address ? `<div style="font-size:13px; margin-bottom:6px;">${escapeHtml(p.address)}</div>` : ""}
           <div style="color:#9db0c6; font-size:12.5px;">
             ${p.icon ? `Category: ${escapeHtml(p.icon)}` : ""}
-            ${p.verified_at ? `<br/>Verified: ${escapeHtml(String(p.verified_at).slice(0,10))}` : ""}
+            ${p.verified_at ? `<br/>Verified: ${escapeHtml(String(p.verified_at).slice(0, 10))}` : ""}
           </div>
           <div style="margin-top:8px; display:grid; gap:6px;">
             ${p.website ? `<a href="${p.website}" target="_blank" rel="noopener noreferrer">Website</a>` : ""}
@@ -201,6 +203,10 @@
 
   // ---------- Loaders ----------
   async function loadStatePolygon() {
+    if (!CONFIG.stateName || !GEOJSON_URL) {
+      throw new Error("Missing stateName or geojsonUrl in BITCOININDIANA_MAP_CONFIG.");
+    }
+
     setStatus(`Loading ${CONFIG.stateName} boundary…`);
 
     const res = await fetch(GEOJSON_URL, {
@@ -211,7 +217,7 @@
     const geo = await res.json();
     if (geo.type === "Feature") stateFeature = geo;
     else if (geo.type === "FeatureCollection" && Array.isArray(geo.features) && geo.features.length > 0) stateFeature = geo.features[0];
-    else throw new Error(`State GeoJSON must be a Feature or FeatureCollection with at least one feature.`);
+    else throw new Error("State GeoJSON must be a Feature or FeatureCollection with at least one feature.");
 
     stateBounds = featureBounds(stateFeature);
 
@@ -229,15 +235,23 @@
     url.searchParams.set("radius_km", String(circle.radius_km));
 
     const res = await fetch(url.toString(), { headers: { "accept": "application/json" } });
-    if (!res.ok) throw new Error(`Search failed (${circle.name}) HTTP ${res.status}`);
+    if (!res.ok) throw new Error(`Search failed (${circle.name || "circle"}) HTTP ${res.status}`);
 
     const data = await res.json();
-    if (!Array.isArray(data)) throw new Error(`Unexpected search response (${circle.name}): expected an array`);
+    if (!Array.isArray(data)) throw new Error(`Unexpected search response (${circle.name || "circle"}): expected an array`);
     return data;
   }
 
   async function loadPlacesViaSearch() {
     if (!stateFeature || !stateBounds) throw new Error("State boundary not loaded.");
+
+    if (!Array.isArray(COVERAGE) || COVERAGE.length === 0) {
+      setStatus(`No coverage circles configured for ${CONFIG.stateName}.`);
+      allFetched = [];
+      inPlaces = [];
+      render();
+      return;
+    }
 
     setStatus(`Loading BTC Map places for ${CONFIG.stateName} (search)…`);
 
@@ -289,7 +303,7 @@
     try {
       await loadStatePolygon();
       await loadPlacesViaSearch();
-      setStatus(`${statusEl.textContent} Ready.`);
+      setStatus(`${statusEl?.textContent || ""} Ready.`.trim());
     } catch (e) {
       console.error(e);
       setStatus(e?.message || String(e));
