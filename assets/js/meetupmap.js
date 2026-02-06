@@ -73,7 +73,14 @@
     return null;
   }
 
-  // ---------- Leaflet ----------
+  // ---------- Leaflet safety guard ----------
+  if (typeof L === "undefined") {
+    setStatus("Leaflet library failed to load. Map unavailable. Check script order or network.");
+    console.error("Leaflet (L) not defined - likely load order issue or blocked resource");
+    return;
+  }
+
+  // ---------- Leaflet init ----------
   const map = L.map("map", { zoomControl: true });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -98,95 +105,105 @@
   async function loadIndianaPolygon() {
     setStatus("Loading Indiana boundary…");
 
-    const res = await fetch(INDIANA_GEOJSON_URL, {
-      headers: { "accept": "application/geo+json,application/json" }
-    });
-    if (!res.ok) throw new Error(`Failed to load Indiana boundary (HTTP ${res.status}).`);
+    try {
+      const res = await fetch(INDIANA_GEOJSON_URL, {
+        headers: { "accept": "application/geo+json,application/json" }
+      });
+      if (!res.ok) throw new Error(`Failed to load Indiana boundary (HTTP ${res.status}).`);
 
-    const geo = await res.json();
-    const feature =
-      geo.type === "Feature" ? geo :
-      (geo.type === "FeatureCollection" && geo.features?.[0]) ? geo.features[0] :
-      null;
+      const geo = await res.json();
+      const feature =
+        geo.type === "Feature" ? geo :
+        (geo.type === "FeatureCollection" && geo.features?.[0]) ? geo.features[0] :
+        null;
 
-    if (!feature) throw new Error("indiana.geojson must be a GeoJSON Feature or a FeatureCollection with at least one feature.");
+      if (!feature) throw new Error("indiana.geojson must be a GeoJSON Feature or FeatureCollection with at least one feature.");
 
-    indianaOutlineLayer = L.geoJSON(feature, {
-      style: { color: "#F7931A", weight: 2, opacity: 0.65, fillOpacity: 0.04 }
-    }).addTo(map);
+      indianaOutlineLayer = L.geoJSON(feature, {
+        style: { color: "#F7931A", weight: 2, opacity: 0.65, fillOpacity: 0.04 }
+      }).addTo(map);
 
-    map.fitBounds(indianaOutlineLayer.getBounds(), { padding: [14, 14] });
+      map.fitBounds(indianaOutlineLayer.getBounds(), { padding: [14, 14] });
+    } catch (e) {
+      console.error("Indiana boundary load failed:", e);
+      setStatus("Failed to load Indiana boundary.");
+    }
   }
 
   async function loadMeetups() {
     setStatus("Loading meetups…");
 
-    const res = await fetch(MEETUPS_URL, { headers: { "accept": "application/json" } });
-    if (!res.ok) throw new Error(`Failed to load meetups.json (HTTP ${res.status}).`);
+    try {
+      const res = await fetch(MEETUPS_URL, { headers: { "accept": "application/json" } });
+      if (!res.ok) throw new Error(`Failed to load meetups.json (HTTP ${res.status}).`);
 
-    const data = await res.json();
-    if (!Array.isArray(data)) throw new Error("meetups.json must be an array of meetup objects.");
+      const data = await res.json();
+      if (!Array.isArray(data)) throw new Error("meetups.json must be an array of meetup objects.");
 
-    meetups = data
-      .filter(m => m && Number.isFinite(m.lat) && Number.isFinite(m.lon))
-      .map(m => {
-        // Physical state (single)
-        const stateLegacy = normalizeStateCode(m.state);
-        const stateCode = normalizeStateCode(m.state_code) || stateLegacy;
-        const stateName = asText(m.state_name);
+      meetups = data
+        .filter(m => m && Number.isFinite(m.lat) && Number.isFinite(m.lon))
+        .map(m => {
+          // Physical state (single)
+          const stateLegacy = normalizeStateCode(m.state);
+          const stateCode = normalizeStateCode(m.state_code) || stateLegacy;
+          const stateName = asText(m.state_name);
 
-        // Coverage states (array)
-        const states = normalizeStringArray(m.states).map(normalizeStateCode).filter(Boolean);
-        const statesFinal = (() => {
-          const set = new Set(states);
-          if (stateCode) set.add(stateCode);
-          return [...set];
-        })();
+          // Coverage states (array)
+          const states = normalizeStringArray(m.states).map(normalizeStateCode).filter(Boolean);
+          const statesFinal = (() => {
+            const set = new Set(states);
+            if (stateCode) set.add(stateCode);
+            return [...set];
+          })();
 
-        // Physical city (single) + coverage cities (array)
-        const city = asText(m.city);
-        const cities = normalizeStringArray(m.cities);
-        const citiesFinal = (() => {
-          const set = new Map(); // lower -> original
-          for (const c of cities) set.set(c.toLowerCase(), c);
-          if (city) set.set(city.toLowerCase(), city);
-          return [...set.values()];
-        })();
+          // Physical city (single) + coverage cities (array)
+          const city = asText(m.city);
+          const cities = normalizeStringArray(m.cities);
+          const citiesFinal = (() => {
+            const set = new Map(); // lower -> original
+            for (const c of cities) set.set(c.toLowerCase(), c);
+            if (city) set.set(city.toLowerCase(), city);
+            return [...set.values()];
+          })();
 
-        return {
-          id: asText(m.id) || `${asText(m.name)}-${m.lat}-${m.lon}`,
-          name: asText(m.name) || "Bitcoin Meetup",
-          schedule: asText(m.schedule),
-          day: asText(m.day),
-          frequency: asText(m.frequency),
-          venue: asText(m.venue),
-          address: asText(m.address),
+          return {
+            id: asText(m.id) || `${asText(m.name)}-${m.lat}-${m.lon}`,
+            name: asText(m.name) || "Bitcoin Meetup",
+            schedule: asText(m.schedule),
+            day: asText(m.day),
+            frequency: asText(m.frequency),
+            venue: asText(m.venue),
+            address: asText(m.address),
 
-          city,
-          county: asText(m.county),
-          zip: asText(m.zip),
+            city,
+            county: asText(m.county),
+            zip: asText(m.zip),
 
-          // legacy + new
-          state: stateLegacy || stateCode,
-          state_code: stateCode,
-          state_name: stateName,
+            // legacy + new
+            state: stateLegacy || stateCode,
+            state_code: stateCode,
+            state_name: stateName,
 
-          // coverage / aliases
-          states: statesFinal,
-          cities: citiesFinal,
+            // coverage / aliases
+            states: statesFinal,
+            cities: citiesFinal,
 
-          lat: m.lat,
-          lon: m.lon,
-          notes: asText(m.notes),
-          links: Array.isArray(m.links) ? m.links.filter(Boolean).map(l => ({
-            type: asText(l.type),
-            label: asText(l.label),
-            url: asText(l.url)
-          })) : []
-        };
-      });
+            lat: m.lat,
+            lon: m.lon,
+            notes: asText(m.notes),
+            links: Array.isArray(m.links) ? m.links.filter(Boolean).map(l => ({
+              type: asText(l.type),
+              label: asText(l.label),
+              url: asText(l.url)
+            })) : []
+          };
+        });
 
-    setStatus(`Loaded ${meetups.length} meetup(s).`);
+      setStatus(`Loaded ${meetups.length} meetup(s).`);
+    } catch (e) {
+      console.error("Meetups load failed:", e);
+      setStatus("Failed to load meetups data.");
+    }
   }
 
   // ---------- Search ----------
@@ -226,7 +243,7 @@
       return (m.states || []).some(s => (s || "").toUpperCase() === stateCodeQuery);
     }
 
-    // Normal substring search (includes states[] and cities[] via haystack)
+    // Normal substring search
     return meetupHaystack(m).includes(q.toLowerCase());
   }
 
@@ -283,10 +300,12 @@
     if (countEl) countEl.textContent = String(filtered.length);
     if (countNoteEl) countNoteEl.textContent = (filtered.length === 1) ? "meetup" : "meetups";
 
-    // Optional: show a helpful status when state filtering is active
+    // Optional: show helpful status for state filtering
     const stateCodeQuery = parseTwoLetterStateCodeQuery(q);
     if (stateCodeQuery) {
       setStatus(`Filtering by state code: ${stateCodeQuery}. Showing ${filtered.length} meetup(s).`);
+    } else {
+      setStatus(`Showing ${filtered.length} meetup(s).`);
     }
   }
 
@@ -301,10 +320,10 @@
     try {
       await loadMeetups();
       render();
-      setStatus(`Loaded ${meetups.length} meetup(s).`);
+      setStatus(`Reloaded ${meetups.length} meetup(s).`);
     } catch (e) {
-      console.error(e);
-      setStatus(e?.message || String(e));
+      console.error("Reload failed:", e);
+      setStatus("Reload failed: " + (e.message || "Unknown error"));
     }
   });
 
@@ -316,8 +335,8 @@
       render();
       setStatus(`Loaded ${meetups.length} meetup(s). Ready.`);
     } catch (e) {
-      console.error(e);
-      setStatus(e?.message || String(e));
+      console.error("Boot failed:", e);
+      setStatus("Initialization failed: " + (e.message || "Unknown error"));
     }
   })();
 })();
