@@ -1,86 +1,110 @@
 // assets/js/playful-in.js
 //
 // Dedicated script for playful "IN" highlighting.
-// Loads LAST on merchants pages so it runs AFTER router/map have finished updating text/links.
+// Loads LAST so it runs AFTER router/map have updated text/links.
 //
 // - Wraps case-insensitive "in" in header title/intro
 // - Hovering the word highlights the "in" part in BTC orange (via CSS)
 // - Preserves existing HTML (links, etc.)
-// - Re-applies if content changes (MutationObserver fallback)
+// - Safe single-pass: collects nodes first, then mutates
 
 (function () {
   "use strict";
 
   function applyPlayfulIn() {
+    console.log("playful-in.js: starting applyPlayfulIn");
+
     const roots = document.querySelectorAll(".header-content .page-title, .header-content .page-intro");
-    if (!roots.length) return;
+    if (!roots.length) {
+      console.log("playful-in.js: no roots found");
+      return;
+    }
 
     const IN_RE = /in/gi;
 
-    // Clean old .in spans (unwrap safely)
+    // Step 1: Clean old .in spans safely (unwrap without losing text)
     roots.forEach(root => {
       root.querySelectorAll(".in").forEach(span => {
         const parent = span.parentNode;
-        while (span.firstChild) parent.insertBefore(span.firstChild, span);
+        while (span.firstChild) {
+          parent.insertBefore(span.firstChild, span);
+        }
         parent.removeChild(span);
       });
     });
 
-    // Simple walk + wrap
-    function walk(node) {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const parent = node.parentElement;
-        if (!parent) return;
-        if (parent.closest("a")) return; // protect link text
-        if (["SCRIPT", "STYLE", "CODE", "PRE", "NOSCRIPT", "TEXTAREA"].includes(parent.tagName)) return;
+    // Step 2: Collect all eligible text nodes FIRST (snapshot to avoid mutation issues)
+    const textNodesToProcess = [];
 
-        const text = node.nodeValue;
-        if (!text || !IN_RE.test(text)) return;
+    roots.forEach(root => {
+      const walker = document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_TEXT,
+        {
+          acceptNode(node) {
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            if (parent.closest("a")) return NodeFilter.FILTER_REJECT; // protect links
+            if (["SCRIPT", "STYLE", "CODE", "PRE", "NOSCRIPT", "TEXTAREA"].includes(parent.tagName)) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            if (parent.classList.contains("in")) return NodeFilter.FILTER_REJECT; // skip already wrapped
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        }
+      );
 
-        IN_RE.lastIndex = 0;
+      while (walker.nextNode()) {
+        const tn = walker.currentNode;
+        if (tn.nodeValue && IN_RE.test(tn.nodeValue)) {
+          textNodesToProcess.push(tn);
+        }
+      }
+    });
 
-        const frag = document.createDocumentFragment();
-        let last = 0;
-        let match;
+    console.log("playful-in.js: found", textNodesToProcess.length, "text nodes to process");
 
-        while ((match = IN_RE.exec(text)) !== null) {
-          const start = match.index;
-          const end = start + match[0].length;
+    // Step 3: Process collected nodes (mutations are now safe)
+    textNodesToProcess.forEach(tn => {
+      const text = tn.nodeValue;
+      IN_RE.lastIndex = 0;
 
-          if (start > last) frag.appendChild(document.createTextNode(text.slice(last, start)));
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      let match;
 
-          const span = document.createElement("span");
-          span.className = "in";
-          span.textContent = text.slice(start, end);
-          frag.appendChild(span);
+      while ((match = IN_RE.exec(text)) !== null) {
+        const start = match.index;
+        const end = start + match[0].length;
 
-          last = end;
+        if (start > last) {
+          frag.appendChild(document.createTextNode(text.slice(last, start)));
         }
 
-        if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+        const span = document.createElement("span");
+        span.className = "in";
+        span.textContent = text.slice(start, end);
+        frag.appendChild(span);
 
-        node.parentNode.replaceChild(frag, node);
-        return;
+        last = end;
       }
 
-      if (node.nodeType !== Node.ELEMENT_NODE) return;
-      if (node.tagName === "A") return; // don't recurse into links
-
-      for (const child of node.childNodes) {
-        walk(child);
+      if (last < text.length) {
+        frag.appendChild(document.createTextNode(text.slice(last)));
       }
-    }
 
-    roots.forEach(walk);
+      tn.parentNode.replaceChild(frag, tn);
+    });
+
+    console.log("playful-in.js: applyPlayfulIn completed");
   }
 
-  // Run once on full load (after deferred scripts)
-  window.addEventListener("load", applyPlayfulIn);
+  // Run once after full page load (after all deferred scripts)
+  window.addEventListener("load", () => {
+    console.log("playful-in.js: load event fired");
+    applyPlayfulIn();
+  });
 
-  // Fallback: observe changes to title/intro (in case router re-runs or map updates)
-  const observer = new MutationObserver(applyPlayfulIn);
-  observer.observe(document.body, { childList: true, subtree: true });
-
-  // Expose for manual call if needed
+  // Expose for manual testing in console if needed
   window.applyPlayfulIn = applyPlayfulIn;
 })();
