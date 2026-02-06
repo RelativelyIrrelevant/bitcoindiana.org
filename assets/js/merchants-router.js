@@ -165,7 +165,7 @@
 
       // Update SEO + page copy
       const title = `${chosen.name} Merchants | bitcoINdiana`;
-      const desc = `A map of merchants that accept Bitcoin in ${chosen.name}.`;
+      const desc = `A map of merchants that accept Bitcoin in ${chosen.name} (${chosen.code}).`;
 
       document.title = title;
       setMetaDescription(desc);
