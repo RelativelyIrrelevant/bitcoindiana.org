@@ -83,7 +83,7 @@
       "&": "&amp;",
       "<": "&lt;",
       ">": "&gt;",
-      '"': "&quot;",
+      '"": "&quot;",
       "'": "&#39;"
     }[s]));
   }
@@ -209,7 +209,9 @@
       );
 
       // ── Final status + re-apply playful "IN" highlighting ─────────────────
-      // We call this AFTER all text updates so spans are applied to the final content
+      // IMPORTANT: We call this LAST, AFTER all text updates (title, intro, chips)
+      // so that highlightPlayfulIn() can see the final content with links and wrap "in"
+      // without destroying markup. This ensures both links and playful spans coexist.
       setStatus(`Selected: ${chosen.name}. Loading merchants…`);
 
       if (window.highlightPlayfulIn) {
