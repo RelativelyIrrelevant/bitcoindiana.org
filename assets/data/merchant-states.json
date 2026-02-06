@@ -1,0 +1,40 @@
+{
+  "default": "indiana",
+  "states": [
+    {
+      "code": "IN",
+      "slug": "indiana",
+      "name": "Indiana",
+      "geojsonUrl": "/assets/data/us-states/indiana.geojson",
+      "coverage": []
+    },
+    {
+      "code": "IL",
+      "slug": "illinois",
+      "name": "Illinois",
+      "geojsonUrl": "/assets/data/us-states/illinois.geojson",
+      "coverage": []
+    },
+    {
+      "code": "KY",
+      "slug": "kentucky",
+      "name": "Kentucky",
+      "geojsonUrl": "/assets/data/us-states/kentucky.geojson",
+      "coverage": []
+    },
+    {
+      "code": "MI",
+      "slug": "michigan",
+      "name": "Michigan",
+      "geojsonUrl": "/assets/data/us-states/michigan.geojson",
+      "coverage": []
+    },
+    {
+      "code": "OH",
+      "slug": "ohio",
+      "name": "Ohio",
+      "geojsonUrl": "/assets/data/us-states/ohio.geojson",
+      "coverage": []
+    }
+  ]
+}
