@@ -6,7 +6,6 @@
 // - Wraps case-insensitive "in" in header title/intro
 // - Hovering the word highlights the "in" part in BTC orange (via CSS)
 // - Preserves existing HTML (links, etc.)
-// - Safe single-pass: collects nodes first, then mutates
 
 (function () {
   "use strict";
@@ -23,14 +22,17 @@
 
     const IN_RE = /in/gi;
 
-    // Step 1: Clean old .in spans safely
+    // Step 1: Clean old .in spans
+    let cleaned = 0;
     roots.forEach(root => {
       root.querySelectorAll(".in").forEach(span => {
         span.replaceWith(...span.childNodes);
+        cleaned++;
       });
     });
+    console.log("[playful-in] Cleaned", cleaned, "old .in spans");
 
-    // Step 2: Collect all eligible text nodes FIRST (snapshot)
+    // Step 2: Collect text nodes that contain "in"
     const textNodes = [];
 
     roots.forEach(root => {
@@ -44,23 +46,24 @@
           if (["SCRIPT","STYLE","CODE","PRE","NOSCRIPT","TEXTAREA"].includes(parent.tagName)) {
             return NodeFilter.FILTER_REJECT;
           }
-          if (parent.classList.contains("in")) return NodeFilter.FILTER_REJECT;
           return NodeFilter.FILTER_ACCEPT;
         }
       );
 
       while (walker.nextNode()) {
         const tn = walker.currentNode;
-        const text = tn.nodeValue;
-        if (text && text.trim() && IN_RE.test(text)) {
+        const text = tn.nodeValue || "";
+        if (text.trim() && IN_RE.test(text)) {
           textNodes.push(tn);
+          console.log("[playful-in] Collected text node:", text.trim().substring(0, 30) + "...");
         }
       }
     });
 
-    console.log("[playful-in] Collected", textNodes.length, "text nodes to wrap");
+    console.log("[playful-in] Collected", textNodes.length, "text nodes containing 'in'");
 
-    // Step 3: Now mutate (safe, no live iteration)
+    // Step 3: Wrap
+    let wrappedCount = 0;
     textNodes.forEach(tn => {
       const text = tn.nodeValue;
       IN_RE.lastIndex = 0;
@@ -73,9 +76,7 @@
         const start = match.index;
         const end = start + match[0].length;
 
-        if (start > last) {
-          frag.appendChild(document.createTextNode(text.slice(last, start)));
-        }
+        if (start > last) frag.appendChild(document.createTextNode(text.slice(last, start)));
 
         const span = document.createElement("span");
         span.className = "in";
@@ -83,16 +84,16 @@
         frag.appendChild(span);
 
         last = end;
+        wrappedCount++;
       }
 
-      if (last < text.length) {
-        frag.appendChild(document.createTextNode(text.slice(last)));
-      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
 
       tn.parentNode.replaceChild(frag, tn);
     });
 
-    console.log("[playful-in] Completed");
+    console.log("[playful-in] Wrapped", wrappedCount, "'in' occurrences");
+    console.log("[playful-in] applyPlayfulIn completed");
   }
 
   // Run once after full load
@@ -101,6 +102,6 @@
     applyPlayfulIn();
   });
 
-  // Manual trigger if needed (type applyPlayfulIn() in console)
+  // Manual trigger (type applyPlayfulIn() in console for re-test)
   window.applyPlayfulIn = applyPlayfulIn;
 })();
