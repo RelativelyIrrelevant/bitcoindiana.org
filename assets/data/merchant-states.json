@@ -6,35 +6,66 @@
       "slug": "indiana",
       "name": "Indiana",
       "geojsonUrl": "/assets/data/us-states/indiana.geojson",
-      "coverage": []
+      "coverage": [
+        { "name": "North",   "lat": 41.55, "lon": -86.2,  "radius_km": 120 },
+        { "name": "Central", "lat": 39.85, "lon": -86.15, "radius_km": 150 },
+        { "name": "South",   "lat": 38.35, "lon": -86.75, "radius_km": 140 },
+        { "name": "East",    "lat": 40.05, "lon": -85.35, "radius_km": 120 },
+        { "name": "West",    "lat": 40.05, "lon": -87.25, "radius_km": 120 }
+      ]
     },
     {
       "code": "IL",
       "slug": "illinois",
       "name": "Illinois",
       "geojsonUrl": "/assets/data/us-states/illinois.geojson",
-      "coverage": []
+      "coverage": [
+        { "name": "Chicago / NE", "lat": 41.88, "lon": -87.63, "radius_km": 110 },
+        { "name": "North",        "lat": 42.25, "lon": -89.1,  "radius_km": 140 },
+        { "name": "Central",      "lat": 40.1,  "lon": -89.2,  "radius_km": 180 },
+        { "name": "West",         "lat": 40.6,  "lon": -91.1,  "radius_km": 130 },
+        { "name": "South",        "lat": 37.55, "lon": -89.25, "radius_km": 160 }
+      ]
     },
     {
       "code": "KY",
       "slug": "kentucky",
       "name": "Kentucky",
       "geojsonUrl": "/assets/data/us-states/kentucky.geojson",
-      "coverage": []
+      "coverage": [
+        { "name": "Louisville / North", "lat": 38.25, "lon": -85.76, "radius_km": 120 },
+        { "name": "Central",           "lat": 37.8,  "lon": -84.27, "radius_km": 170 },
+        { "name": "West",              "lat": 37.2,  "lon": -87.15, "radius_km": 150 },
+        { "name": "East",              "lat": 37.8,  "lon": -82.85, "radius_km": 150 },
+        { "name": "South",             "lat": 36.8,  "lon": -85.8,  "radius_km": 150 }
+      ]
     },
     {
       "code": "MI",
       "slug": "michigan",
       "name": "Michigan",
       "geojsonUrl": "/assets/data/us-states/michigan.geojson",
-      "coverage": []
+      "coverage": [
+        { "name": "SE (Detroit)",    "lat": 42.33, "lon": -83.05, "radius_km": 120 },
+        { "name": "South Central",   "lat": 42.7,  "lon": -84.55, "radius_km": 140 },
+        { "name": "SW (GR/Kzoo)",    "lat": 42.95, "lon": -85.67, "radius_km": 140 },
+        { "name": "Northern LP",     "lat": 44.8,  "lon": -85.6,  "radius_km": 170 },
+        { "name": "UP West",         "lat": 46.55, "lon": -90.0,  "radius_km": 170 },
+        { "name": "UP Central/East", "lat": 46.35, "lon": -87.0,  "radius_km": 190 }
+      ]
     },
     {
       "code": "OH",
       "slug": "ohio",
       "name": "Ohio",
       "geojsonUrl": "/assets/data/us-states/ohio.geojson",
-      "coverage": []
+      "coverage": [
+        { "name": "NW (Toledo)",     "lat": 41.65, "lon": -83.55, "radius_km": 120 },
+        { "name": "NE (Cleveland)",  "lat": 41.5,  "lon": -81.7,  "radius_km": 120 },
+        { "name": "Central (CBus)",  "lat": 39.96, "lon": -82.99, "radius_km": 140 },
+        { "name": "SW (Cincy)",      "lat": 39.1,  "lon": -84.51, "radius_km": 120 },
+        { "name": "SE (Appalachia)", "lat": 38.6,  "lon": -82.5,  "radius_km": 140 }
+      ]
     }
   ]
 }
