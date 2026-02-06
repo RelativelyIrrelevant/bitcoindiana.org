@@ -1,24 +1,15 @@
 // assets/js/playful-in.js
 //
 // Dedicated script for playful "IN" highlighting.
-// Loads LAST on merchants pages so it runs AFTER router updates text/links.
+// Loads LAST on merchants pages so it runs AFTER router/map have finished updating text/links.
 //
-// Features:
 // - Wraps case-insensitive "in" in header title/intro
 // - Hovering the word highlights the "in" part in BTC orange (via CSS)
 // - Preserves existing HTML (links, etc.)
-// - Safe to run on already-processed content (skips wrapped nodes)
+// - Re-applies if content changes (MutationObserver fallback)
 
 (function () {
   "use strict";
-
-  // Run once DOM is ready + all other scripts have likely finished
-  document.addEventListener("DOMContentLoaded", () => {
-    applyPlayfulIn();
-  });
-
-  // Also run immediately if called manually (e.g. from router)
-  window.applyPlayfulIn = applyPlayfulIn;
 
   function applyPlayfulIn() {
     const roots = document.querySelectorAll(".header-content .page-title, .header-content .page-intro");
@@ -26,7 +17,7 @@
 
     const IN_RE = /in/gi;
 
-    // Unwrap any old .in spans (flatten without losing text)
+    // Clean old .in spans (unwrap safely)
     roots.forEach(root => {
       root.querySelectorAll(".in").forEach(span => {
         const parent = span.parentNode;
@@ -35,18 +26,13 @@
       });
     });
 
-    // Recursive walk to find & wrap text nodes
+    // Simple walk + wrap
     function walk(node) {
       if (node.nodeType === Node.TEXT_NODE) {
         const parent = node.parentElement;
         if (!parent) return;
-
-        // Skip inside links and protected tags
-        if (parent.closest("a")) return;
+        if (parent.closest("a")) return; // protect link text
         if (["SCRIPT", "STYLE", "CODE", "PRE", "NOSCRIPT", "TEXTAREA"].includes(parent.tagName)) return;
-
-        // Skip if parent is already a wrapper
-        if (parent.classList.contains("in")) return;
 
         const text = node.nodeValue;
         if (!text || !IN_RE.test(text)) return;
@@ -78,9 +64,7 @@
       }
 
       if (node.nodeType !== Node.ELEMENT_NODE) return;
-
-      // Don't recurse into <a>
-      if (node.tagName === "A") return;
+      if (node.tagName === "A") return; // don't recurse into links
 
       for (const child of node.childNodes) {
         walk(child);
@@ -89,4 +73,14 @@
 
     roots.forEach(walk);
   }
+
+  // Run once on full load (after deferred scripts)
+  window.addEventListener("load", applyPlayfulIn);
+
+  // Fallback: observe changes to title/intro (in case router re-runs or map updates)
+  const observer = new MutationObserver(applyPlayfulIn);
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Expose for manual call if needed
+  window.applyPlayfulIn = applyPlayfulIn;
 })();
