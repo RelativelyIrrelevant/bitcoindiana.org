@@ -201,6 +201,13 @@
         coverage: Array.isArray(chosen.coverage) ? chosen.coverage : []
       };
 
+      // make map.js wait until the router provides config
+      window.dispatchEvent(
+        new CustomEvent("bitcoinindiana:merchants-config", {
+          detail: window.BITCOININDIANA_MAP_CONFIG
+        })
+      );
+
       setStatus(`Selected: ${chosen.name}. Loading merchants…`);
     } catch (e) {
       console.error(e);
