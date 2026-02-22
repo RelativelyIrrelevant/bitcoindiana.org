@@ -120,17 +120,16 @@
     "state_name": "Indiana",
     "states": ["IN"],
     "cities": [
-      "Avoca",
       "Bedford",
       "Bloomington",
-      "Harrodsburg",
-      "Heltonville",
-      "Medora",
+      "Columbus",
+      "Seymour",
       "Mitchell",
-      "Oolitic",
-      "Orleans",
-      "Smithville-Sanders",
-      "Williams"
+      "Salem",
+      "Nashville",
+      "Brownstown",
+      "Spencer",
+      "Paoli"
     ],
     "zip": "47421",
     "lat": 38.861306984950126,
@@ -192,25 +191,26 @@
     "state_name": "Michigan",
     "states": ["MI"],
     "cities": [
-      "Ada",
-      "East Grand Rapids",
-      "Grand Haven",
       "Grand Rapids",
-      "Grandville",
-      "Holland",
+      "Wyoming",
       "Kentwood",
-      "Lowell",
-      "Rockford",
       "Walker",
-      "Wyoming"
+      "Grandville",
+      "Jenison",
+      "Holland",
+      "Muskegon",
+      "Rockford",
+      "Allendale"
     ],
     "zip": "49503",
     "lat": 42.9644706834301,
     "lon": -85.66958165667647,
     "links": [
-      { "type": "meetup", "label": "meetup.com/grand-rapids-bitcoin", "url": "https://www.meetup.com/grand-rapids-bitcoin" }
+      { "type": "website", "label": "bitcoinmi.net", "url": "https://bitcoinmi.net/" },
+      { "type": "meetup", "label": "meetup.com/grand-rapids-bitcoin", "url": "https://www.meetup.com/grand-rapids-bitcoin" },
+      { "type": "x", "label": "@grbtc", "url": "https://x.com/grbtc/" }
     ],
-    "notes": "5 to 15 attend. Confirm details with the organizer."
+    "notes": "Confirm details with the organizer."
   },
   {
     "id": "cincinnati-bitcoin-meetup",
@@ -227,17 +227,17 @@
     "state_name": "Kentucky",
     "states": ["KY", "OH"],
     "cities": [
-      "Alexandria",
-      "Cincinnati",
       "Covington",
-      "Edgewood",
-      "Erlanger",
+      "Cincinnati",
+      "Hamilton",
+      "Middletown",
       "Florence",
-      "Fort Mitchell",
-      "Fort Thomas",
       "Newport",
-      "Taylor Mill",
-      "Villa Hills"
+      "Erlanger",
+      "Covington",
+      "Fairfield",
+      "Mason",
+      "Norwood"
     ],
     "zip": "41011",
     "lat": 39.07400125757186,
@@ -246,9 +246,43 @@
       { "type": "website", "label": "cincybtc.com", "url": "https://cincybtc.com" },
       { "type": "meetup", "label": "meetup.com/cincinnati-bitcoin", "url": "https://www.meetup.com/cincinnati-bitcoin" },
       { "type": "linktree", "label": "linktr.ee/BitcoinCincy", "url": "https://linktr.ee/BitcoinCincy" },
-      { "type": "x", "label": "@cincy_bitcoin", "url": "https://x.com/cincy_bitcoin" }
+      { "type": "x", "label": "@cinti_btc", "url": "https://x.com/cinti_btc" }
     ],
-    "notes": "5 to 20 attend. Venue often in KY but serves OH area. Confirm details with the organizer."
+    "notes": "Venue often in KY but serves OH area. Confirm details with the organizer."
+  },
+  {
+    "id": "somerset-bitcoin-meetup",
+    "name": "Somerset Bitcoin Meetup",
+    "frequency": "Bi-Weekly",
+    "schedule": "Every Other Thursday | 6:00 PM ET",
+    "day": "Thursday",
+    "venue": "Mellow Mushroom Somerset",
+    "address": "2520 Monticello St, Somerset, KY 42503",
+    "city": "Somerset",
+    "county": "Pulaski",
+    "state": "KY",
+    "state_code": "KY",
+    "state_name": "Kentucky",
+    "states": ["KY"],
+    "cities": [
+      "Somerset",
+      "London",
+      "Danville",
+      "Stanford",
+      "Mount Vernon",
+      "Science Hill",
+      "Burnside",
+      "Eubank",
+      "Bronston",
+      "Nancy"
+    ],
+    "zip": "42503",
+    "lat": 37.05107612688675, 
+    "lon": -84.6247989772083,
+    "links": [
+      { "type": "meetup", "label": "meetup.com/somerset-bitcoin-meetup", "url": "https://www.meetup.com/somerset-bitcoin-meetup/" }
+    ],
+    "notes": "Confirm details with the organizer."
   },
   {
     "id": "cleveland-bitcoin-meetup",
@@ -340,16 +374,16 @@
     "state_name": "Kentucky",
     "states": ["KY"],
     "cities": [
-      "Danville",
-      "Fayette County",
-      "Florence",
-      "Frankfort",
-      "Georgetown",
-      "Harrodsburg",
       "Lexington",
+      "Georgetown",
+      "Richmond",
       "Nicholasville",
+      "Winchester",
       "Paris",
-      "Versailles"
+      "Frankfort",
+      "Versailles",
+      "Berea",
+      "Midway"
     ],
     "zip": "40517",
     "lat": 37.998084621789445,
@@ -375,19 +409,16 @@
     "state_name": "Kentucky",
     "states": ["IN", "KY"],
     "cities": [
-      "Buechel",
-      "Crestwood",
-      "Douglass Hills",
-      "Jeffersontown",
-      "La Grange",
       "Louisville",
-      "Lyndon",
-      "Middletown",
-      "Mount Washington",
-      "Pewee Valley",
+      "Jeffersonville",
+      "New Albany",
       "Shelbyville",
-      "St Matthews",
-      "West Buechel"
+      "Clarksville",
+      "Mount Washington",
+      "Shively",
+      "La Grange",
+      "Charlestown",
+      "Corydon"
     ],
     "zip": "40207",
     "lat": 38.24937432221195,
@@ -397,6 +428,54 @@
       { "type": "meetup", "label": "meetup.com/louisville-bitcoin-network/", "url": "https://www.meetup.com/louisville-bitcoin-network/" }
     ],
     "notes": "10 to 25 attend. Confirm details with the organizer."
+  },
+  {
+    "id": "louisville-bitcoin-meetup",
+    "name": "Louisville Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 1st Sunday | 4:00 PM ET",
+    "day": "Sunday",
+    "venue": "DiOrio's Pizza & Pub",
+    "address": "919 Baxter Ave, Louisville, KY 40204",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "state": "KY",
+    "state_code": "KY",
+    "state_name": "Kentucky",
+    "states": ["IN", "KY"],
+    "cities": [
+      "Louisville",
+      "Jeffersonville",
+      "New Albany",
+      "Elizabethtown",
+      "Clarksville",
+      "Shelbyville",
+      "La Grange",
+      "Shively",
+      "Mount Washington",
+      "Fern Creek"
+    ],
+    "zip": "40204",
+    "lat": 38.24220072834564, 
+    "lon": -85.72568220181728,
+    "links": [
+      { 
+      	"type": "website", 
+      	"label": "cointucky.com", 
+      	"url": "https://cointucky.com/" 
+      },
+      { 
+      	"type": "meetup", 
+      	"label": "meetup.com/louisville-bitcoin-meetup", 
+      	"url": "https://www.meetup.com/louisville-bitcoin-meetup/" 
+      },
+      { 
+      	"type": "x", 
+      	"label": "@Cointucky", 
+      	"url": "https://x.com/Cointucky/" 
+      }
+    ],
+    "notes": "Confirm details with the organizer."
   },
   {
     "id": "chicago-western-suburbs-bitcoin-meetup",
@@ -433,6 +512,103 @@
     ],
     "notes": "10-25 attend. Confirm details with the organizer."
   },
+  {
+    "id": "chicago-bitdevs",
+    "name": "Chicago BITDEVS",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 2nd Thursday | 6:00 PM CT",
+    "day": "Thursday",
+    "venue": "Strike's Office",
+    "address": "200 N La Salle Dr, Chicago, IL 60601",
+    "city": "Chicago",
+    "county": "Cook",
+    "state": "IL",
+    "state_code": "IL",
+    "state_name": "Illinois",
+    "states": ["IL"],
+    "cities": [
+      "Chicago",
+      "Aurora",
+      "Joliet",
+      "Naperville",
+      "Elgin",
+      "Cicero",
+      "Schaumburg",
+      "Evanston",
+      "Arlington Heights",
+      "Gary"
+    ],
+    "zip": "60601",
+    "lat": 41.8860888733128,
+    "lon":  -87.63301812611914,
+    "links": [
+      { 
+      	"type": "website", 
+      	"label": "chibitdevs.org", 
+      	"url": "https://chibitdevs.org/"
+      },
+      { 
+      	"type": "meetup", 
+      	"label": "meetup.com/chibitdevs", 
+      	"url": "https://www.meetup.com/chibitdevs/"
+      },
+      { 
+      	"type": "x", 
+      	"label": "@chibitdevs", 
+      	"url": "https://x.com/chibitdevs/"
+      }
+    ],
+    "notes": "Chicago BitDevs aims at a technical audience. Confirm details with the organizer."
+  },
+  {
+    "id": "lake-county-bitcoin-meetup",
+    "name": "Lake County Bitcoin Meetup",
+    "frequency": "Monthly",
+    "schedule": "Monthly | 2nd Thursday | 6:00 PM CT",
+    "day": "Thursday",
+    "venue": "Lola's Tacos and Tequila",
+    "address": "6170 W Grand Ave #337, Gurnee, IL 60031",
+    "city": "Gurnee",
+    "county": "Lake",
+    "state": "IL",
+    "state_code": "IL",
+    "state_name": "Illinois",
+    "states": ["IL"],
+    "cities": [
+      "Gurnee",
+      "Kenosha",
+      "Waukegan",
+      "Racine",
+      "Arlington Heights",
+      "Evanston",
+      "Schaumburg",
+      "Mount Prospect",
+      "Des Plaines",
+      "Palatine",
+      "Buffalo Grove"
+    ],
+    "zip": "60031",
+    "lat": 42.38980514334608, 
+    "lon":  -87.96050366205314,
+    "links": [
+      { 
+      	"type": "website", 
+      	"label": "chibitdevs.org", 
+      	"url": "https://chibitdevs.org/"
+      },
+      { 
+      	"type": "meetup", 
+      	"label": "meetup.com/lake-county-bitcoin-and-cryptocurrency-meetup", 
+      	"url": "https://www.meetup.com/lake-county-bitcoin-and-cryptocurrency-meetup/"
+      },
+      { 
+      	"type": "telegram", 
+      	"label": "@offordscott", 
+      	"url": "https://t.me/offordscott/"
+      }
+    ],
+    "notes": "Confirm details with the organizer."
+  },  
   {
     "id": "st-louis-bitcoin-meetup",
     "name": "St. Louis Bitcoin Users Group",
