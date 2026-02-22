@@ -172,7 +172,10 @@
     "lat": 42.56831000755594,
     "lon": -83.15257584715198,
     "links": [
-      { "type": "meetup", "label": "meetup.com/detbtc", "url": "https://www.meetup.com/detbtc" }
+      { "type": "webiste", "label": "detbtc.com/", "url": "https://detbtc.com/" },
+      { "type": "meetup", "label": "meetup.com/detbtc", "url": "https://www.meetup.com/detbtc" },
+      { "type": "nostr", "label": "@detbtc", "url": "https://snort.social/p/npub1detred96wsj2feh0glc8333xjtxex07y6vhc9ylyqneq4uvjjh8snttn56" },
+      { "type": "x", "label": "@detbtc", "url": "https://x.com/detbtc" }
     ],
     "notes": "5 to 15 attend. Confirm details with the organizer."
   },
@@ -389,6 +392,7 @@
     "lat": 37.998084621789445,
     "lon": -84.49899784046406,
     "links": [
+      { "type": "website", "label": "lexingtonbitcoin.org", "url": "https://lexingtonbitcoin.org/" },
       { "type": "meetup", "label": "meetup.com/lexingtonbitcoin", "url": "https://www.meetup.com/lexingtonbitcoin" },
       { "type": "x", "label": "@lexbitcoinorg", "url": "https://x.com/lexbitcoinorg" }
     ],
@@ -425,7 +429,8 @@
     "lon": -85.64970612786263,
     "links": [
       { "type": "website", "label": "loubitdevs.org/", "url": "https://loubitdevs.org/" },
-      { "type": "meetup", "label": "meetup.com/louisville-bitcoin-network/", "url": "https://www.meetup.com/louisville-bitcoin-network/" }
+      { "type": "meetup", "label": "meetup.com/louisville-bitcoin-network/", "url": "https://www.meetup.com/louisville-bitcoin-network/" },
+      { "type": "x", "label": "@chibitdevs", "url": "https://x.com/chibitdevs/" }
     ],
     "notes": "10 to 25 attend. Confirm details with the organizer."
   },
@@ -474,6 +479,41 @@
       	"label": "@Cointucky", 
       	"url": "https://x.com/Cointucky/" 
       }
+    ],
+    "notes": "Confirm details with the organizer."
+  },
+  {
+    "id": "lincolnland-bitcoin",
+    "name": "Lincolnland Bitcoin",
+    "frequency": "Monthly",
+    "schedule": "Monthly | First Tuesday | 7:30 PM CT",
+    "day": "Tuesday",
+    "venue": "It's All About Wine",
+    "address": "1305 Wabash Ave, Springfield, IL 62704",
+    "city": "Springfield",
+    "county": "Sangamon",
+    "state": "IL",
+    "state_code": "IL",
+    "state_name": "Illinois",
+    "states": ["IL"],
+    "cities": [
+      "Springfield",
+      "Jacksonville",
+      "Chatham",
+      "Taylorville",
+      "Sherman",
+      "Auburn",
+      "Riverton",
+      "Pawnee",
+      "Petersburg",
+      "Athens"
+    ],
+    "zip": "62704",
+    "lat": 39.7648172514998, 
+    "lon": -89.67516196441426,
+    "links": [
+      { "type": "website", "label": "sites.google.com/view/lincolnlandbitcoin", "url": "https://sites.google.com/view/lincolnlandbitcoin/" },
+      { "type": "x", "label": "@BTCLincolnLand", "url": "https://x.com/BTCLincolnLand/" }
     ],
     "notes": "Confirm details with the organizer."
   },
