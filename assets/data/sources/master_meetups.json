@@ -1,0 +1,2083 @@
+[
+  {
+    "meetupID": "ar-c-buenos-aires-bitcoin-meetup-01",
+    "meetupName": "Buenos Aires Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/buenos-aires-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/buenos-aires-bitcoin-meetup/events/rss/",
+    "countryName": "Argentina",
+    "countryCode": "AR",
+    "regionName": "Autonomous City of Buenos Aires",
+    "regionCode": "C",
+    "cityName": "Buenos Aires",
+    "cityNearby": [
+      "Buenos Aires",
+      "La Plata",
+      "Quilmes",
+      "Lanús",
+      "Morón"
+    ],
+    "lat": "-34.6037",
+    "lon": "-58.3816"
+  },
+  {
+    "meetupID": "at-w-bitcoin-dummies-wien-01",
+    "meetupName": "Bitcoin Dummies Wien",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-dummies-wien/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-dummies-wien/events/rss/",
+    "countryName": "Austria",
+    "countryCode": "AT",
+    "regionName": "Vienna",
+    "regionCode": "W",
+    "cityName": "Vienna",
+    "cityNearby": [
+      "Vienna",
+      "Graz",
+      "Linz",
+      "Bratislava",
+      "Sankt Pölten"
+    ],
+    "lat": "48.2082",
+    "lon": "16.3738"
+  },
+  {
+    "meetupID": "au-nsw-bitcoin-sydney-01",
+    "meetupName": "Bitcoin Sydney",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin_sydney/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin_sydney/events/rss/",
+    "countryName": "Australia",
+    "countryCode": "AU",
+    "regionName": "New South Wales",
+    "regionCode": "NSW",
+    "cityName": "Sydney",
+    "cityNearby": [
+      "Sydney",
+      "Parramatta",
+      "Blacktown",
+      "Penrith",
+      "Sutherland"
+    ],
+    "lat": "-33.8688",
+    "lon": "151.2093"
+  },
+  {
+    "meetupID": "au-qld-bitcoin-brisbane-old-see-description-01",
+    "meetupName": "Bitcoin Brisbane (Old, See Description)",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin_brisbane_old/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin_brisbane_old/events/rss/",
+    "countryName": "Australia",
+    "countryCode": "AU",
+    "regionName": "Queensland",
+    "regionCode": "QLD",
+    "cityName": "Brisbane",
+    "cityNearby": [
+      "Brisbane",
+      "Logan City",
+      "Gold Coast",
+      "Ipswich",
+      "Redland City"
+    ],
+    "lat": "-27.4698",
+    "lon": "153.0251"
+  },
+  {
+    "meetupID": "au-qld-bitcoin-fnq-01",
+    "meetupName": "Bitcoin FNQ",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-fnq/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-fnq/events/rss/",
+    "countryName": "Australia",
+    "countryCode": "AU",
+    "regionName": "Queensland",
+    "regionCode": "QLD",
+    "cityName": "Cairns",
+    "cityNearby": [
+      "Cairns",
+      "Gordonvale",
+      "Edmonton",
+      "Redlynch",
+      "Smithfield"
+    ],
+    "lat": "-16.9186",
+    "lon": "145.7781"
+  },
+  {
+    "meetupID": "au-vic-avalon-bitcoin-meetup-group-01",
+    "meetupName": "Avalon Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/avalon-bitcoin-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/avalon-bitcoin-meetup-group/events/rss/",
+    "countryName": "Australia",
+    "countryCode": "AU",
+    "regionName": "Victoria",
+    "regionCode": "VIC",
+    "cityName": "Geelong",
+    "cityNearby": [
+      "Melbourne",
+      "Geelong",
+      "Werribee",
+      "Melton",
+      "Ballarat"
+    ],
+    "lat": "-38.1499",
+    "lon": "144.3617"
+  },
+  {
+    "meetupID": "be-vlg-ghent-bitcoin-meetup-group-01",
+    "meetupName": "Ghent Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/ghent-bitcoin-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/ghent-bitcoin-meetup-group/events/rss/",
+    "countryName": "Belgium",
+    "countryCode": "BE",
+    "regionName": "Flemish Region",
+    "regionCode": "VLG",
+    "cityName": "Gent",
+    "cityNearby": [
+      "Ghent",
+      "Bruges",
+      "Aalst",
+      "Sint-Niklaas",
+      "Kortrijk"
+    ],
+    "lat": "51.0543",
+    "lon": "3.7174"
+  },
+  {
+    "meetupID": "br-am-bitcoin-criptomoedas-manaus-01",
+    "meetupName": "Bitcoin & Criptomoedas Manaus",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinmanaus/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinmanaus/events/rss/",
+    "countryName": "Brazil",
+    "countryCode": "BR",
+    "regionName": "Amazonas",
+    "regionCode": "AM",
+    "cityName": "Manaus",
+    "cityNearby": [
+      "Manaus",
+      "Iranduba",
+      "Manacapuru",
+      "Itacoatiara",
+      "Presidente Figueiredo"
+    ],
+    "lat": "-3.1190",
+    "lon": "-60.0217"
+  },
+  {
+    "meetupID": "br-df-bitcoin-brasilia-01",
+    "meetupName": "Bitcoin Brasília",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-brasilia/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-brasilia/events/rss/",
+    "countryName": "Brazil",
+    "countryCode": "BR",
+    "regionName": "Federal District",
+    "regionCode": "DF",
+    "cityName": "Brasília",
+    "cityNearby": [
+      "Brasília",
+      "Ceilândia",
+      "Taguatinga",
+      "Águas Claras",
+      "Samambaia"
+    ],
+    "lat": "-15.7939",
+    "lon": "-47.8828"
+  },
+  {
+    "meetupID": "br-mg-bitcoin-bh-01",
+    "meetupName": "Bitcoin BH",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-bh/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-bh/events/rss/",
+    "countryName": "Brazil",
+    "countryCode": "BR",
+    "regionName": "Minas Gerais",
+    "regionCode": "MG",
+    "cityName": "Belo Horizonte",
+    "cityNearby": [
+      "Belo Horizonte",
+      "Contagem",
+      "Betim",
+      "Ribeirão das Neves",
+      "Santa Luzia"
+    ],
+    "lat": "-19.9167",
+    "lon": "-43.9345"
+  },
+  {
+    "meetupID": "br-rj-rio-de-janeiro-bitcoin-meetup-01",
+    "meetupName": "Rio de Janeiro Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/rio-de-janeiro-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/rio-de-janeiro-bitcoin-meetup/events/rss/",
+    "countryName": "Brazil",
+    "countryCode": "BR",
+    "regionName": "Rio de Janeiro",
+    "regionCode": "RJ",
+    "cityName": "Rio de Janeiro",
+    "cityNearby": [
+      "Rio de Janeiro",
+      "Duque de Caxias",
+      "Niterói",
+      "Nova Iguaçu",
+      "São João de Meriti"
+    ],
+    "lat": "-22.9068",
+    "lon": "-43.1729"
+  },
+  {
+    "meetupID": "br-ba-bitcoin-salvador-01",
+    "meetupName": "Bitcoin Salvador",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-salvador/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-salvador/events/rss/",
+    "countryName": "Brazil",
+    "countryCode": "BR",
+    "regionName": "Bahia",
+    "regionCode": "BA",
+    "cityName": "Salvador",
+    "cityNearby": [
+      "Salvador",
+      "Lauro de Freitas",
+      "Camaçari",
+      "Simões Filho",
+      "Dias d'Ávila"
+    ],
+    "lat": "-12.9777",
+    "lon": "-38.5016"
+  },
+  {
+    "meetupID": "ca-bc-bitcoin-bay-vancouver-01",
+    "meetupName": "Bitcoin Bay Vancouver",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-bay-vancouver/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-bay-vancouver/events/rss/",
+    "countryName": "Canada",
+    "countryCode": "CA",
+    "regionName": "British Columbia",
+    "regionCode": "BC",
+    "cityName": "Vancouver",
+    "cityNearby": [
+      "Vancouver",
+      "Surrey",
+      "Burnaby",
+      "Richmond",
+      "Coquitlam"
+    ],
+    "lat": "49.2827",
+    "lon": "-123.1207"
+  },
+  {
+    "meetupID": "ca-ns-halifax-bitcoin-meetup-01",
+    "meetupName": "Halifax Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/halifax-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/halifax-bitcoin-meetup/events/rss/",
+    "countryName": "Canada",
+    "countryCode": "CA",
+    "regionName": "Nova Scotia",
+    "regionCode": "NS",
+    "cityName": "Halifax",
+    "cityNearby": [
+      "Halifax",
+      "Dartmouth",
+      "Bedford",
+      "Sackville",
+      "Timberlea"
+    ],
+    "lat": "44.6488",
+    "lon": "-63.5752"
+  },
+  {
+    "meetupID": "ca-on-bitcoin-and-freedom-technologies-meetup-01",
+    "meetupName": "Bitcoin and Freedom Technologies meetup",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-and-freedom-technologies-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-and-freedom-technologies-meetup/events/rss/",
+    "countryName": "Canada",
+    "countryCode": "CA",
+    "regionName": "Ontario",
+    "regionCode": "ON",
+    "cityName": "Newmarket",
+    "cityNearby": [
+      "Toronto",
+      "Markham",
+      "Vaughan",
+      "Richmond Hill",
+      "Aurora"
+    ],
+    "lat": "44.0592",
+    "lon": "-79.4613"
+  },
+  {
+    "meetupID": "ca-on-bitcoin-london-ontario-01",
+    "meetupName": "Bitcoin - London Ontario",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-london-ontario/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-london-ontario/events/rss/",
+    "countryName": "Canada",
+    "countryCode": "CA",
+    "regionName": "Ontario",
+    "regionCode": "ON",
+    "cityName": "London",
+    "cityNearby": [
+      "London",
+      "St. Thomas",
+      "Strathroy",
+      "Woodstock",
+      "Ingersoll"
+    ],
+    "lat": "42.9849",
+    "lon": "-81.2453"
+  },
+  {
+    "meetupID": "ca-on-kingston-bitcoin-meetup-group-01",
+    "meetupName": "Kingston Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/kingston-bitcoin-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/kingston-bitcoin-meetup-group/events/rss/",
+    "countryName": "Canada",
+    "countryCode": "CA",
+    "regionName": "Ontario",
+    "regionCode": "ON",
+    "cityName": "Kingston",
+    "cityNearby": [
+      "Kingston",
+      "Gananoque",
+      "Napanee",
+      "Amherstview",
+      "Brockville"
+    ],
+    "lat": "44.2312",
+    "lon": "-76.4860"
+  },
+  {
+    "meetupID": "ca-bc-shuswap-bitcoin-01",
+    "meetupName": "Shuswap Bitcoin",
+    "meetupUrlGroup": "https://www.meetup.com/shuswap-bitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/shuswap-bitcoin/events/rss/",
+    "countryName": "Canada",
+    "countryCode": "CA",
+    "regionName": "British Columbia",
+    "regionCode": "BC",
+    "cityName": "Salmon Arm",
+    "cityNearby": [
+      "Salmon Arm",
+      "Sicamous",
+      "Chase",
+      "Enderby",
+      "Armstrong"
+    ],
+    "lat": "50.7020",
+    "lon": "-119.2720"
+  },
+  {
+    "meetupID": "ch-ge-bitcoin-meetup-geneva-01",
+    "meetupName": "Bitcoin Meetup Geneva",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-meetup-geneva/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-meetup-geneva/events/rss/",
+    "countryName": "Switzerland",
+    "countryCode": "CH",
+    "regionName": "Geneva",
+    "regionCode": "GE",
+    "cityName": "Genève",
+    "cityNearby": [
+      "Geneva",
+      "Lausanne",
+      "Annemasse",
+      "Thonon-les-Bains",
+      "Nyon"
+    ],
+    "lat": "46.2044",
+    "lon": "6.1432"
+  },
+  {
+    "meetupID": "ch-lu-bitcoin-meetup-luzern-01",
+    "meetupName": "Bitcoin Meetup Luzern",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-meetup-luzern/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-meetup-luzern/events/rss/",
+    "countryName": "Switzerland",
+    "countryCode": "CH",
+    "regionName": "Lucerne",
+    "regionCode": "LU",
+    "cityName": "Luzern",
+    "cityNearby": [
+      "Lucerne",
+      "Zug",
+      "Zurich",
+      "Winterthur",
+      "Aarau"
+    ],
+    "lat": "47.0502",
+    "lon": "8.3093"
+  },
+  {
+    "meetupID": "ch-ne-bitcoin-meetup-neuchatel-01",
+    "meetupName": "Bitcoin Meetup Neuchatel",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-meetup-neuchatel/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-meetup-neuchatel/events/rss/",
+    "countryName": "Switzerland",
+    "countryCode": "CH",
+    "regionName": "Neuchâtel",
+    "regionCode": "NE",
+    "cityName": "Neuchatel",
+    "cityNearby": [
+      "Neuchâtel",
+      "Biel/Bienne",
+      "La Chaux-de-Fonds",
+      "Yverdon-les-Bains",
+      "Fribourg"
+    ],
+    "lat": "46.9899",
+    "lon": "6.9293"
+  },
+  {
+    "meetupID": "ch-ti-lugano-bitcoin-meetup-01",
+    "meetupName": "Lugano Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/lugano-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/lugano-bitcoin-meetup/events/rss/",
+    "countryName": "Switzerland",
+    "countryCode": "CH",
+    "regionName": "Ticino",
+    "regionCode": "TI",
+    "cityName": "Lugano",
+    "cityNearby": [
+      "Lugano",
+      "Como",
+      "Varese",
+      "Lecco",
+      "Bellinzona"
+    ],
+    "lat": "46.0037",
+    "lon": "8.9511"
+  },
+    {
+    "meetupID": "co-dc-bitcoin-wednesday-bogota-01",
+    "meetupName": "Bitcoin Wednesday Bogotá",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinwednesdaybogota/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinwednesdaybogota/events/rss/",
+    "countryName": "Colombia",
+    "countryCode": "CO",
+    "regionName": "Bogotá, D.C.",
+    "regionCode": "DC",
+    "cityName": "Bogotá",
+    "cityNearby": [
+      "Bogotá",
+      "Soacha",
+      "Chía",
+      "Funza",
+      "Mosquera"
+    ],
+    "lat": "4.7110",
+    "lon": "-74.0721"
+  },
+    {
+    "meetupID": "de-be-bitcoin-wednesday-berlin-01",
+    "meetupName": "Bitcoin Wednesday Berlin",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinwednesdayberlin/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinwednesdayberlin/events/rss/",
+    "countryName": "Germany",
+    "countryCode": "DE",
+    "regionName": "Berlin",
+    "regionCode": "BE",
+    "cityName": "Berlin",
+    "cityNearby": [
+      "Berlin",
+      "Potsdam",
+      "Oranienburg",
+      "Falkensee",
+      "Bernau bei Berlin"
+    ],
+    "lat": "52.5200",
+    "lon": "13.4050"
+  },
+  {
+    "meetupID": "de-bw-bitcoin-ulm-01",
+    "meetupName": "Bitcoin Ulm",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-ulm/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-ulm/events/rss/",
+    "countryName": "Germany",
+    "countryCode": "DE",
+    "regionName": "Baden-Württemberg",
+    "regionCode": "BW",
+    "cityName": "Ulm",
+    "cityNearby": [
+      "Ulm",
+      "Neu-Ulm",
+      "Günzburg",
+      "Heidenheim an der Brenz",
+      "Biberach an der Riß"
+    ],
+    "lat": "48.4011",
+    "lon": "9.9876"
+  },
+  {
+    "meetupID": "de-by-bitcoin-startups-munich-01",
+    "meetupName": "Bitcoin Startups Munich",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-startups-munich/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-startups-munich/events/rss/",
+    "countryName": "Germany",
+    "countryCode": "DE",
+    "regionName": "Bavaria",
+    "regionCode": "BY",
+    "cityName": "München",
+    "cityNearby": [
+      "Munich",
+      "Augsburg",
+      "Ingolstadt",
+      "Landshut",
+      "Rosenheim"
+    ],
+    "lat": "48.1351",
+    "lon": "11.5820"
+  },
+  {
+    "meetupID": "dk-84-bitcoin-association-denmark-01",
+    "meetupName": "Bitcoin Association Denmark",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-association-denmark/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-association-denmark/events/rss/",
+    "countryName": "Denmark",
+    "countryCode": "DK",
+    "regionName": "Capital Region of Denmark",
+    "regionCode": "84",
+    "cityName": "Copenhagen",
+    "cityNearby": [
+      "Copenhagen",
+      "Frederiksberg",
+      "Gentofte",
+      "Tårnby",
+      "Rødovre"
+    ],
+    "lat": "55.6761",
+    "lon": "12.5683"
+  },
+  {
+    "meetupID": "es-b-bitcoin-wednesday-barcelona-01",
+    "meetupName": "Bitcoin Wednesday Barcelona",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-wednesday-barcelona/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-wednesday-barcelona/events/rss/",
+    "countryName": "Spain",
+    "countryCode": "ES",
+    "regionName": "Catalonia",
+    "regionCode": "CT",
+    "cityName": "Barcelona",
+    "cityNearby": [
+      "Barcelona",
+      "L'Hospitalet de Llobregat",
+      "Badalona",
+      "Terrassa",
+      "Sabadell"
+    ],
+    "lat": "41.3851",
+    "lon": "2.1734"
+  },
+  {
+    "meetupID": "es-b-learn-bitcoin-diner-01",
+    "meetupName": "Learn Bitcoin Diner",
+    "meetupUrlGroup": "https://www.meetup.com/learn-bitcoin-diner/",
+    "meetupUrlRss": "https://www.meetup.com/learn-bitcoin-diner/events/rss/",
+    "countryName": "Spain",
+    "countryCode": "ES",
+    "regionName": "Catalonia",
+    "regionCode": "CT",
+    "cityName": "Barcelona",
+    "cityNearby": [
+      "Barcelona",
+      "L'Hospitalet de Llobregat",
+      "Badalona",
+      "Terrassa",
+      "Sabadell"
+    ],
+    "lat": "41.3851",
+    "lon": "2.1734"
+  },
+  {
+    "meetupID": "fr-na-bordeaux-bitcoin-meetups-01",
+    "meetupName": "Bordeaux Bitcoin Meetups",
+    "meetupUrlGroup": "https://www.meetup.com/bordeaux-bitcoin-meetups/",
+    "meetupUrlRss": "https://www.meetup.com/bordeaux-bitcoin-meetups/events/rss/",
+    "countryName": "France",
+    "countryCode": "FR",
+    "regionName": "Nouvelle-Aquitaine",
+    "regionCode": "NA",
+    "cityName": "Bordeaux",
+    "cityNearby": [
+      "Bordeaux",
+      "Mérignac",
+      "Pessac",
+      "Talence",
+      "Bègles"
+    ],
+    "lat": "44.8378",
+    "lon": "-0.5792"
+  },
+  {
+    "meetupID": "gp-bl-saint-barthelemy-bitcoin-cash-meetup-group-01",
+    "meetupName": "Saint-Barthélemy Bitcoin Cash Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/saint-barthelemy-bitcoin-cash-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/saint-barthelemy-bitcoin-cash-meetup-group/events/rss/",
+    "countryName": "Guadeloupe",
+    "countryCode": "GP",
+    "regionName": "Saint Barthélemy",
+    "regionCode": "BL",
+    "cityName": "Saint-Barthélemy",
+    "cityNearby": [
+      "Gustavia",
+      "Saint-Jean",
+      "Corossol",
+      "Lorient",
+      "Public"
+    ],
+    "lat": "17.9000",
+    "lon": "-62.8333"
+  },
+  {
+    "meetupID": "gb-eng-bitcoin-manchester-01",
+    "meetupName": "Bitcoin Manchester",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-manchester/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-manchester/events/rss/",
+    "countryName": "United Kingdom",
+    "countryCode": "GB",
+    "regionName": "England",
+    "regionCode": "ENG",
+    "cityName": "Manchester",
+    "cityNearby": [
+      "Manchester",
+      "Salford",
+      "Bolton",
+      "Stockport",
+      "Oldham"
+    ],
+    "lat": "53.4808",
+    "lon": "-2.2426"
+  },
+  {
+    "meetupID": "gb-eng-bitcoin-virtual-incubator-01",
+    "meetupName": "Bitcoin Virtual Incubator",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-virtual-incubator/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-virtual-incubator/events/rss/",
+    "countryName": "United Kingdom",
+    "countryCode": "GB",
+    "regionName": "England",
+    "regionCode": "ENG",
+    "cityName": "London",
+    "cityNearby": [
+      "London",
+      "Croydon",
+      "Watford",
+      "Slough",
+      "Luton"
+    ],
+    "lat": "51.5074",
+    "lon": "-0.1278"
+  },
+  {
+    "meetupID": "gb-sry-bitcoin-surrey-meetup-group-01",
+    "meetupName": "Bitcoin Surrey Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-surrey/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-surrey/events/rss/",
+    "countryName": "United Kingdom",
+    "countryCode": "GB",
+    "regionName": "England",
+    "regionCode": "ENG",
+    "cityName": "Godalming",
+    "cityNearby": [
+      "Guildford",
+      "Woking",
+      "Farnham",
+      "Aldershot",
+      "Crawley"
+    ],
+    "lat": "51.1858",
+    "lon": "-0.6145"
+  },
+  {
+    "meetupID": "id-jk-indonesia-bitcoin-community-01",
+    "meetupName": "Indonesia Bitcoin Community",
+    "meetupUrlGroup": "https://www.meetup.com/indonesia-bitcoin-community/",
+    "meetupUrlRss": "https://www.meetup.com/indonesia-bitcoin-community/events/rss/",
+    "countryName": "Indonesia",
+    "countryCode": "ID",
+    "regionName": "Jakarta",
+    "regionCode": "JK",
+    "cityName": "Jakarta",
+    "cityNearby": [
+      "Jakarta",
+      "Bekasi",
+      "Depok",
+      "Tangerang",
+      "South Tangerang"
+    ],
+    "lat": "-6.2088",
+    "lon": "106.8456"
+  },
+  {
+    "meetupID": "id-kt-indonesia-bitcoin-users-meetup-01",
+    "meetupName": "Indonesia Bitcoin Users Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/indonesia-bitcoin-users-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/indonesia-bitcoin-users-meetup/events/rss/",
+    "countryName": "Indonesia",
+    "countryCode": "ID",
+    "regionName": "Central Kalimantan",
+    "regionCode": "KT",
+    "cityName": "Palangka Raya",
+    "cityNearby": [
+      "Palangka Raya",
+      "Kuala Kurun",
+      "Tangkiling",
+      "Pahandut",
+      "Bukit Batu"
+    ],
+    "lat": "-2.2096",
+    "lon": "113.9167"
+  },
+  {
+    "meetupID": "in-dl-bitcoin-india-meetup-01",
+    "meetupName": "Bitcoin India Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-india-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-india-meetup/events/rss/",
+    "countryName": "India",
+    "countryCode": "IN",
+    "regionName": "Delhi",
+    "regionCode": "DL",
+    "cityName": "Delhi",
+    "cityNearby": [
+      "Delhi",
+      "Gurugram",
+      "Noida",
+      "Ghaziabad",
+      "Faridabad"
+    ],
+    "lat": "28.6139",
+    "lon": "77.2090"
+  },
+  {
+    "meetupID": "in-dl-bitcoin-startups-india-01",
+    "meetupName": "Bitcoin Startups India",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-startups-india/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-startups-india/events/rss/",
+    "countryName": "India",
+    "countryCode": "IN",
+    "regionName": "Delhi",
+    "regionCode": "DL",
+    "cityName": "Delhi",
+    "cityNearby": [
+      "Delhi",
+      "Gurugram",
+      "Noida",
+      "Ghaziabad",
+      "Faridabad"
+    ],
+    "lat": "28.6139",
+    "lon": "77.2090"
+  },
+  {
+    "meetupID": "in-dl-delhi-bitcoin-meetup-01",
+    "meetupName": "Delhi Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/delhi-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/delhi-bitcoin-meetup/events/rss/",
+    "countryName": "India",
+    "countryCode": "IN",
+    "regionName": "Delhi",
+    "regionCode": "DL",
+    "cityName": "Delhi",
+    "cityNearby": [
+      "Delhi",
+      "Gurugram",
+      "Noida",
+      "Ghaziabad",
+      "Faridabad"
+    ],
+    "lat": "28.6139",
+    "lon": "77.2090"
+  },
+  {
+    "meetupID": "in-mh-pune-bitcoin-meetup-01",
+    "meetupName": "Pune Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/pune-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/pune-bitcoin-meetup/events/rss/",
+    "countryName": "India",
+    "countryCode": "IN",
+    "regionName": "Maharashtra",
+    "regionCode": "MH",
+    "cityName": "Pune",
+    "cityNearby": [
+      "Pune",
+      "Pimpri-Chinchwad",
+      "Talegaon Dabhade",
+      "Chakan",
+      "Lonavala"
+    ],
+    "lat": "18.5204",
+    "lon": "73.8567"
+  },
+  {
+    "meetupID": "it-ar-bitcoin-arezzo-01",
+    "meetupName": "Bitcoin Arezzo",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-arezzo/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-arezzo/events/rss/",
+    "countryName": "Italy",
+    "countryCode": "IT",
+    "regionName": "Tuscany",
+    "regionCode": "52",
+    "cityName": "Arezzo",
+    "cityNearby": [
+      "Arezzo",
+      "Perugia",
+      "Siena",
+      "Florence",
+      "Cortona"
+    ],
+    "lat": "43.4633",
+    "lon": "11.8796"
+  },
+  {
+    "meetupID": "it-pi-pisa-bitcoin-meetup-01",
+    "meetupName": "Pisa Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/pisa-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/pisa-bitcoin-meetup/events/rss/",
+    "countryName": "Italy",
+    "countryCode": "IT",
+    "regionName": "Tuscany",
+    "regionCode": "52",
+    "cityName": "Pisa",
+    "cityNearby": [
+      "Pisa",
+      "Livorno",
+      "Lucca",
+      "Viareggio",
+      "Florence"
+    ],
+    "lat": "43.7228",
+    "lon": "10.4017"
+  },
+  {
+    "meetupID": "it-rm-bitcoin-wednesday-rome-01",
+    "meetupName": "Bitcoin Wednesday Rome",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-wednesday-rome/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-wednesday-rome/events/rss/",
+    "countryName": "Italy",
+    "countryCode": "IT",
+    "regionName": "Lazio",
+    "regionCode": "62",
+    "cityName": "Roma",
+    "cityNearby": [
+      "Rome",
+      "Latina",
+      "Guidonia Montecelio",
+      "Fiumicino",
+      "Aprilia"
+    ],
+    "lat": "41.9028",
+    "lon": "12.4964"
+  },
+  {
+    "meetupID": "jp-20-nagano-bitcoin-meetup-01",
+    "meetupName": "長野ビットコイン勉強会　Nagano Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/%e9%95%b7%e9%87%8e%e3%83%93%e3%83%83%e3%83%88%e3%82%b3%e3%82%a4%e3%83%b3%e5%8b%89%e5%bc%b7%e4%bc%9a/",
+    "meetupUrlRss": "https://www.meetup.com/%e9%95%b7%e9%87%8e%e3%83%93%e3%83%83%e3%83%88%e3%82%b3%e3%82%a4%e3%83%b3%e5%8b%89%e5%bc%b7%e4%bc%9a/events/rss/",
+    "countryName": "Japan",
+    "countryCode": "JP",
+    "regionName": "Nagano Prefecture",
+    "regionCode": "20",
+    "cityName": "Nagano",
+    "cityNearby": [
+      "Nagano",
+      "Suzaka",
+      "Obuse",
+      "Chikuma",
+      "Nakano"
+    ],
+    "lat": "36.6486",
+    "lon": "138.1948"
+  },
+  {
+    "meetupID": "kh-pp-phnum-penh-bitcoin-meetup-01",
+    "meetupName": "Phnum Pénh Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/phnum-penh-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/phnum-penh-bitcoin-meetup/events/rss/",
+    "countryName": "Cambodia",
+    "countryCode": "KH",
+    "regionName": "Phnom Penh (Municipality)",
+    "regionCode": "PP",
+    "cityName": "Phnom Penh",
+    "cityNearby": [
+      "Phnom Penh",
+      "Ta Khmau",
+      "Arey Ksat",
+      "Prek Phnov",
+      "Khsach Kandal"
+    ],
+    "lat": "11.5564",
+    "lon": "104.9282"
+  },
+  {
+    "meetupID": "kw-ku-kuwait-bitcoin-meetup-01",
+    "meetupName": "Kuwait Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/kuwait-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/kuwait-bitcoin-meetup/events/rss/",
+    "countryName": "Kuwait",
+    "countryCode": "KW",
+    "regionName": "Al Asimah Governorate",
+    "regionCode": "KU",
+    "cityName": "al-Kuwayt",
+    "cityNearby": [
+      "Kuwait City",
+      "Hawalli",
+      "Salmiya",
+      "Al Farwaniyah",
+      "Al Jahra"
+    ],
+    "lat": "29.3759",
+    "lon": "47.9774"
+  },
+  {
+    "meetupID": "lt-vl-lithuania-bitcoin-meetup-group-01",
+    "meetupName": "Lithuania Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/lithuania-bitcoin-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/lithuania-bitcoin-meetup-group/events/rss/",
+    "countryName": "Lithuania",
+    "countryCode": "LT",
+    "regionName": "Vilnius County",
+    "regionCode": "VL",
+    "cityName": "Vilnius",
+    "cityNearby": [
+      "Vilnius",
+      "Trakai",
+      "Šalčininkai",
+      "Elektrėnai",
+      "Nemenčinė"
+    ],
+    "lat": "54.6872",
+    "lon": "25.2797"
+  },
+  {
+    "meetupID": "mx-bcn-baja-bitcoin-meetup-01",
+    "meetupName": "Baja Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/baja-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/baja-bitcoin-meetup/events/rss/",
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "regionName": "Baja California",
+    "regionCode": "BCN",
+    "cityName": "Tijuana",
+    "cityNearby": [
+      "Tijuana",
+      "Chula Vista",
+      "San Diego",
+      "Tecate",
+      "National City"
+    ],
+    "lat": "32.5149",
+    "lon": "-117.0382"
+  },
+  {
+    "meetupID": "mx-jal-bitcoinguadalajara-node-01",
+    "meetupName": "Bitcoin Guadalajara Node",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinguadalajara/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinguadalajara/events/rss/",
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "regionName": "Jalisco",
+    "regionCode": "JAL",
+    "cityName": "Guadalajara",
+    "cityNearby": [
+      "Guadalajara",
+      "Zapopan",
+      "Tlaquepaque",
+      "Tonalá",
+      "Tlajomulco de Zúñiga"
+    ],
+    "lat": "20.6597",
+    "lon": "-103.3496"
+  },
+  {
+    "meetupID": "mx-jal-meetup-de-bitcoin-educacion-e-inversion-equipo-01",
+    "meetupName": "Meetup de Bitcoin - Educación e Inversion Equipo",
+    "meetupUrlGroup": "https://www.meetup.com/meetup-de-bitcoin-educacion-e-inversion-equipo/",
+    "meetupUrlRss": "https://www.meetup.com/meetup-de-bitcoin-educacion-e-inversion-equipo/events/rss/",
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "regionName": "Jalisco",
+    "regionCode": "JAL",
+    "cityName": "Zapopan",
+    "cityNearby": [
+      "Guadalajara",
+      "Zapopan",
+      "Tlaquepaque",
+      "Tonalá",
+      "Tlajomulco de Zúñiga"
+    ],
+    "lat": "20.7236",
+    "lon": "-103.3848"
+  },
+  {
+    "meetupID": "mx-nle-bitcoin-monterrey-01",
+    "meetupName": "Bitcoin Monterrey",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinmty/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinmty/events/rss/",
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "regionName": "Nuevo León",
+    "regionCode": "NLE",
+    "cityName": "Monterrey",
+    "cityNearby": [
+      "Monterrey",
+      "Guadalupe",
+      "San Nicolás de los Garza",
+      "Apodaca",
+      "San Pedro Garza García"
+    ],
+    "lat": "25.6866",
+    "lon": "-100.3161"
+  },
+  {
+    "meetupID": "mx-nle-bitcoin-y-criptomonedas-en-monterrey-01",
+    "meetupName": "Bitcoin y Criptomonedas en Monterrey",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-y-criptomonedas-en-monterrey/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-y-criptomonedas-en-monterrey/events/rss/",
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "regionName": "Nuevo León",
+    "regionCode": "NLE",
+    "cityName": "Monterrey",
+    "cityNearby": [
+      "Monterrey",
+      "Guadalupe",
+      "San Nicolás de los Garza",
+      "Apodaca",
+      "San Pedro Garza García"
+    ],
+    "lat": "25.6866",
+    "lon": "-100.3161"
+  },
+  {
+    "meetupID": "mx-pue-bitcoin-exito-y-riqueza-cd-de-puebla-01",
+    "meetupName": "Bitcoin Éxito y riqueza CD de Puebla",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-exito-y-riqueza-cd-de-puebla/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-exito-y-riqueza-cd-de-puebla/events/rss/",
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "regionName": "Puebla",
+    "regionCode": "PUE",
+    "cityName": "Puebla",
+    "cityNearby": [
+      "Puebla",
+      "Tlaxcala",
+      "San Martín Texmelucan",
+      "Cholula",
+      "Atlixco"
+    ],
+    "lat": "19.0414",
+    "lon": "-98.2063"
+  },
+  {
+    "meetupID": "mx-pue-bitcoin-meetup-puebla-cultura-bitcoin-economia-colaborativa-01",
+    "meetupName": "Bitcoin Meetup Puebla:Cultura Bitcoin,economía colaborativa",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-meetup-puebla-cultura-bitcoin-economia-colaborativa/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-meetup-puebla-cultura-bitcoin-economia-colaborativa/events/rss/",
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "regionName": "Puebla",
+    "regionCode": "PUE",
+    "cityName": "Puebla",
+    "cityNearby": [
+      "Puebla",
+      "Tlaxcala",
+      "San Martín Texmelucan",
+      "Cholula",
+      "Atlixco"
+    ],
+    "lat": "19.0414",
+    "lon": "-98.2063"
+  },
+  {
+    "meetupID": "nz-can-bitcoin-mining-christchurch-powered-taxfree-by-volcanos-01",
+    "meetupName": "Bitcoin Mining Christchurch. Powered taxfree by Volcanos",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-mining-general-crypto-learning/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-mining-general-crypto-learning/events/rss/",
+    "countryName": "New Zealand",
+    "countryCode": "NZ",
+    "regionName": "Canterbury",
+    "regionCode": "CAN",
+    "cityName": "Christchurch",
+    "cityNearby": [
+      "Christchurch",
+      "Rolleston",
+      "Rangiora",
+      "Kaiapoi",
+      "Lincoln"
+    ],
+    "lat": "-43.5321",
+    "lon": "172.6362"
+  },
+  {
+    "meetupID": "om-ma-oman-bitcoin-meetup-01",
+    "meetupName": "Oman Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/oman-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/oman-bitcoin-meetup/events/rss/",
+    "countryName": "Oman",
+    "countryCode": "OM",
+    "regionName": "Muscat Governorate",
+    "regionCode": "MA",
+    "cityName": "Muscat",
+    "cityNearby": [
+      "Muscat",
+      "Seeb",
+      "Bawshar",
+      "Muttrah",
+      "As Sib"
+    ],
+    "lat": "23.5880",
+    "lon": "58.3829"
+  },
+  {
+    "meetupID": "ph-00-everything-bitcoin-01",
+    "meetupName": "Everything Bitcoin",
+    "meetupUrlGroup": "https://www.meetup.com/meetup-group-nqsaxyna/",
+    "meetupUrlRss": "https://www.meetup.com/meetup-group-nqsaxyna/events/rss/",
+    "countryName": "Philippines",
+    "countryCode": "PH",
+    "regionName": "Metro Manila",
+    "regionCode": "00",
+    "cityName": "Manila",
+    "cityNearby": [
+      "Quezon City",
+      "Manila",
+      "Caloocan",
+      "Makati",
+      "Pasig"
+    ],
+    "lat": "14.5995",
+    "lon": "120.9842"
+  },
+  {
+    "meetupID": "ph-00-manila-bitcoin-events-01",
+    "meetupName": "Manila Bitcoin Events",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-manila/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-manila/events/rss/",
+    "countryName": "Philippines",
+    "countryCode": "PH",
+    "regionName": "Metro Manila",
+    "regionCode": "00",
+    "cityName": "Makati",
+    "cityNearby": [
+      "Quezon City",
+      "Manila",
+      "Caloocan",
+      "Makati",
+      "Pasig"
+    ],
+    "lat": "14.5547",
+    "lon": "121.0244"
+  },
+  {
+    "meetupID": "pt-11-madeira-bitcoin-meetup-group-01",
+    "meetupName": "Madeira Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/madeira-bitcoin-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/madeira-bitcoin-meetup-group/events/rss/",
+    "countryName": "Portugal",
+    "countryCode": "PT",
+    "regionName": "Madeira",
+    "regionCode": "11",
+    "cityName": "Funchal",
+    "cityNearby": [
+      "Funchal",
+      "Câmara de Lobos",
+      "Machico",
+      "Santa Cruz",
+      "Ribeira Brava"
+    ],
+    "lat": "32.6669",
+    "lon": "-16.9241"
+  },
+  {
+    "meetupID": "qa-da-qatar-bitcoin-group-01",
+    "meetupName": "Qatar Bitcoin Group",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinqatar/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinqatar/events/rss/",
+    "countryName": "Qatar",
+    "countryCode": "QA",
+    "regionName": "Doha Municipality",
+    "regionCode": "DA",
+    "cityName": "Doha",
+    "cityNearby": [
+      "Doha",
+      "Al Wakrah",
+      "Al Rayyan",
+      "Umm Salal Mohammed",
+      "Al Khor"
+    ],
+    "lat": "25.2854",
+    "lon": "51.5310"
+  },
+  {
+    "meetupID": "ro-b-bitcoin-bucharest-01",
+    "meetupName": "Bitcoin Bucharest",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-bucharest/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-bucharest/events/rss/",
+    "countryName": "Romania",
+    "countryCode": "RO",
+    "regionName": "Bucharest",
+    "regionCode": "B",
+    "cityName": "Bucharest",
+    "cityNearby": [
+      "Bucharest",
+      "Voluntari",
+      "Pantelimon",
+      "Otopeni",
+      "Chitila"
+    ],
+    "lat": "44.4268",
+    "lon": "26.1025"
+  },
+  {
+    "meetupID": "se-o-bitcoin-association-sweden-01",
+    "meetupName": "Bitcoin Association Sweden",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-association-sweden/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-association-sweden/events/rss/",
+    "countryName": "Sweden",
+    "countryCode": "SE",
+    "regionName": "Västra Götaland County",
+    "regionCode": "O",
+    "cityName": "Göteborg",
+    "cityNearby": [
+      "Gothenburg",
+      "Mölndal",
+      "Partille",
+      "Kungälv",
+      "Kungsbacka"
+    ],
+    "lat": "57.7089",
+    "lon": "11.9746"
+  },
+  {
+    "meetupID": "se-e-linkoping-bitcoin-meetup-01",
+    "meetupName": "Linköping Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/linkoping-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/linkoping-bitcoin-meetup/events/rss/",
+    "countryName": "Sweden",
+    "countryCode": "SE",
+    "regionName": "Östergötland County",
+    "regionCode": "E",
+    "cityName": "Linköping",
+    "cityNearby": [
+      "Linköping",
+      "Norrköping",
+      "Motala",
+      "Mjölby",
+      "Finspång"
+    ],
+    "lat": "58.4108",
+    "lon": "15.6214"
+  },
+  {
+    "meetupID": "sv-ss-bitcoin-and-lightning-el-salvador-01",
+    "meetupName": "Bitcoin And Lightning El Salvador",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-and-lightning-el-salvador/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-and-lightning-el-salvador/events/rss/",
+    "countryName": "El Salvador",
+    "countryCode": "SV",
+    "regionName": "San Salvador Department",
+    "regionCode": "SS",
+    "cityName": "San Salvador",
+    "cityNearby": [
+      "San Salvador",
+      "Soyapango",
+      "Mejicanos",
+      "Santa Tecla",
+      "Apopa"
+    ],
+    "lat": "13.6929",
+    "lon": "-89.2182"
+  },
+  {
+    "meetupID": "sv-ss-mi-primer-bitcoin-01",
+    "meetupName": "Mi Primer Bitcoin",
+    "meetupUrlGroup": "https://www.meetup.com/mi-primer-bitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/mi-primer-bitcoin/events/rss/",
+    "countryName": "El Salvador",
+    "countryCode": "SV",
+    "regionName": "San Salvador Department",
+    "regionCode": "SS",
+    "cityName": "San Salvador",
+    "cityNearby": [
+      "San Salvador",
+      "Soyapango",
+      "Mejicanos",
+      "Santa Tecla",
+      "Apopa"
+    ],
+    "lat": "13.6929",
+    "lon": "-89.2182"
+  },
+  {
+    "meetupID": "th-83-phuket-bitcoin-meetup-01",
+    "meetupName": "Phuket Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/phuket-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/phuket-bitcoin-meetup/events/rss/",
+    "countryName": "Thailand",
+    "countryCode": "TH",
+    "regionName": "Phuket",
+    "regionCode": "83",
+    "cityName": "Phuket",
+    "cityNearby": [
+      "Phuket City",
+      "Kathu",
+      "Patong",
+      "Rawai",
+      "Chalong"
+    ],
+    "lat": "7.8804",
+    "lon": "98.3923"
+  },
+  {
+    "meetupID": "us-al-mobile-bitcoin-meetup-01",
+    "meetupName": "Mobile Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/mobile-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/mobile-bitcoin-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Alabama",
+    "regionCode": "AL",
+    "cityName": "Mobile",
+    "cityNearby": [
+      "Mobile",
+      "Daphne",
+      "Fairhope",
+      "Spanish Fort",
+      "Saraland"
+    ],
+    "lat": "30.6954",
+    "lon": "-88.0399"
+  },
+  {
+    "meetupID": "us-ca-bay-area-bitcoiners-01",
+    "meetupName": "Bay Area Bitcoiners",
+    "meetupUrlGroup": "https://www.meetup.com/bay-area-bitcoiners/",
+    "meetupUrlRss": "https://www.meetup.com/bay-area-bitcoiners/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "San Francisco",
+    "cityNearby": [
+      "San Jose",
+      "San Francisco",
+      "Oakland",
+      "Fremont",
+      "Hayward"
+    ],
+    "lat": "37.7749",
+    "lon": "-122.4194"
+  },
+  {
+    "meetupID": "us-ca-bitcoin-in-manufacturing-01",
+    "meetupName": "Bitcoin in Manufacturing",
+    "meetupUrlGroup": "https://www.meetup.com/san-francisco-manufacturing-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/san-francisco-manufacturing-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "San Francisco",
+    "cityNearby": [
+      "San Jose",
+      "San Francisco",
+      "Oakland",
+      "Fremont",
+      "Hayward"
+    ],
+    "lat": "37.7749",
+    "lon": "-122.4194"
+  },
+  {
+    "meetupID": "us-ca-bitcoin-in-the-enterprise-01",
+    "meetupName": "Bitcoin in the Enterprise",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-in-the-enterprise/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-in-the-enterprise/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "San Francisco",
+    "cityNearby": [
+      "San Jose",
+      "San Francisco",
+      "Oakland",
+      "Fremont",
+      "Hayward"
+    ],
+    "lat": "37.7749",
+    "lon": "-122.4194"
+  },
+  {
+    "meetupID": "us-ca-berkeley-bitcoin-meetup-01",
+    "meetupName": "Berkeley Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/berkeley-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/berkeley-bitcoin-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "Berkeley",
+    "cityNearby": [
+      "San Jose",
+      "San Francisco",
+      "Oakland",
+      "Fremont",
+      "Hayward"
+    ],
+    "lat": "37.8733",
+    "lon": "-122.2733"
+  },
+  {
+    "meetupID": "us-ca-bitcoin-bay-silicon-valley-01",
+    "meetupName": "BitCoin Bay Silicon Valley",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-bay-silicon-valley/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-bay-silicon-valley/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "Sunnyvale",
+    "cityNearby": [
+      "San Jose",
+      "Fremont",
+      "Oakland",
+      "San Francisco",
+      "Hayward"
+    ],
+    "lat": "37.3688",
+    "lon": "-122.0363"
+  },
+  {
+    "meetupID": "us-ca-bitcoin-mining-01",
+    "meetupName": "Bitcoin mining",
+    "meetupUrlGroup": "https://www.meetup.com/meetup-group-smlhghie/",
+    "meetupUrlRss": "https://www.meetup.com/meetup-group-smlhghie/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "Los Angeles",
+    "cityNearby": [
+      "Los Angeles",
+      "Long Beach",
+      "Anaheim",
+      "Santa Ana",
+      "Riverside"
+    ],
+    "lat": "34.0522",
+    "lon": "-118.2437"
+  },
+  {
+    "meetupID": "us-ca-central-coast-bitcoin-01",
+    "meetupName": "Central Coast Bitcoin",
+    "meetupUrlGroup": "https://www.meetup.com/central-coast-bitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/central-coast-bitcoin/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "Santa Maria",
+    "cityNearby": [
+      "Santa Maria",
+      "Lompoc",
+      "Santa Barbara",
+      "Goleta",
+      "San Luis Obispo"
+    ],
+    "lat": "34.9530",
+    "lon": "-120.4357"
+  },
+  {
+    "meetupID": "us-ca-los-gatos-bitcoin-reading-group-01",
+    "meetupName": "Los Gatos Bitcoin Reading Group",
+    "meetupUrlGroup": "https://www.meetup.com/san-francisco-bitcoin-reading-group/",
+    "meetupUrlRss": "https://www.meetup.com/san-francisco-bitcoin-reading-group/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "regionCode": "CA",
+    "cityName": "Los Gatos",
+    "cityNearby": [
+      "San Jose",
+      "Sunnyvale",
+      "Santa Clara",
+      "Mountain View",
+      "Cupertino"
+    ],
+    "lat": "37.2358",
+    "lon": "-121.9624"
+  },
+  {
+    "meetupID": "us-co-bitcoin-cash-denver-01",
+    "meetupName": "Bitcoin Cash - Denver",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-cash-denver/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-cash-denver/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Colorado",
+    "regionCode": "CO",
+    "cityName": "Denver",
+    "cityNearby": [
+      "Denver",
+      "Aurora",
+      "Lakewood",
+      "Thornton",
+      "Arvada"
+    ],
+    "lat": "39.7392",
+    "lon": "-104.9903"
+  },
+  {
+    "meetupID": "us-co-bitcoin-meetup-01",
+    "meetupName": "Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/cosbitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/cosbitcoin/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Colorado",
+    "regionCode": "CO",
+    "cityName": "Colorado Springs",
+    "cityNearby": [
+      "Colorado Springs",
+      "Pueblo",
+      "Castle Rock",
+      "Fountain",
+      "Monument"
+    ],
+    "lat": "38.8339",
+    "lon": "-104.8214"
+  },
+  {
+    "meetupID": "us-co-fort-collins-bitcoin-meetup-01",
+    "meetupName": "Fort Collins Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/focobitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/focobitcoin/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Colorado",
+    "regionCode": "CO",
+    "cityName": "Fort Collins",
+    "cityNearby": [
+      "Fort Collins",
+      "Loveland",
+      "Greeley",
+      "Longmont",
+      "Boulder"
+    ],
+    "lat": "40.5853",
+    "lon": "-105.0844"
+  },
+  {
+    "meetupID": "us-fl-miami-bitcoin-developers-01",
+    "meetupName": "Miami Bitcoin Developers",
+    "meetupUrlGroup": "https://www.meetup.com/miami-bitdevs/",
+    "meetupUrlRss": "https://www.meetup.com/miami-bitdevs/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Florida",
+    "regionCode": "FL",
+    "cityName": "Miami",
+    "cityNearby": [
+      "Miami",
+      "Hialeah",
+      "Fort Lauderdale",
+      "Hollywood",
+      "Pembroke Pines"
+    ],
+    "lat": "25.7617",
+    "lon": "-80.1918"
+  },
+  {
+    "meetupID": "us-fl-pensacola-bitcoin-meetup-01",
+    "meetupName": "Pensacola Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/pensacola-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/pensacola-bitcoin-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Florida",
+    "regionCode": "FL",
+    "cityName": "Pensacola",
+    "cityNearby": [
+      "Pensacola",
+      "Mobile",
+      "Navarre",
+      "Gulf Breeze",
+      "Milton"
+    ],
+    "lat": "30.4213",
+    "lon": "-87.2169"
+  },
+  {
+    "meetupID": "us-fl-south-florida-bitcoin-citadel-events-01",
+    "meetupName": "South Florida Bitcoin Citadel Events",
+    "meetupUrlGroup": "https://www.meetup.com/south-florida-bitcoin-citadel-events/",
+    "meetupUrlRss": "https://www.meetup.com/south-florida-bitcoin-citadel-events/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Florida",
+    "regionCode": "FL",
+    "cityName": "Delray Beach",
+    "cityNearby": [
+      "West Palm Beach",
+      "Boca Raton",
+      "Boynton Beach",
+      "Deerfield Beach",
+      "Pompano Beach"
+    ],
+    "lat": "26.4615",
+    "lon": "-80.0728"
+  },
+  {
+    "meetupID": "us-hi-honolulu-bitcoin-group-01",
+    "meetupName": "Honolulu Bitcoin Group",
+    "meetupUrlGroup": "https://www.meetup.com/honolulubitcoingroup/",
+    "meetupUrlRss": "https://www.meetup.com/honolulubitcoingroup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Hawaii",
+    "regionCode": "HI",
+    "cityName": "Honolulu",
+    "cityNearby": [
+      "Honolulu",
+      "Pearl City",
+      "Kailua",
+      "Waipahu",
+      "Mililani Town"
+    ],
+    "lat": "21.3069",
+    "lon": "-157.8583"
+  },
+  {
+    "meetupID": "us-hi-maui-bitcoin-meetup-01",
+    "meetupName": "Maui Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/maui-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/maui-bitcoin-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Hawaii",
+    "regionCode": "HI",
+    "cityName": "Haiku",
+    "cityNearby": [
+      "Kahului",
+      "Wailuku",
+      "Kihei",
+      "Lahaina",
+      "Paia"
+    ],
+    "lat": "20.9170",
+    "lon": "-156.3440"
+  },
+  {
+    "meetupID": "us-in-bloomington-bitcoin-meetup-01",
+    "meetupName": "Bloomington Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/bloomington-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/bloomington-bitcoin-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Indiana",
+    "regionCode": "IN",
+    "cityName": "Bloomington",
+    "cityNearby": [
+      "Bloomington",
+      "Columbus",
+      "Bedford",
+      "Martinsville",
+      "Greenwood"
+    ],
+    "lat": "39.1653",
+    "lon": "-86.5264"
+  },
+  {
+    "meetupID": "us-ky-lexington-bitcoin-01",
+    "meetupName": "Lexington Bitcoin",
+    "meetupUrlGroup": "https://www.meetup.com/lexingtonbitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/lexingtonbitcoin/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Kentucky",
+    "regionCode": "KY",
+    "cityName": "Lexington",
+    "cityNearby": [
+      "Lexington",
+      "Louisville",
+      "Frankfort",
+      "Georgetown",
+      "Richmond"
+    ],
+    "lat": "38.0406",
+    "lon": "-84.5037"
+  },
+  {
+    "meetupID": "us-ky-louisville-bitcoin-meetup-01",
+    "meetupName": "Louisville Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/louisville-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/louisville-bitcoin-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Kentucky",
+    "regionCode": "KY",
+    "cityName": "Louisville",
+    "cityNearby": [
+      "Louisville",
+      "Jeffersonville",
+      "New Albany",
+      "Clarksville",
+      "Elizabethtown"
+    ],
+    "lat": "38.2527",
+    "lon": "-85.7585"
+  },
+  {
+    "meetupID": "us-ma-bitcoin-skeptic-society-01",
+    "meetupName": "Bitcoin Skeptic Society",
+    "meetupUrlGroup": "https://www.meetup.com/cambridge-bitcoin-skeptics/",
+    "meetupUrlRss": "https://www.meetup.com/cambridge-bitcoin-skeptics/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Massachusetts",
+    "regionCode": "MA",
+    "cityName": "Cambridge",
+    "cityNearby": [
+      "Boston",
+      "Cambridge",
+      "Somerville",
+      "Quincy",
+      "Newton"
+    ],
+    "lat": "42.3736",
+    "lon": "-71.1097"
+  },
+  {
+    "meetupID": "us-ma-boston-business-networking-get-free-bitcoin-for-attending-01",
+    "meetupName": "Boston Business Networking - Get Free Bitcoin for Attending",
+    "meetupUrlGroup": "https://www.meetup.com/boston-business-networking-get-free-bitcoin-for-attending/",
+    "meetupUrlRss": "https://www.meetup.com/boston-business-networking-get-free-bitcoin-for-attending/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Massachusetts",
+    "regionCode": "MA",
+    "cityName": "Jamaica Plain",
+    "cityNearby": [
+      "Boston",
+      "Cambridge",
+      "Somerville",
+      "Quincy",
+      "Newton"
+    ],
+    "lat": "42.3097",
+    "lon": "-71.1151"
+  },
+  {
+    "meetupID": "us-ma-worcester-bitcoin-group-01",
+    "meetupName": "Worcester Bitcoin Group",
+    "meetupUrlGroup": "https://www.meetup.com/worcester-bitcoin-group/",
+    "meetupUrlRss": "https://www.meetup.com/worcester-bitcoin-group/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Massachusetts",
+    "regionCode": "MA",
+    "cityName": "Worcester",
+    "cityNearby": [
+      "Worcester",
+      "Providence",
+      "Boston",
+      "Lowell",
+      "Cambridge"
+    ],
+    "lat": "42.2626",
+    "lon": "-71.8023"
+  },
+  {
+    "meetupID": "us-mi-bitcoin-and-beer-detroit-01",
+    "meetupName": "Bitcoin And Beer Detroit",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-and-beer-detroit/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-and-beer-detroit/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Michigan",
+    "regionCode": "MI",
+    "cityName": "Detroit",
+    "cityNearby": [
+      "Detroit",
+      "Warren",
+      "Sterling Heights",
+      "Dearborn",
+      "Clinton Township"
+    ],
+    "lat": "42.3314",
+    "lon": "-83.0458"
+  },
+  {
+    "meetupID": "us-mo-kansas-city-bitcoin-meetup-group-01",
+    "meetupName": "Kansas City Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/kansas-city-bitcoin-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/kansas-city-bitcoin-meetup-group/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Missouri",
+    "regionCode": "MO",
+    "cityName": "Kansas City",
+    "cityNearby": [
+      "Kansas City",
+      "Overland Park",
+      "Kansas City (KS)",
+      "Olathe",
+      "Independence"
+    ],
+    "lat": "39.0997",
+    "lon": "-94.5786"
+  },
+  {
+    "meetupID": "us-nj-jersey-bitcoin-01",
+    "meetupName": "Jersey Bitcoin",
+    "meetupUrlGroup": "https://www.meetup.com/jersey-bitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/jersey-bitcoin/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "New Jersey",
+    "regionCode": "NJ",
+    "cityName": "Summit",
+    "cityNearby": [
+      "New York",
+      "Newark",
+      "Jersey City",
+      "Paterson",
+      "Elizabeth"
+    ],
+    "lat": "40.7168",
+    "lon": "-74.3600"
+  },
+  {
+    "meetupID": "us-ny-bitcoin-wednesday-new-york-01",
+    "meetupName": "Bitcoin Wednesday New York",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinwednesdaynewyork/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinwednesdaynewyork/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "New York",
+    "regionCode": "NY",
+    "cityName": "New York",
+    "cityNearby": [
+      "New York",
+      "Brooklyn",
+      "Queens",
+      "Newark",
+      "Jersey City"
+    ],
+    "lat": "40.7128",
+    "lon": "-74.0060"
+  },
+  {
+    "meetupID": "us-ny-new-york-bitcoin-meetup-group-01",
+    "meetupName": "New York Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/meetup-group-egoilfyx/",
+    "meetupUrlRss": "https://www.meetup.com/meetup-group-egoilfyx/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "New York",
+    "regionCode": "NY",
+    "cityName": "New York",
+    "cityNearby": [
+      "New York",
+      "Brooklyn",
+      "Queens",
+      "Newark",
+      "Jersey City"
+    ],
+    "lat": "40.7128",
+    "lon": "-74.0060"
+  },
+  {
+    "meetupID": "us-ny-nyc-bitcoiners-01",
+    "meetupName": "NYC Bitcoiners",
+    "meetupUrlGroup": "https://www.meetup.com/nyc-bitcoin/",
+    "meetupUrlRss": "https://www.meetup.com/nyc-bitcoin/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "New York",
+    "regionCode": "NY",
+    "cityName": "New York",
+    "cityNearby": [
+      "New York",
+      "Brooklyn",
+      "Queens",
+      "Newark",
+      "Jersey City"
+    ],
+    "lat": "40.7128",
+    "lon": "-74.0060"
+  },
+  {
+    "meetupID": "us-ny-bitcoin-nys-01",
+    "meetupName": "Bitcoin NYS",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-nys/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-nys/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "New York",
+    "regionCode": "NY",
+    "cityName": "Rochester",
+    "cityNearby": [
+      "Rochester",
+      "Buffalo",
+      "Syracuse",
+      "Niagara Falls",
+      "Ithaca"
+    ],
+    "lat": "43.1566",
+    "lon": "-77.6088"
+  },
+  {
+    "meetupID": "us-oh-toledo-bitcoin-meetup-group-01",
+    "meetupName": "Toledo Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/meetup-group-jltpejfy/",
+    "meetupUrlRss": "https://www.meetup.com/meetup-group-jltpejfy/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Ohio",
+    "regionCode": "OH",
+    "cityName": "Toledo",
+    "cityNearby": [
+      "Toledo",
+      "Detroit",
+      "Ann Arbor",
+      "Windsor",
+      "Dearborn"
+    ],
+    "lat": "41.6528",
+    "lon": "-83.5379"
+  },
+  {
+    "meetupID": "us-or-bend-bitcoin-meetup-01",
+    "meetupName": "Bend Bitcoin Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/bend-bitcoin-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/bend-bitcoin-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Oregon",
+    "regionCode": "OR",
+    "cityName": "Bend",
+    "cityNearby": [
+      "Bend",
+      "Redmond",
+      "Prineville",
+      "Sisters",
+      "La Pine"
+    ],
+    "lat": "44.0582",
+    "lon": "-121.3153"
+  },
+  {
+    "meetupID": "us-tx-bitcoin-basics-01",
+    "meetupName": "Bitcoin Basics",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-basics/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-basics/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Texas",
+    "regionCode": "TX",
+    "cityName": "Dallas",
+    "cityNearby": [
+      "Dallas",
+      "Fort Worth",
+      "Arlington",
+      "Plano",
+      "Irving"
+    ],
+    "lat": "32.7767",
+    "lon": "-96.7970"
+  },
+  {
+    "meetupID": "us-tx-orange-south-dallas-a-bitcoin-education-group-01",
+    "meetupName": "Orange South Dallas - A Bitcoin Education Group",
+    "meetupUrlGroup": "https://www.meetup.com/orange-south-dallas-a-bitcoin-education-group/",
+    "meetupUrlRss": "https://www.meetup.com/orange-south-dallas-a-bitcoin-education-group/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Texas",
+    "regionCode": "TX",
+    "cityName": "Dallas",
+    "cityNearby": [
+      "Dallas",
+      "Fort Worth",
+      "Arlington",
+      "Plano",
+      "Irving"
+    ],
+    "lat": "32.7767",
+    "lon": "-96.7970"
+  },
+  {
+    "meetupID": "us-tx-tyler-bitcoin-meetup-group-01",
+    "meetupName": "Tyler Bitcoin Meetup Group",
+    "meetupUrlGroup": "https://www.meetup.com/tyler-bitcoin-meetup-group/",
+    "meetupUrlRss": "https://www.meetup.com/tyler-bitcoin-meetup-group/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Texas",
+    "regionCode": "TX",
+    "cityName": "Tyler",
+    "cityNearby": [
+      "Tyler",
+      "Longview",
+      "Jacksonville",
+      "Kilgore",
+      "Athens"
+    ],
+    "lat": "32.3513",
+    "lon": "-95.3011"
+  },
+  {
+    "meetupID": "us-tn-bitcoin-museum-nashville-01",
+    "meetupName": "Bitcoin Museum Nashville",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoin-museum-nashville/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoin-museum-nashville/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Tennessee",
+    "regionCode": "TN",
+    "cityName": "Nashville",
+    "cityNearby": [
+      "Nashville",
+      "Murfreesboro",
+      "Franklin",
+      "Hendersonville",
+      "Smyrna"
+    ],
+    "lat": "36.1627",
+    "lon": "-86.7816"
+  },
+  {
+    "meetupID": "us-wi-madison-bitcoin-sv-meetup-01",
+    "meetupName": "Madison Bitcoin SV Meetup",
+    "meetupUrlGroup": "https://www.meetup.com/madison-bitcoin-sv-meetup/",
+    "meetupUrlRss": "https://www.meetup.com/madison-bitcoin-sv-meetup/events/rss/",
+    "countryName": "United States",
+    "countryCode": "US",
+    "regionName": "Wisconsin",
+    "regionCode": "WI",
+    "cityName": "Madison",
+    "cityNearby": [
+      "Madison",
+      "Janesville",
+      "Rockford",
+      "Milwaukee",
+      "Waukesha"
+    ],
+    "lat": "43.0731",
+    "lon": "-89.4012"
+  },
+  {
+    "meetupID": "vn-sg-bitcoin-vietnam-01",
+    "meetupName": "Bitcoin Vietnam",
+    "meetupUrlGroup": "https://www.meetup.com/bitcoinvietnam/",
+    "meetupUrlRss": "https://www.meetup.com/bitcoinvietnam/events/rss/",
+    "countryName": "Vietnam",
+    "countryCode": "VN",
+    "regionName": "Ho Chi Minh City (Municipality)",
+    "regionCode": "SG",
+    "cityName": "Ho Chi Minh City",
+    "cityNearby": [
+      "Ho Chi Minh City",
+      "Thu Duc",
+      "Bien Hoa",
+      "Di An",
+      "Thuan An"
+    ],
+    "lat": "10.8231",
+    "lon": "106.6297"
+  }
+]
+
