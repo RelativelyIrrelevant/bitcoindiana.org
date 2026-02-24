@@ -1,0 +1,350 @@
+{
+  "schemaVersion": "1.0.0",
+  "scope": {
+    "country": { "name": "United States", "alpha2": "US", "alpha3": "USA" },
+    "region": { "name": "Indiana", "abbr": "IN", "code": "US-IN" }
+  },
+  "defaults": {
+    "distanceUnit": "mi",
+    "nearbyCities": { "count": 5, "radius": 25 },
+    "pinColors": {
+      "meetup": "#f7931a",
+      "venue": "#ffcc00"
+    },
+    "recurrenceTerminology": {
+      "biweekly": "every_2_weeks",
+      "semiweekly": "twice_per_week",
+      "bimonthly": "every_2_months",
+      "semimonthly": "twice_per_month"
+    }
+  },
+  "meetups": [
+    {
+      "slug": "us-in-example-example-bitcoin-meetup",
+      "status": "inactive",
+
+      "name": "Example Meetup in Example, Indiana",
+      "description": "Example listing used as a template for real data. All records are inactive so they should not appear on a map.",
+      "tags": ["social", "technical", "education"],
+      "languages": ["en"],
+
+      "location": {
+        "country": { "name": "United States", "alpha2": "US", "alpha3": "USA" },
+        "region": { "name": "Indiana", "abbr": "IN", "code": "US-IN" },
+        "city": "Example",
+        "postalCode": "46000"
+      },
+
+      "map": {
+        "enabled": true,
+        "pin": { "kind": "meetup", "color": "#f7931a", "label": "BTC" },
+        "geo": { "lat": 39.7684, "lon": -86.1581 },
+        "geoPrecision": "city_level",
+        "nearbyCities": [
+          { "city": "Sampletown", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 12.4 },
+          { "city": "Demoville", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 18.9 },
+          { "city": "Placeholder City", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 23.7 }
+        ]
+      },
+
+      "links": [
+        { "type": "website", "url": "https://example.org/example-meetup" },
+        { "type": "x", "url": "https://x.com/examplemeetup", "handle": "@examplemeetup" },
+        { "type": "nostr", "url": "nostr:npub1example...", "handle": "npub1example..." },
+        { "type": "linktree", "url": "https://linktr.ee/examplemeetup" }
+      ],
+
+      "contacts": [
+        { "type": "email", "value": "organizers@example.org", "public": true }
+      ],
+
+      "venues": [
+        {
+          "slug": "us-in-example-union-jack-pub",
+          "status": "inactive",
+
+          "name": "Union Jack Pub",
+          "space": "public",
+          "category": "bar",
+
+          "address": {
+            "line1": "10 Example St",
+            "line2": null,
+            "city": "Example",
+            "region": { "name": "Indiana", "abbr": "IN", "code": "US-IN" },
+            "postalCode": "46000",
+            "country": { "name": "United States", "alpha2": "US", "alpha3": "USA" }
+          },
+
+          "geo": { "lat": 39.7701, "lon": -86.1599 },
+
+          "nearbyCities": [
+            { "city": "Example", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 0.0 },
+            { "city": "Sampletown", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 12.4 },
+            { "city": "Demoville", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 18.9 }
+          ],
+
+          "links": [
+            { "type": "openstreetmap", "url": "https://www.openstreetmap.org/" },
+            { "type": "google_maps", "url": "https://maps.google.com/?q=Union+Jack+Pub+Example+IN" },
+            { "type": "venue_website", "url": "https://example.org/union-jack-pub" }
+          ],
+
+          "map": {
+            "enabled": true,
+            "pin": { "kind": "venue", "color": "#ffcc00", "label": "LN" }
+          },
+
+          "access": {
+            "wheelchair": "unknown",
+            "ageRestriction": "21+",
+            "costNotes": "No cover."
+          },
+
+          "privacy": {
+            "showExactAddressOnMap": true,
+            "geoPrecision": "exact"
+          },
+
+          "audit": {
+            "lastModified": "2026-02-24T00:00:00Z",
+            "lastVerified": null
+          }
+        },
+
+        {
+          "slug": "us-in-example-satoshi-room-library",
+          "status": "inactive",
+
+          "name": "Satoshi Room (Example Public Library)",
+          "space": "public",
+          "category": "library",
+
+          "address": {
+            "line1": "200 Knowledge Ave",
+            "line2": "Room 2B",
+            "city": "Example",
+            "region": { "name": "Indiana", "abbr": "IN", "code": "US-IN" },
+            "postalCode": "46000",
+            "country": { "name": "United States", "alpha2": "US", "alpha3": "USA" }
+          },
+
+          "geo": { "lat": 39.7672, "lon": -86.1563 },
+
+          "nearbyCities": [
+            { "city": "Example", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 0.0 },
+            { "city": "Sampletown", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 11.8 },
+            { "city": "Demoville", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 20.1 }
+          ],
+
+          "links": [
+            { "type": "openstreetmap", "url": "https://www.openstreetmap.org/" },
+            { "type": "apple_maps", "url": "https://maps.apple.com/?q=Example+Public+Library" },
+            { "type": "venue_website", "url": "https://example.org/example-library" }
+          ],
+
+          "map": {
+            "enabled": true,
+            "pin": { "kind": "venue", "color": "#ffcc00", "label": "LN" }
+          },
+
+          "access": {
+            "wheelchair": "unknown",
+            "ageRestriction": "all-ages",
+            "costNotes": "Free."
+          },
+
+          "privacy": {
+            "showExactAddressOnMap": true,
+            "geoPrecision": "exact"
+          },
+
+          "audit": {
+            "lastModified": "2026-02-24T00:00:00Z",
+            "lastVerified": null
+          }
+        },
+
+        {
+          "slug": "us-in-example-private-home-rsvp",
+          "status": "inactive",
+
+          "name": "Private Home (RSVP for address)",
+          "space": "private",
+          "category": "home",
+
+          "address": {
+            "line1": null,
+            "line2": null,
+            "city": "Example",
+            "region": { "name": "Indiana", "abbr": "IN", "code": "US-IN" },
+            "postalCode": null,
+            "country": { "name": "United States", "alpha2": "US", "alpha3": "USA" }
+          },
+
+          "geo": { "lat": 39.7684, "lon": -86.1581 },
+
+          "nearbyCities": [
+            { "city": "Example", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 0.0 },
+            { "city": "Sampletown", "regionAbbr": "IN", "countryAlpha2": "US", "distanceMi": 12.4 }
+          ],
+
+          "links": [
+            { "type": "openstreetmap", "url": "https://www.openstreetmap.org/" }
+          ],
+
+          "map": {
+            "enabled": true,
+            "pin": { "kind": "venue", "color": "#ffcc00", "label": "LN" }
+          },
+
+          "access": {
+            "wheelchair": "unknown",
+            "ageRestriction": "all-ages",
+            "costNotes": "Free; bring your own snacks."
+          },
+
+          "privacy": {
+            "showExactAddressOnMap": false,
+            "geoPrecision": "city_level",
+            "addressDisclosure": "rsvp_required"
+          },
+
+          "audit": {
+            "lastModified": "2026-02-24T00:00:00Z",
+            "lastVerified": null
+          }
+        }
+      ],
+
+      "series": [
+        {
+          "slug": "us-in-example-example-bitcoin-meetup-monthly-social",
+          "status": "inactive",
+
+          "name": "Monthly Social Night",
+          "type": "social",
+          "description": "Casual conversation and introductions.",
+          "timeZone": "America/Indiana/Indianapolis",
+
+          "venueSlug": "us-in-example-union-jack-pub",
+
+          "time": { "start": "19:00", "end": "21:00" },
+
+          "recurrence": {
+            "type": "monthly_nth_weekday",
+            "interval": 1,
+            "weekday": "tuesday",
+            "nth": 1
+          },
+
+          "effective": { "startDate": "2025-01-01", "endDate": null },
+
+          "links": [
+            { "type": "meetup_event_feed", "url": "https://example.org/events/social/rss" },
+            { "type": "ical", "url": "https://example.org/events/social.ics" }
+          ],
+
+          "exceptions": [
+            { "date": "2025-12-02", "action": "skip", "reason": "Holiday week" }
+          ],
+
+          "visibility": { "discoverableOnMap": true, "rsvpRequired": false },
+
+          "audit": {
+            "lastModified": "2026-02-24T00:00:00Z",
+            "lastVerified": null
+          }
+        },
+
+        {
+          "slug": "us-in-example-example-bitcoin-meetup-biweekly-education",
+          "status": "inactive",
+
+          "name": "Biweekly Education Night",
+          "type": "education",
+          "description": "Beginner-friendly Bitcoin fundamentals Q&A.",
+          "timeZone": "America/Indiana/Indianapolis",
+
+          "venueSlug": "us-in-example-satoshi-room-library",
+
+          "time": { "start": "18:30", "end": "20:00" },
+
+          "recurrence": {
+            "type": "weekly",
+            "interval": 2,
+            "byWeekday": ["wednesday"]
+          },
+
+          "effective": { "startDate": "2025-01-08", "endDate": null },
+
+          "links": [
+            { "type": "website", "url": "https://example.org/events/education" }
+          ],
+
+          "exceptions": [],
+
+          "visibility": { "discoverableOnMap": true, "rsvpRequired": false },
+
+          "audit": {
+            "lastModified": "2026-02-24T00:00:00Z",
+            "lastVerified": null
+          }
+        },
+
+        {
+          "slug": "us-in-example-example-bitcoin-meetup-semimonthly-technical",
+          "status": "inactive",
+
+          "name": "Semimonthly Technical Builder Session",
+          "type": "technical",
+          "description": "Hands-on workshop: Lightning, wallets, node setup, and demos.",
+          "timeZone": "America/Indiana/Indianapolis",
+
+          "venueSlug": "us-in-example-private-home-rsvp",
+
+          "time": { "start": "19:00", "end": "22:00" },
+
+          "recurrence": {
+            "type": "semimonthly",
+            "rules": [
+              { "kind": "nth_weekday", "nth": 1, "weekday": "thursday" },
+              { "kind": "nth_weekday", "nth": 3, "weekday": "thursday" }
+            ]
+          },
+
+          "effective": { "startDate": "2025-02-01", "endDate": null },
+
+          "links": [
+            { "type": "website", "url": "https://example.org/events/builders" }
+          ],
+
+          "exceptions": [
+            {
+              "date": "2026-01-15",
+              "action": "override",
+              "override": {
+                "venueSlug": "us-in-example-union-jack-pub",
+                "start": "19:30",
+                "end": "22:00",
+                "note": "Public venue for this date only"
+              }
+            }
+          ],
+
+          "visibility": { "discoverableOnMap": true, "rsvpRequired": true },
+
+          "audit": {
+            "lastModified": "2026-02-24T00:00:00Z",
+            "lastVerified": null
+          }
+        }
+      ],
+
+      "audit": {
+        "lastModified": "2026-02-24T00:00:00Z",
+        "lastVerified": null
+      }
+    }
+  ]
+}
